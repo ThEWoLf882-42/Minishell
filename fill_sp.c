@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 16:16:25 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/20 19:58:20 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/20 20:24:56 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	fill_sp(char *line)
 	pl = malloc(sizeof(char) * ft_strlen(line) + 1);
 	if (!pl)
 		return ;
+	// trim space in the end
 	while (line[++i])
 	{
 		j = -1;
