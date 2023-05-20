@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_sp.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 16:16:25 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/20 20:24:56 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/20 21:39:52 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@ void	fill_sp(char *line)
 	pl = malloc(sizeof(char) * ft_strlen(line) + 1);
 	if (!pl)
 		return ;
-	// trim space in the end
+	if (line[ft_strlen(line) - 1] == '|')
+	{
+		printf("error pipe at the end\n");
+		return ;
+	}
 	while (line[++i])
 	{
 		j = -1;

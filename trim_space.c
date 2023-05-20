@@ -1,38 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   trim_space.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/20 15:25:26 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/20 21:47:27 by agimi            ###   ########.fr       */
+/*   Created: 2023/05/20 21:22:22 by agimi             #+#    #+#             */
+/*   Updated: 2023/05/20 21:33:05 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	main(void)
+void	trim_space(char *line)
 {
-	char	*line;
+	size_t	i;
 
-	while (1)
-	{
-		line = readline("> ");
-		add_history(line);
-		trim_space(line);
-		fill_sp(line);
-		fill_lin();
-		delete_space();
-		while (g_va.sp)
-		{
-			printf("sp: %s\n", g_va.sp->pl);
-			while (g_va.sp->lin)
-			{
-				printf("	lin: %s\n", g_va.sp->lin->shx);
-				g_va.sp->lin = g_va.sp->lin->nxt;
-			}
-			g_va.sp = g_va.sp->nxt;
-		}
-	}
+	i = ft_strlen(line);
+	while (line[--i] == ' ')
+		;
+	line[i + 1] = '\0';
 }

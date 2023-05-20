@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/20 19:21:54 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/20 22:25:14 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct line
 	char		*typ;
 	int			err;
 	struct line	*nxt;
+	struct line	*prv;
 }	t_line;
 //struct pipe
 typedef struct vars
@@ -59,6 +60,7 @@ size_t	ft_strlen(char *str);
 void	fill_lin(void);
 void	fill_sp(char *line);
 void	init(void);
+void	trim_space(char *line);
 
 
 #endif

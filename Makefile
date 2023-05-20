@@ -9,7 +9,8 @@ HEADERS_DIRECTORY = ./includes/
 HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 
 SOURCES_DIRECTORY = ./
-SOURCES_LIST =	fill_lin.c \
+SOURCES_LIST =	delete_space.c \
+				fill_lin.c \
 				fill_sp.c \
 				ft_lstadd_back.c \
 				ft_lstlast.c \
@@ -18,6 +19,7 @@ SOURCES_LIST =	fill_lin.c \
 				ft_strlen.c \
 				init.c \
 				minishell.c \
+				trim_space.c \
 
 SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
 

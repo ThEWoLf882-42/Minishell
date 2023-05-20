@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   delete_space.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/20 15:25:26 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/20 21:47:27 by agimi            ###   ########.fr       */
+/*   Created: 2023/05/20 21:50:52 by agimi             #+#    #+#             */
+/*   Updated: 2023/05/20 22:33:45 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	main(void)
+void	delete_space(void)
 {
-	char	*line;
+	t_line	*lin;
+	t_pipe	*sp;
 
-	while (1)
+	sp = g_va.sp;
+	while (sp)
 	{
-		line = readline("> ");
-		add_history(line);
-		trim_space(line);
-		fill_sp(line);
-		fill_lin();
-		delete_space();
-		while (g_va.sp)
+		lin = sp->lin;
+		while (lin)
 		{
-			printf("sp: %s\n", g_va.sp->pl);
-			while (g_va.sp->lin)
+			if (lin->shx == " " && lin->nxt)
 			{
-				printf("	lin: %s\n", g_va.sp->lin->shx);
-				g_va.sp->lin = g_va.sp->lin->nxt;
+				lin->prv->nxt = lin->nxt;
+				lin->nxt->prv = lin->prv;
+				free(lin->shx);
+				free(lin);
 			}
-			g_va.sp = g_va.sp->nxt;
+			lin = lin->nxt;
 		}
+		sp = sp->nxt;
 	}
 }

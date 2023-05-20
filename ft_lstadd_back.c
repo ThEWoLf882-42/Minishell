@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 15:58:58 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/20 19:12:27 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/20 22:26:10 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ void	ft_backline(t_line **lin, t_line *new)
 	if (!lin || !new)
 		return ;
 	if ((*lin))
+	{
+		new->prv = ft_lastline((*lin));
 		ft_lastline((*lin))->nxt = new;
+	}
 	else
 		(*lin) = new;
 }

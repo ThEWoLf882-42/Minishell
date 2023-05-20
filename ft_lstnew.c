@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 16:05:04 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/20 17:16:23 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/20 22:26:33 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ t_line	*new_lin(char *str)
 	lin->shx = ft_strdup(str);
 	lin->nxt = NULL;
 	lin->typ = NULL;
+	lin->prv = NULL;
 	return (lin);
 }
