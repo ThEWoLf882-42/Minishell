@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cd.c                                               :+:      :+:    :+:   */
+/*   fill_sp.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/20 13:09:29 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/20 16:23:14 by agimi            ###   ########.fr       */
+/*   Created: 2023/05/20 16:16:25 by agimi             #+#    #+#             */
+/*   Updated: 2023/05/20 17:49:06 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	main(int ac, char **av)
+void	fill_sp(char *line)
 {
-	char	*cd;
-	char	home;
+	char	*pl;
+	size_t	i;
+	size_t	j;
 
-	cd = getcwd(NULL, 0);
-	home = getenv("HOME");
-	if (!cd)
-		return (1);
-	if (ac == 1)
+	i = -1;
+	j = -1;
+	pl = malloc(sizeof(char) * ft_strlen(line) + 1);
+	if (!pl)
+		return ;
+	while (line[i])
 	{
-		if (!home)
-		{
-			return (1);
-		}
-		chdir(home);
+		while (line[++i] != '|')
+			pl[++j] = line[i];
+		pl[++j] = '\0';
+		ft_backpipe(g_va.sp, new_sp(pl));
+		j = -1;
 	}
-	else
-	{
-		chdir(av[1]);
-	}
-	printf("%s\n", getcwd(NULL, 0));
+	free(pl);
 }

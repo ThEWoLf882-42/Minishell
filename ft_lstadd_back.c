@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cd.c                                               :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/20 13:09:29 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/20 16:23:14 by agimi            ###   ########.fr       */
+/*   Created: 2023/05/20 15:58:58 by agimi             #+#    #+#             */
+/*   Updated: 2023/05/20 17:16:23 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	main(int ac, char **av)
+void	ft_backpipe(t_pipe *sp, t_pipe *new)
 {
-	char	*cd;
-	char	home;
-
-	cd = getcwd(NULL, 0);
-	home = getenv("HOME");
-	if (!cd)
-		return (1);
-	if (ac == 1)
-	{
-		if (!home)
-		{
-			return (1);
-		}
-		chdir(home);
-	}
+	if (!sp || !new)
+		return ;
+	if (sp)
+		ft_lastpipe(sp)->nxt = new;
 	else
-	{
-		chdir(av[1]);
-	}
-	printf("%s\n", getcwd(NULL, 0));
+		sp = new;
+}
+
+void	ft_backline(t_line *lin, t_line *new)
+{
+	if (!lin || !new)
+		return ;
+	if (lin)
+		ft_lastline(lin)->nxt = new;
+	else
+		lin = new;
 }
