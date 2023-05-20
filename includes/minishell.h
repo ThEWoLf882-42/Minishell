@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/20 22:25:14 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/20 22:47:18 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,14 @@ t_pipe	*new_sp(char *str);
 t_line	*new_lin(char *str);
 char	*ft_strdup(char *s1);
 size_t	ft_strlen(char *str);
+int		ft_strcmp(const char *s1, const char *s2);
 /*						LIBFT						*/
 
 void	fill_lin(void);
 void	fill_sp(char *line);
 void	init(void);
 void	trim_space(char *line);
+void	delete_space(void);
 
 
 #endif

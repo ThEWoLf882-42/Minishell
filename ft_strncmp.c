@@ -1,38 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   delete_space.c                                     :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/20 21:50:52 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/20 22:48:15 by agimi            ###   ########.fr       */
+/*   Created: 2023/05/20 22:41:24 by agimi             #+#    #+#             */
+/*   Updated: 2023/05/20 22:46:23 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	delete_space(void)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	t_line	*lin;
-	t_pipe	*sp;
+	size_t	a;
 
-	sp = g_va.sp;
-	while (sp)
-	{
-		lin = sp->lin;
-		while (lin)
-		{
-			if (ft_strcmp(lin->shx, " ") && lin->nxt)
-			{
-				printf("ok\n");
-				lin->prv->nxt = lin->nxt;
-				lin->nxt->prv = lin->prv;
-				free(lin->shx);
-				free(lin);
-			}
-			lin = lin->nxt;
-		}
-		sp = sp->nxt;
-	}
+	a = -1;
+	while (s1[++a] || s2[a])
+		if (s1[a] != s2[a])
+			return (1);
+	return (0);
 }

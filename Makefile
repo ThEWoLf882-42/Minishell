@@ -1,6 +1,6 @@
 CC = cc
 NAME = minishell
-FLAGS = -Wall -Wextra -Werror #-fsanitize=thread -g
+FLAGS = -Wall -Wextra -Werror -fsanitize=thread -g
 
 INCLUDES = -I$(HEADERS_DIRECTORY)
 
@@ -17,6 +17,7 @@ SOURCES_LIST =	delete_space.c \
 				ft_lstnew.c \
 				ft_strdup.c \
 				ft_strlen.c \
+				ft_strncmp.c \
 				init.c \
 				minishell.c \
 				trim_space.c \
