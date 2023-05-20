@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/20 17:19:26 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/20 19:21:54 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ typedef struct vars
 t_vars	g_va;
 
 /*						LIBFT						*/
-void	ft_backpipe(t_pipe *sp, t_pipe *new);
-void	ft_backline(t_line *lin, t_line *new);
+void	ft_backpipe(t_pipe **sp, t_pipe *new);
+void	ft_backline(t_line **lin, t_line *new);
 t_pipe	*ft_lastpipe(t_pipe *sp);
 t_line	*ft_lastline(t_line *lin);
 t_pipe	*new_sp(char *str);
@@ -56,7 +56,9 @@ char	*ft_strdup(char *s1);
 size_t	ft_strlen(char *str);
 /*						LIBFT						*/
 
+void	fill_lin(void);
 void	fill_sp(char *line);
+void	init(void);
 
 
 #endif

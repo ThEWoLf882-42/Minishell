@@ -1,7 +1,7 @@
-NAME = minishell
-
 CC = cc
-FLAGS = -lreadline -fsanitize=thread -g
+NAME = minishell
+FLAGS = -Wall -Wextra -Werror -fsanitize=address -g
+
 INCLUDES = -I$(HEADERS_DIRECTORY)
 
 HEADERS_LIST = minishell.h
@@ -9,12 +9,14 @@ HEADERS_DIRECTORY = ./includes/
 HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 
 SOURCES_DIRECTORY = ./
-SOURCES_LIST =	fill_sp.c \
+SOURCES_LIST =	fill_lin.c \
+				fill_sp.c \
 				ft_lstadd_back.c \
 				ft_lstlast.c \
 				ft_lstnew.c \
 				ft_strdup.c \
 				ft_strlen.c \
+				init.c \
 				minishell.c \
 
 SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
@@ -34,7 +36,7 @@ RESET = \033[0m
 all: $(NAME)
 
 $(NAME): $(OBJECTS_DIRECTORY) $(OBJECTS)
-	@$(CC) $(FLAGS) $(OBJECTS) $(INCLUDES) -o $(NAME)
+	@$(CC) $(FLAGS) -lreadline $(OBJECTS) $(INCLUDES) -o $(NAME)
 	@echo "\n$(NAME): $(GREEN)$(NAME) object files were created$(RESET)"
 	@echo "$(NAME): $(GREEN)$(NAME) was created$(RESET)"
 
@@ -52,7 +54,6 @@ clean:
 	@echo "$(NAME): $(RED)object files were deleted$(RESET)"
 
 fclean: clean
-	@echo "$(NAME): $(RED)$(LIBFT) was deleted$(RESET)"
 	@rm -f $(NAME)
 	@echo "$(NAME): $(RED)$(NAME) was deleted$(RESET)"
 
