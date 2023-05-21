@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 19:20:23 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/21 12:03:56 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/21 12:43:27 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 static	void	skip_space(t_pipe *mv, char *line, int *i, int *j)
 {
-	if (*j != -1 && (!mv->pl[*i] || ft_isspace(mv->pl[*i])))
+	if (*j != -1 /*&& (!mv->pl[*i] || ft_isspace(mv->pl[*i]))*/)
 	{
+		(*i)--;
 		line[++(*j)] = '\0';
 		ft_backline(&mv->lin, new_lin(line));
 	}
@@ -23,12 +24,6 @@ static	void	skip_space(t_pipe *mv, char *line, int *i, int *j)
 	{
 		while (mv->pl[*i] && ft_isredir(mv->pl[*i]))
 			line[++(*j)] = mv->pl[(*i)++];
-		(*i)--;
-		line[++(*j)] = '\0';
-		ft_backline(&mv->lin, new_lin(line));
-	}
-	else if (*j != -1)
-	{
 		(*i)--;
 		line[++(*j)] = '\0';
 		ft_backline(&mv->lin, new_lin(line));
