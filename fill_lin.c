@@ -6,15 +6,37 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 19:20:23 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/21 13:08:04 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/21 14:22:21 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
+void	quotsep(t_pipe *mv, char *line, int *i, int *j)
+{
+	if (mv->pl[*i] == '"')
+	{
+		line[++(*j)] = mv->pl[(*i)++];
+		while (mv->pl[*i] && mv->pl[*i] != '"')
+			line[++(*j)] = mv->pl[(*i)++];
+		line[++(*j)] = mv->pl[(*i)++];
+	}
+	else if (mv->pl[*i] == '\'')
+	{
+		line[++(*j)] = mv->pl[(*i)++];
+		while (mv->pl[*i] && mv->pl[*i] != '\'')
+			line[++(*j)] = mv->pl[(*i)++];
+		line[++(*j)] = mv->pl[(*i)++];
+	}
+	line[++(*j)] = '\0';
+	ft_backline(&mv->lin, new_lin(line));
+}
+
 static	void	skip_space(t_pipe *mv, char *line, int *i, int *j)
 {
-	if (*j != -1)
+	if (ft_isquot(mv->pl[*i]))
+		quotsep(mv, line, i, j);
+	else if (*j != -1)
 	{
 		(*i)--;
 		line[++(*j)] = '\0';
@@ -47,7 +69,8 @@ void	fill_lin(void)
 		while (mv->pl[++i])
 		{
 			j = -1;
-			while (mv->pl[i] && !ft_isspace(mv->pl[i]) && !ft_isred(mv->pl[i]))
+			while (mv->pl[i] && !ft_isspace(mv->pl[i]) && !ft_isred(mv->pl[i])
+				&& !ft_isquot(mv->pl[i]))
 				line[++j] = mv->pl[i++];
 			skip_space(mv, line, &i, &j);
 		}

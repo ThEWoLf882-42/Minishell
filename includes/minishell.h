@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/21 13:06:20 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/21 13:57:08 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ size_t	ft_strlen(char *str);
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_isspace(char c);
 int		ft_isred(char c);
+int		ft_isquot(char c);
 /***********************LIBFT***********************/
 
 void	fill_lin(void);

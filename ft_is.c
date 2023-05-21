@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 11:18:11 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/21 13:06:27 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/21 13:56:37 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@ int	ft_isspace(char c)
 int	ft_isred(char c)
 {
 	if (c == '<' || c == '>')
+		return (1);
+	return (0);
+}
+
+int	ft_isquot(char c)
+{
+	if (c == '\'' || c == '"')
 		return (1);
 	return (0);
 }
