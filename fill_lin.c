@@ -3,39 +3,60 @@
 /*                                                        :::      ::::::::   */
 /*   fill_lin.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 19:20:23 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/20 21:41:04 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/21 12:03:56 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
+static	void	skip_space(t_pipe *mv, char *line, int *i, int *j)
+{
+	if (*j != -1 && (!mv->pl[*i] || ft_isspace(mv->pl[*i])))
+	{
+		line[++(*j)] = '\0';
+		ft_backline(&mv->lin, new_lin(line));
+	}
+	else if (*j == -1 && (!mv->pl[*i] || ft_isredir(mv->pl[*i])))
+	{
+		while (mv->pl[*i] && ft_isredir(mv->pl[*i]))
+			line[++(*j)] = mv->pl[(*i)++];
+		(*i)--;
+		line[++(*j)] = '\0';
+		ft_backline(&mv->lin, new_lin(line));
+	}
+	else if (*j != -1)
+	{
+		(*i)--;
+		line[++(*j)] = '\0';
+		ft_backline(&mv->lin, new_lin(line));
+	}
+}
+
 void	fill_lin(void)
 {
+	t_pipe	*mv;
 	char	*line;
-	t_pipe	*sp;
-	size_t	i;
-	size_t	j;
+	int		i;
+	int		j;
 
-	sp = g_va.sp;
-	while (g_va.sp)
+	mv = g_va.sp;
+	while (mv)
 	{
 		i = -1;
-		line = malloc(sizeof(char) * (ft_strlen(g_va.sp->pl) + 1));
+		line = malloc(sizeof(char) * (ft_strlen(mv->pl) + 1));
 		if (!line)
 			return ;
-		while (g_va.sp->pl[++i])
+		while (mv->pl[++i])
 		{
 			j = -1;
-			while (g_va.sp->pl[i] && g_va.sp->pl[i] != ' ')
-				line[++j] = g_va.sp->pl[i++];
-			line[++j] = '\0';
-			ft_backline(&g_va.sp->lin, new_lin(line));
+			while (mv->pl[i] && !ft_isspace(mv->pl[i]) && !ft_isredir(mv->pl[i]))
+				line[++j] = mv->pl[i++];
+			skip_space(mv, line, &i, &j);
 		}
 		free(line);
-		g_va.sp = g_va.sp->nxt;
+		mv = mv->nxt;
 	}
-	g_va.sp = sp;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   trim_space.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 21:22:22 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/20 21:33:05 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/21 11:12:41 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ void	trim_space(char *line)
 
 	i = ft_strlen(line);
 	while (line[--i] == ' ')
-		;
+		line[i] = '\0';
 	line[i + 1] = '\0';
 }
