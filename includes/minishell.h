@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/21 19:00:31 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/21 22:46:41 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int		ft_isspace(char c);
 int		ft_isred(char c);
 int		ft_isquot(char c);
 int		ft_isspec(char c);
+char	*ft_strchr(const char *s, int c);
 /***********************LIBFT***********************/
 
 void	fill_lin(void);
@@ -67,6 +68,7 @@ void	fill_sp(char *line);
 void	init(void);
 void	trim_space(char *line);
 void	delete_space(void);
+void	clean_lin(void);
 
 
 #endif

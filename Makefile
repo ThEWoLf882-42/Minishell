@@ -9,13 +9,15 @@ HEADERS_DIRECTORY = ./includes/
 HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 
 SOURCES_DIRECTORY = ./
-SOURCES_LIST =	delete_space.c \
+SOURCES_LIST =	clean_lin.c \
+				delete_space.c \
 				fill_lin.c \
 				fill_sp.c \
 				ft_is.c \
 				ft_lstadd_back.c \
 				ft_lstlast.c \
 				ft_lstnew.c \
+				ft_strchr.c \
 				ft_strdup.c \
 				ft_strlen.c \
 				ft_strncmp.c \

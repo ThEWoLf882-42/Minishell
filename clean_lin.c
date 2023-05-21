@@ -1,38 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   clean_lin.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/20 15:25:26 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/21 22:50:35 by agimi            ###   ########.fr       */
+/*   Created: 2023/05/21 21:35:08 by agimi             #+#    #+#             */
+/*   Updated: 2023/05/21 22:49:06 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	main(void)
+void	clean_lin(void)
 {
+	t_pipe	*pv;
+	t_line	*lv;
+	int		i;
+	int		j;
 	char	*line;
 
-	while (1)
+	pv = g_va.sp;
+	while (pv)
 	{
-		line = readline("minishell-69$ ");
-		add_history(line);
-		trim_space(line);
-		fill_sp(line);
-		fill_lin();
-		clean_lin();
-		while (g_va.sp)
+		lv = pv->lin;
+		while (lv)
 		{
-			printf("sp: [%s]\n", g_va.sp->pl);
-			while (g_va.sp->lin)
+			i = -1;
+			if (ft_strchr(lv->shx, '\''))
 			{
-				printf("	lin: (%s)\n", g_va.sp->lin->shx);
-				g_va.sp->lin = g_va.sp->lin->nxt;
+				line = malloc(sizeof(char) * (ft_strlen(lv->shx) + 1));
+				j = -1;
+				while (lv->shx[++i])
+				{
+					if (lv->shx[i] != '\'')
+						line[++j] = lv->shx[i];
+				}
+				free(lv->shx);
+				lv->shx = line;
 			}
-			g_va.sp = g_va.sp->nxt;
+			lv = lv->nxt;
 		}
+		pv = pv->nxt;
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_lin.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 19:20:23 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/21 20:24:28 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/21 21:42:33 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	quote_sep(t_pipe *mv, char *line, int *i, int *j)
 		{
 			n++;
 			line[++(*j)] = mv->pl[(*i)++];
-			if (n % 2 == 0)	
+			if (n % 2 == 0)
 				break ;
 		}
 		line[++(*j)] = mv->pl[(*i)++];

@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/20 15:25:26 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/21 22:50:35 by agimi            ###   ########.fr       */
+/*   Created: 2023/05/21 21:51:13 by agimi             #+#    #+#             */
+/*   Updated: 2023/05/21 22:46:22 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	main(void)
+char	*ft_strchr(const char *s, int c)
 {
-	char	*line;
+	int	i;
 
-	while (1)
+	i = -1;
+	while (s[++i] != c)
 	{
-		line = readline("minishell-69$ ");
-		add_history(line);
-		trim_space(line);
-		fill_sp(line);
-		fill_lin();
-		clean_lin();
-		while (g_va.sp)
-		{
-			printf("sp: [%s]\n", g_va.sp->pl);
-			while (g_va.sp->lin)
-			{
-				printf("	lin: (%s)\n", g_va.sp->lin->shx);
-				g_va.sp->lin = g_va.sp->lin->nxt;
-			}
-			g_va.sp = g_va.sp->nxt;
-		}
+		if (!s[i])
+			return (NULL);
 	}
+	return ((char *)s + i);
 }
