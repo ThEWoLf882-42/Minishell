@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 15:25:26 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/21 11:13:12 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/21 13:14:40 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,11 @@ int	main(void)
 
 	while (1)
 	{
-		line = readline("> ");
+		line = readline("minishell$ ");
 		add_history(line);
 		trim_space(line);
 		fill_sp(line);
 		fill_lin();
-		// delete_space();
 		while (g_va.sp)
 		{
 			printf("sp: [%s]\n", g_va.sp->pl);

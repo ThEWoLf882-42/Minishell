@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/21 11:21:27 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/21 13:06:20 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char	*ft_strdup(char *s1);
 size_t	ft_strlen(char *str);
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_isspace(char c);
-int		ft_isredir(char c);
+int		ft_isred(char c);
 /***********************LIBFT***********************/
 
 void	fill_lin(void);
