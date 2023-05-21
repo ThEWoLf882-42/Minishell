@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 15:25:26 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/21 13:14:40 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/21 20:02:04 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(void)
 
 	while (1)
 	{
-		line = readline("minishell$ ");
+		line = readline("minishell69$ ");
 		add_history(line);
 		trim_space(line);
 		fill_sp(line);
