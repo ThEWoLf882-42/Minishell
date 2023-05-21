@@ -3,53 +3,61 @@
 /*                                                        :::      ::::::::   */
 /*   fill_lin.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 19:20:23 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/21 14:43:27 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/21 19:17:19 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	quotsep(t_pipe *mv, char *line, int *i, int *j)
+void	finish_it(t_pipe *mv, char *line, int *i, int *j)
 {
-	if (mv->pl[*i] == '"')
-	{
-		line[++(*j)] = mv->pl[(*i)++];
-		while (mv->pl[*i] && mv->pl[*i] != '"')
-			line[++(*j)] = mv->pl[(*i)++];
-		line[++(*j)] = mv->pl[(*i)++];
-	}
-	else if (mv->pl[*i] == '\'')
-	{
-		line[++(*j)] = mv->pl[(*i)++];
-		while (mv->pl[*i] && mv->pl[*i] != '\'')
-			line[++(*j)] = mv->pl[(*i)++];
-		line[++(*j)] = mv->pl[(*i)++];
-	}
 	(*i)--;
 	line[++(*j)] = '\0';
 	ft_backline(&mv->lin, new_lin(line));
 }
 
-void	skip_space(t_pipe *mv, char *line, int *i, int *j)
+void	check(t_pipe *mv, char *line, int *i, int *j)
 {
-	if (ft_isquot(mv->pl[*i]))
-		quotsep(mv, line, i, j);
-	else if (*j != -1)
-	{
-		(*i)--;
-		line[++(*j)] = '\0';
-		ft_backline(&mv->lin, new_lin(line));
-	}
+	if (*j != -1)
+		finish_it(mv, line, i, j);
 	else if (*j == -1 && (!mv->pl[*i] || ft_isred(mv->pl[*i])))
 	{
 		while (mv->pl[*i] && ft_isred(mv->pl[*i]))
 			line[++(*j)] = mv->pl[(*i)++];
-		(*i)--;
-		line[++(*j)] = '\0';
-		ft_backline(&mv->lin, new_lin(line));
+		finish_it(mv, line, i, j);
+	}
+}
+
+void	quote_sep(t_pipe *mv, char *line, int *i, int *j)
+{
+	char	quote;
+
+	quote = mv->pl[*i];
+	while (mv->pl[*i])
+	{
+		if (mv->pl[*i] == quote && ft_isspec(mv->pl[*i + 1]))
+		{
+			line[++(*j)] = mv->pl[(*i)++];
+			break ;
+		}
+		line[++(*j)] = mv->pl[(*i)++];
+	}
+	finish_it(mv, line, i, j);
+}
+
+void	creat_line(t_pipe *mv, char *line, int *i, int *j)
+{
+	*j = -1;
+	if (ft_isquot(mv->pl[*i]))
+		quote_sep(mv, line, i, j);
+	else
+	{
+		while (mv->pl[*i] && !ft_isspace(mv->pl[*i]) && !ft_isred(mv->pl[*i]))
+			line[++(*j)] = mv->pl[(*i)++];
+		check(mv, line, i, j);
 	}
 }
 
@@ -68,13 +76,7 @@ void	fill_lin(void)
 		if (!line)
 			return ;
 		while (mv->pl[++i])
-		{
-			j = -1;
-			while (mv->pl[i] && !ft_isspace(mv->pl[i]) && !ft_isred(mv->pl[i])
-				&& !ft_isquot(mv->pl[i]))
-				line[++j] = mv->pl[i++];
-			skip_space(mv, line, &i, &j);
-		}
+			creat_line(mv, line, &i, &j);
 		free(line);
 		mv = mv->nxt;
 	}
