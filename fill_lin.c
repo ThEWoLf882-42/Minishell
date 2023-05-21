@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 19:20:23 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/21 14:22:21 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/21 14:22:49 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	quotsep(t_pipe *mv, char *line, int *i, int *j)
 	ft_backline(&mv->lin, new_lin(line));
 }
 
-static	void	skip_space(t_pipe *mv, char *line, int *i, int *j)
+void	skip_space(t_pipe *mv, char *line, int *i, int *j)
 {
 	if (ft_isquot(mv->pl[*i]))
 		quotsep(mv, line, i, j);
