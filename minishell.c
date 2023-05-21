@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 15:25:26 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/21 20:02:04 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/21 20:17:19 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(void)
 
 	while (1)
 	{
-		line = readline("minishell69$ ");
+		line = readline("minishell-69$ ");
 		add_history(line);
 		trim_space(line);
 		fill_sp(line);

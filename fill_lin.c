@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 19:20:23 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/21 19:17:19 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/21 20:24:28 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,18 @@ void	check(t_pipe *mv, char *line, int *i, int *j)
 void	quote_sep(t_pipe *mv, char *line, int *i, int *j)
 {
 	char	quote;
+	int		n;
 
 	quote = mv->pl[*i];
+	n = 0;
 	while (mv->pl[*i])
 	{
 		if (mv->pl[*i] == quote && ft_isspec(mv->pl[*i + 1]))
 		{
+			n++;
 			line[++(*j)] = mv->pl[(*i)++];
-			break ;
+			if (n % 2 == 0)	
+				break ;
 		}
 		line[++(*j)] = mv->pl[(*i)++];
 	}
