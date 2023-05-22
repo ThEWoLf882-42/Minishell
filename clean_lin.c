@@ -6,11 +6,33 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 21:35:08 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/22 12:57:18 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/22 16:26:00 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+int	q_check(t_line *lm, char *line, int *i, int *j)
+{
+	if (lm->shx[*i] == '\'')
+	{
+		while (lm->shx[++(*i)] && lm->shx[*i] != '\'')
+			line[++(*j)] = lm->shx[*i];
+		return (1);
+	}
+	if (lm->shx[*i] == '"')
+	{
+		while (lm->shx[++(*i)] && lm->shx[*i] != '"')
+		{
+			if (lm->shx[*i] == '$')
+				line[++(*j)] = '%';
+			else
+				line[++(*j)] = lm->shx[*i];
+		}
+		return (1);
+	}
+	return (0);
+}
 
 void	rdy_exp(t_line *lm, char *line, int *i, int *j)
 {
@@ -18,38 +40,14 @@ void	rdy_exp(t_line *lm, char *line, int *i, int *j)
 	*j = -1;
 	while (lm->shx[++(*i)])
 	{
-		if (lm->shx[*i] == '"')
+		if (q_check(lm, line, i, j))
 			continue ;
 		if (lm->shx[*i] == '$')
 		{
-			line[++(*j)] = 31;
+			line[++(*j)] = '%';
 			continue ;
 		}
 		line[++(*j)] = lm->shx[*i];
-	}
-	line[++(*j)] = '\0';
-	free(lm->shx);
-	lm->shx = line;
-}
-
-void	sq_clean(t_line *lm, char *line, int *i, int *j)
-{
-	line = malloc(sizeof(char) * (ft_strlen(lm->shx) + 1));
-	*j = -1;
-	while (lm->shx[++(*i)])
-	{
-		if (lm->shx[*i] == '\'')
-			while (lm->shx[++(*i)] && lm->shx[*i] != '\'')
-				line[++(*j)] = lm->shx[*i];
-		if (lm->shx[*i] != '\'')
-		{
-			if (ft_isdlr(lm->shx[*i]))
-			{
-				line[++(*j)] = 31;
-				(*i)++;
-			}
-			line[++(*j)] = lm->shx[*i];
-		}
 	}
 	line[++(*j)] = '\0';
 	free(lm->shx);
@@ -72,10 +70,7 @@ void	clean_lin(void)
 		while (lm)
 		{
 			i = -1;
-			if (ft_strchr(lm->shx, '\'') && !ft_strchr(lm->shx, '"'))
-				sq_clean(lm, line, &i, &j);
-			else
-				rdy_exp(lm, line, &i, &j);
+			rdy_exp(lm, line, &i, &j);
 			lm = lm->nxt;
 		}
 		pm = pm->nxt;
