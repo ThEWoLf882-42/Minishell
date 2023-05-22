@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/22 11:28:11 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/22 13:04:05 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,6 @@ typedef struct line
 	char		*shx;
 	char		*typ;
 	int			err;
-	int			dlr;
-	int			exp;
-	int			noexp;
 	struct line	*nxt;
 	struct line	*prv;
 }	t_line;
