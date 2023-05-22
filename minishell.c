@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 15:25:26 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/22 22:36:54 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/22 22:52:32 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(void)
 			printf("sp: [%s]\n", g_va.sp->pl);
 			while (g_va.sp->lin)
 			{
-				printf("	lin: (%s)\n", g_va.sp->lin->shx);
+				printf("	lin: (%s) -->typ: (%s)\n", g_va.sp->lin->shx, g_va.sp->lin->typ);
 				g_va.sp->lin = g_va.sp->lin->nxt;
 			}
 			g_va.sp = g_va.sp->nxt;
