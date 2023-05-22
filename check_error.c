@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:15:28 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/22 21:55:08 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/22 22:33:10 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,7 @@ int	check_pipe(void)
 	while (mv)
 	{
 		if (!mv->lin)
-		{
-			write(2, "Error empty pipe line\n", 22);
-			return (1);
-		}
+			return (write(2, "Error empty pipe line\n", 22), 1);
 		mv = mv->nxt;
 	}
 	return (0);
