@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/22 22:34:46 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/22 22:49:19 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,6 @@ void	trim_space(char *line);
 void	delete_space(void);
 void	clean_lin(void);
 int		check_error(void);
+void	lin_type(void);
 
 #endif
