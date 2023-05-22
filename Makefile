@@ -24,7 +24,6 @@ SOURCES_LIST =	check_error.c \
 				ft_strdup.c \
 				ft_strlen.c \
 				ft_strncmp.c \
-				init.c \
 				minishell.c \
 				trim_space.c \
 
