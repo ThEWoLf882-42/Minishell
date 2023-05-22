@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 22:37:08 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/22 22:57:00 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/22 22:58:27 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 static	void	set_red(t_line	*lm)
 {
-	if (ft_strcmp(lm->shx, ">>"))
+	if (!ft_strcmp(lm->shx, ">>"))
 	{
 		lm->typ = "out append";
 		if (lm->nxt)
 			lm->nxt->typ = "out file";
 	}
-	if (ft_strcmp(lm->shx, ">"))
+	if (!ft_strcmp(lm->shx, ">"))
 	{
 		lm->typ = "out";
 		if (lm->nxt)
 			lm->nxt->typ = "out file";
 	}
-	if (ft_strcmp(lm->shx, "<"))
+	if (!ft_strcmp(lm->shx, "<"))
 	{
 		lm->typ = "in";
 		if (lm->nxt)
 			lm->nxt->typ = "in file";
 	}
-	if (ft_strcmp(lm->shx, "<<"))
+	if (!ft_strcmp(lm->shx, "<<"))
 	{
 		lm->typ = "herdoc";
 		if (lm->nxt)
