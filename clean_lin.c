@@ -3,47 +3,81 @@
 /*                                                        :::      ::::::::   */
 /*   clean_lin.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 21:35:08 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/21 22:54:10 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/22 12:57:18 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	sq_clean(t_line *lv, char *line, int *i, int *j)
+void	rdy_exp(t_line *lm, char *line, int *i, int *j)
 {
-	line = malloc(sizeof(char) * (ft_strlen(lv->shx) + 1));
+	line = malloc(sizeof(char) * (ft_strlen(lm->shx) + 1));
 	*j = -1;
-	while (lv->shx[++(*i)])
+	while (lm->shx[++(*i)])
 	{
-		if (lv->shx[*i] != '\'')
-			line[++(*j)] = lv->shx[*i];
+		if (lm->shx[*i] == '"')
+			continue ;
+		if (lm->shx[*i] == '$')
+		{
+			line[++(*j)] = 31;
+			continue ;
+		}
+		line[++(*j)] = lm->shx[*i];
 	}
-	free(lv->shx);
-	lv->shx = line;
+	line[++(*j)] = '\0';
+	free(lm->shx);
+	lm->shx = line;
+}
+
+void	sq_clean(t_line *lm, char *line, int *i, int *j)
+{
+	line = malloc(sizeof(char) * (ft_strlen(lm->shx) + 1));
+	*j = -1;
+	while (lm->shx[++(*i)])
+	{
+		if (lm->shx[*i] == '\'')
+			while (lm->shx[++(*i)] && lm->shx[*i] != '\'')
+				line[++(*j)] = lm->shx[*i];
+		if (lm->shx[*i] != '\'')
+		{
+			if (ft_isdlr(lm->shx[*i]))
+			{
+				line[++(*j)] = 31;
+				(*i)++;
+			}
+			line[++(*j)] = lm->shx[*i];
+		}
+	}
+	line[++(*j)] = '\0';
+	free(lm->shx);
+	lm->shx = line;
 }
 
 void	clean_lin(void)
 {
-	t_pipe	*pv;
-	t_line	*lv;
+	t_pipe	*pm;
+	t_line	*lm;
 	int		i;
 	int		j;
 	char	*line;
 
-	pv = g_va.sp;
-	while (pv)
+	line = NULL;
+	pm = g_va.sp;
+	while (pm)
 	{
-		lv = pv->lin;
-		while (lv)
+		lm = pm->lin;
+		while (lm)
 		{
 			i = -1;
-			if (ft_strchr(lv->shx, '\''))
-				sq_clean(lv, line, i, j);
-			lv = lv->nxt;
+			if (ft_strchr(lm->shx, '\'') && !ft_strchr(lm->shx, '"'))
+				sq_clean(lm, line, &i, &j);
+			else
+				rdy_exp(lm, line, &i, &j);
+			lm = lm->nxt;
 		}
-		pv = pv->nxt;
+		pm = pm->nxt;
 	}
 }
