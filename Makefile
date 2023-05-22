@@ -21,7 +21,6 @@ SOURCES_LIST =	clean_lin.c \
 				ft_strdup.c \
 				ft_strlen.c \
 				ft_strncmp.c \
-				init.c \
 				minishell.c \
 				trim_space.c \
 
