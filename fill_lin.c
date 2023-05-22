@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 19:20:23 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/22 10:53:56 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/22 19:42:30 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@ void	finish_it(t_pipe *mv, char *line, int *i, int *j)
 	ft_backline(&mv->lin, new_lin(line));
 }
 
+/*
+if j == -1 means that there is one redirection 
+search for redirection to join them like this >>> in one
+*/
 void	check(t_pipe *mv, char *line, int *i, int *j)
 {
 	if (*j != -1)
@@ -31,6 +35,10 @@ void	check(t_pipe *mv, char *line, int *i, int *j)
 	}
 }
 
+/*
+loop until reaching a special character after the quote
+and the quote must be pair to finish it
+*/
 void	quote_sep(t_pipe *mv, char *line, int *i, int *j)
 {
 	char	quote;
@@ -53,17 +61,24 @@ void	quote_sep(t_pipe *mv, char *line, int *i, int *j)
 	finish_it(mv, line, i, j);
 }
 
+/*
+copy until reaching auote or space or redirection and stop to check
+if its quote stop to go to the quote_sep
+if its not quote check if redirection or normal str
+*/
 void	creat_line(t_pipe *mv, char *line, int *i, int *j)
 {
 	*j = -1;
+	if (!ft_isquot(mv->pl[*i]))
+	{
+		while (mv->pl[*i] && !ft_isspace(mv->pl[*i])
+			&& !ft_isred(mv->pl[*i]) && !ft_isquot(mv->pl[*i]))
+			line[++(*j)] = mv->pl[(*i)++];
+		if (!ft_isquot(mv->pl[*i]))
+			check(mv, line, i, j);
+	}
 	if (ft_isquot(mv->pl[*i]))
 		quote_sep(mv, line, i, j);
-	else
-	{
-		while (mv->pl[*i] && !ft_isspace(mv->pl[*i]) && !ft_isred(mv->pl[*i]))
-			line[++(*j)] = mv->pl[(*i)++];
-		check(mv, line, i, j);
-	}
 }
 
 void	fill_lin(void)

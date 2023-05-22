@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 15:25:26 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/22 13:04:20 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/22 19:31:09 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,22 @@
 
 int	main(void)
 {
-	char	*line;
-
 	while (1)
 	{
-		line = readline("minishell-69$ ");
-		add_history(line);
-		trim_space(line);
-		fill_sp(line);
+		g_va.line = readline("minishell-69$ ");
+		add_history(g_va.line);
+		trim_space(g_va.line);
+		if (fill_sp(g_va.line))
+		{
+			ft_free();
+			continue ;
+		}
 		fill_lin();
+		if (check_error())
+		{
+			ft_free();
+			continue ;
+		}
 		clean_lin();
 		while (g_va.sp)
 		{

@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fill_sp.c                                          :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/20 16:16:25 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/22 19:11:07 by zouaraqa         ###   ########.fr       */
+/*   Created: 2023/05/22 18:40:38 by zouaraqa          #+#    #+#             */
+/*   Updated: 2023/05/22 18:45:38 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	fill_sp(char *line)
+void	ft_lstclear(t_pipe **sp)
 {
-	char	*pl;
-	int		i;
-	int		j;
+	t_pipe	*stmp;
+	t_line	*ltmp;
 
-	i = -1;
-	if (line[ft_strlen(line) - 1] == '|')
+	if (!sp)
+		return ;
+	while (*sp)
 	{
-		write(2, "Error pipe | at end of line\n", 28);
-		return (1);
+		stmp = (*sp)->nxt;
+		while ((*sp)->lin)
+		{
+			ltmp = (*sp)->lin->nxt;
+			free((*sp)->lin->shx);
+			free((*sp)->lin);
+			(*sp)->lin = ltmp;
+		}
+		free((*sp)->pl);
+		free(*sp);
+		*sp = stmp;
 	}
-	pl = malloc(sizeof(char) * ft_strlen(line) + 1);
-	if (!pl)
-		return (1);
-	while (line[++i])
-	{
-		j = -1;
-		while (line[i] && line[i] != '|')
-			pl[++j] = line[i++];
-		pl[++j] = '\0';
-		ft_backpipe(&g_va.sp, new_sp(pl));
-	}
-	free(pl);
-	return (0);
 }

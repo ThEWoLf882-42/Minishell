@@ -6,12 +6,16 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 21:35:08 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/22 16:26:00 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/22 19:44:55 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
+/*
+check if its a single quote copy everything normally
+if its double quote copy and replace $ to be expanded
+*/
 int	q_check(t_line *lm, char *line, int *i, int *j)
 {
 	if (lm->shx[*i] == '\'')
