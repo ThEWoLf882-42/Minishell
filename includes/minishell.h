@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/22 19:49:10 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/22 19:50:01 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ char	*ft_strchr(const char *s, int c);
 
 int		fill_sp(char *line);
 void	fill_lin(void);
-void	init(void);
 void	trim_space(char *line);
 void	delete_space(void);
 void	clean_lin(void);
