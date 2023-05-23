@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 15:58:58 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/23 18:45:47 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/23 19:56:23 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,24 @@ void	ft_backenv(t_env **env, t_env *new)
 		ft_lastenv((*env))->nxt = new;
 	else
 		(*env) = new;
+}
+
+void	ft_backfin(t_fin **fin, t_fin *new)
+{
+	if (!fin || !new)
+		return ;
+	if ((*fin))
+		ft_lastfin((*fin))->nxt = new;
+	else
+		(*fin) = new;
+}
+
+void	ft_backfout(t_fout **fout, t_fout *new)
+{
+	if (!fout || !new)
+		return ;
+	if ((*fout))
+		ft_lastfout((*fout))->nxt = new;
+	else
+		(*fout) = new;
 }

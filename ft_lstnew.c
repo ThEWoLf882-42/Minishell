@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 16:05:04 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/23 18:44:09 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/23 20:21:34 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,38 @@ t_env	*new_env(char *str)
 	env->arg = ft_strdup(str);
 	env->nxt = NULL;
 	return (env);
+}
+
+t_fin	*new_fin(char *file, int her, char *del)
+{
+	t_fin	*fin;
+
+	fin = malloc(sizeof(t_fin));
+	if (!fin)
+		return (NULL);
+	fin->herdoc = her;
+	fin->del = del;
+	fin->file = file;
+	fin->fd = 0;
+	fin->flag = O_RDONLY;
+	fin->nxt = NULL;
+	return (fin);
+}
+
+t_fout	*new_fout(char *file, int app)
+{
+	t_fout	*fout;
+
+	fout = malloc(sizeof(t_fout));
+	if (!fout)
+		return (NULL);
+	fout->file = file;
+	fout->fd = 0;
+	if (app == 1)
+		fout->flag = O_WRONLY | O_CREAT | O_APPEND;
+	else
+		fout->flag = O_WRONLY | O_CREAT | O_TRUNC;
+	fout->perm = 0644;
+	fout->nxt = NULL;
+	return (fout);
 }

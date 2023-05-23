@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 15:56:19 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/23 18:46:18 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/23 19:58:28 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,22 @@ t_env	*ft_lastenv(t_env *env)
 	while (env->nxt)
 		env = env->nxt;
 	return (env);
+}
+
+t_fin	*ft_lastfin(t_fin *fin)
+{
+	if (!fin)
+		return (NULL);
+	while (fin->nxt)
+		fin = fin->nxt;
+	return (fin);
+}
+
+t_fout	*ft_lastfout(t_fout *fout)
+{
+	if (!fout)
+		return (NULL);
+	while (fout->nxt)
+		fout = fout->nxt;
+	return (fout);
 }

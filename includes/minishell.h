@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/23 19:41:01 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/23 20:25:08 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,32 @@
 # define MINISHELL_H
 
 # include <unistd.h>
+# include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <stdio.h>
 # include <readline/readline.h>
 # include <readline/history.h>
+
+typedef struct file_in
+{
+	int				fd;
+	int				herdoc;
+	char			*del;
+	int				flag;
+	char			*file;
+	struct file_in	*nxt;
+}	t_fin;
+
+typedef struct file_out
+{
+	int				fd;
+	int				flag;
+	char			*file;
+	mode_t			perm;
+	struct file_out	*nxt;
+}	t_fout;
+
 //pipe line
 //line struct
 typedef struct pipe
@@ -26,7 +47,10 @@ typedef struct pipe
 	char		*pl;
 	struct line	*lin;
 	struct pipe	*nxt;
+	t_fin		*fin;
+	t_fout		*fout;
 }	t_pipe;
+
 //Shanks
 //type
 //error
@@ -58,10 +82,16 @@ t_vars	g_va;
 /***********************LIBFT***********************/
 void	ft_backpipe(t_pipe **sp, t_pipe *new);
 void	ft_backline(t_line **lin, t_line *new);
+void	ft_backfin(t_fin **fin, t_fin *new);
+void	ft_backfout(t_fout **fout, t_fout *new);
 void	ft_lstclear(t_pipe **sp);
 t_pipe	*ft_lastpipe(t_pipe *sp);
 t_line	*ft_lastline(t_line *lin);
+t_fin	*ft_lastfin(t_fin *fin);
+t_fout	*ft_lastfout(t_fout *fout);
 t_pipe	*new_sp(char *str);
+t_fin	*new_fin(char *file, int her, char *del);
+t_fout	*new_fout(char *file, int app);
 t_line	*new_lin(char *str);
 t_env	*new_env(char *str);
 t_env	*ft_lastenv(t_env *env);
