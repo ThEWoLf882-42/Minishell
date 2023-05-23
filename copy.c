@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:31:31 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/23 15:31:53 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/23 15:42:00 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	copy_bef(char *new, int start, char *lin)
 	i = -1;
 	while (++i != start)
 		new[i] = lin[i];
-	printf("befor: %s\n", new);
 }
 
 void	copy_mid(char *new, int start, char *found)
@@ -33,7 +32,6 @@ void	copy_mid(char *new, int start, char *found)
 		return ;
 	while (found[j])
 		new[i++] = found[j++];
-	printf("mid: %s\n", new);
 }
 
 void	copy_af(char *new, int start, int nst, char *lin)
@@ -46,5 +44,4 @@ void	copy_af(char *new, int start, int nst, char *lin)
 	while (lin[j])
 		new[i++] = lin[j++];
 	new[i] = '\0';
-	printf("af: %s\n", new);
 }

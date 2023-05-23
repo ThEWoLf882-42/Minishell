@@ -6,11 +6,17 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:11:05 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/23 15:32:54 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/23 15:45:36 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+/*
+get is the variable in env substr start + 1 to skip $ and len to substr is = end - (start + 1),EX: $USER&# len = 4  start + 1 = U, end = &
+found is USER variable in env
+start + ft_strlen(found) len in the new 
+start + ft_strlen(get) + 1 len in the old shx
+*/
 
 void	exp_dlr(t_line *lm, int start, int end)
 {
@@ -20,7 +26,6 @@ void	exp_dlr(t_line *lm, int start, int end)
 	int		len;
 
 	get = ft_substr(lm->shx, start + 1, end - (start + 1));
-	printf("get: %s end: %d start: %d\n", get, end, start);
 	found = getenv(get);
 	len = (ft_strlen(lm->shx) - (ft_strlen(get) + 1)) + ft_strlen(found) + 1;
 	new = malloc(sizeof(char) * len);
@@ -32,6 +37,9 @@ void	exp_dlr(t_line *lm, int start, int end)
 	free(lm->shx);
 	lm->shx = new;
 }
+/*
+locat the 31 and incrementend untill reaching non expandable char
+*/
 
 void	expand_it(t_line *lm)
 {
@@ -42,7 +50,6 @@ void	expand_it(t_line *lm)
 	while (1)
 	{
 		start = charloc(lm->shx, 31);
-		printf("lm = [%c]\n", lm->shx[start]);
 		if (!lm->shx[start])
 			break ;
 		end = start + 1;
