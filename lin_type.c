@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lin_type.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 22:37:08 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/23 16:33:29 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/23 18:16:38 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,26 +25,21 @@ void	test_31(t_line *lm)
 	}
 }
 
-static	void	set_red(t_line *lm)
+static void	fill_type(t_line *lm, char *typ, char *ntyp)
+{
+	lm->typ = typ;
+	if (lm->nxt)
+		lm->nxt->typ = ntyp;
+}
+
+static void	set_red(t_line *lm)
 {
 	if (!ft_strcmp(lm->shx, ">>"))
-	{
-		lm->typ = "out append";
-		if (lm->nxt)
-			lm->nxt->typ = "out file";
-	}
+		fill_type(lm, "out append", "out file");
 	if (!ft_strcmp(lm->shx, ">"))
-	{
-		lm->typ = "out";
-		if (lm->nxt)
-			lm->nxt->typ = "out file";
-	}
+		fill_type(lm, "out", "out file");
 	if (!ft_strcmp(lm->shx, "<"))
-	{
-		lm->typ = "in";
-		if (lm->nxt)
-			lm->nxt->typ = "in file";
-	}
+		fill_type(lm, "in", "in file");
 	if (!ft_strcmp(lm->shx, "<<"))
 	{
 		lm->typ = "herdoc";
