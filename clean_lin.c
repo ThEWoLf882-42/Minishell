@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 21:35:08 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/23 15:32:54 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/23 16:04:35 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,15 @@ int	q_check(t_line *lm, char *line, int *i, int *j)
 {
 	if (lm->shx[*i] == '\'')
 	{
+		line[++(*j)] = '#';
 		while (lm->shx[++(*i)] && lm->shx[*i] != '\'')
 			line[++(*j)] = lm->shx[*i];
 		return (1);
+		line[++(*j)] = '#';
 	}
 	if (lm->shx[*i] == '"')
 	{
+		line[++(*j)] = '#';
 		while (lm->shx[++(*i)] && lm->shx[*i] != '"')
 		{
 			if (lm->shx[*i] == '$')
@@ -33,6 +36,7 @@ int	q_check(t_line *lm, char *line, int *i, int *j)
 			else
 				line[++(*j)] = lm->shx[*i];
 		}
+		line[++(*j)] = '#';
 		return (1);
 	}
 	return (0);
