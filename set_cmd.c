@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_cmd.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 18:20:53 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/23 19:32:08 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/23 19:45:16 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,8 @@
 static int	check_access(t_line *lm, char *path)
 {
 	if (!access(path, F_OK))
-	{
 		if (!access(path, X_OK))
-		{
-			lm->path = path;
-			return (1);
-		}
-	}
+			return (lm->path = path, 1);
 	return (0);
 }
 
