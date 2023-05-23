@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/22 22:49:19 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/23 11:31:16 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct line
 	char		*shx;
 	char		*typ;
 	int			err;
+	int			len;
 	struct line	*nxt;
 	struct line	*prv;
 }	t_line;
@@ -63,6 +64,8 @@ int		ft_isred(char c);
 int		ft_isquot(char c);
 int		ft_isspec(char c);
 int		ft_isdlr(char c);
+int		ft_isalpha(int c);
+int		ft_isdigit(int c);
 void	ft_free(void);
 char	*ft_strchr(const char *s, int c);
 /***********************LIBFT***********************/
@@ -74,5 +77,6 @@ void	delete_space(void);
 void	clean_lin(void);
 int		check_error(void);
 void	lin_type(void);
+void	expand(void);
 
 #endif

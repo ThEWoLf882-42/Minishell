@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:15:28 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/22 22:33:10 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/23 10:48:22 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,31 @@ int	check_quote(void)
 	return (0);
 }
 
+static	int	red_condition(t_line *lm, int *i, int *r)
+{
+	if (lm->nxt)
+	{
+		if (ft_isred(lm->shx[*i]) && ft_isred(lm->nxt->shx[*i]))
+			return (1);
+	}
+	else if (ft_isred(lm->shx[*i]) && !lm->nxt)
+		return (1);
+	if (ft_isred(lm->shx[0]))
+	{
+		while (lm->shx[++(*i)] && lm->shx[*i] == lm->shx[*i - 1])
+			(*r)++;
+		if (ft_isred(lm->shx[*i]) || *r > 2)
+			return (1);
+	}
+	return (0);
+}
+
 int	check_red(void)
 {
 	t_pipe	*sm;
 	t_line	*lm;
 	int		i;
-	int		q;
+	int		r;
 
 	sm = g_va.sp;
 	while (sm)
@@ -75,15 +94,10 @@ int	check_red(void)
 		lm = sm->lin;
 		while (lm)
 		{
-			q = 1;
+			r = 1;
 			i = 0;
-			if (ft_isred(lm->shx[0]))
-			{
-				while (lm->shx[++i] && lm->shx[i] == lm->shx[i - 1])
-					q++;
-				if (ft_isred(lm->shx[i]) || q > 2)
-					return (write(2, "Error wrong redirections\n", 25), 1);
-			}
+			if (red_condition(lm, &i, &r))
+				return (write(2, "Error wrong redirections\n", 25), 1);
 			lm = lm->nxt;
 		}
 		sm = sm->nxt;

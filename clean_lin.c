@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 21:35:08 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/22 19:44:55 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/23 11:14:47 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	q_check(t_line *lm, char *line, int *i, int *j)
 		while (lm->shx[++(*i)] && lm->shx[*i] != '"')
 		{
 			if (lm->shx[*i] == '$')
-				line[++(*j)] = '%';
+				line[++(*j)] = 31;
 			else
 				line[++(*j)] = lm->shx[*i];
 		}
@@ -48,7 +48,7 @@ void	rdy_exp(t_line *lm, char *line, int *i, int *j)
 			continue ;
 		if (lm->shx[*i] == '$')
 		{
-			line[++(*j)] = '%';
+			line[++(*j)] = 31;
 			continue ;
 		}
 		line[++(*j)] = lm->shx[*i];
