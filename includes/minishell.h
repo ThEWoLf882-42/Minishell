@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/23 16:56:01 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/23 18:06:59 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct line
 {
 	char		*shx;
 	char		*typ;
-	int			err;
+	char		*path;
 	struct line	*nxt;
 	struct line	*prv;
 }	t_line;

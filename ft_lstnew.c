@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 16:05:04 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/20 22:26:33 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/23 18:07:36 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ t_line	*new_lin(char *str)
 	lin = malloc(sizeof(t_line));
 	if (!lin)
 		return (NULL);
-	lin->err = 0;
 	lin->shx = ft_strdup(str);
+	lin->path = NULL;
 	lin->nxt = NULL;
 	lin->typ = NULL;
 	lin->prv = NULL;
