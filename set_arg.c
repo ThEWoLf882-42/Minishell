@@ -1,40 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   set_arg.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/20 15:56:19 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/23 18:46:18 by zouaraqa         ###   ########.fr       */
+/*   Created: 2023/05/23 19:38:18 by zouaraqa          #+#    #+#             */
+/*   Updated: 2023/05/23 19:40:50 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-t_pipe	*ft_lastpipe(t_pipe *sp)
+void	set_arg(void)
 {
-	if (!sp)
-		return (NULL);
-	while (sp->nxt)
-		sp = sp->nxt;
-	return (sp);
-}
+	t_pipe	*sm;
+	t_line	*lm;
 
-t_line	*ft_lastline(t_line *lin)
-{
-	if (!lin)
-		return (NULL);
-	while (lin->nxt)
-		lin = lin->nxt;
-	return (lin);
-}
-
-t_env	*ft_lastenv(t_env *env)
-{
-	if (!env)
-		return (NULL);
-	while (env->nxt)
-		env = env->nxt;
-	return (env);
+	sm = g_va.sp;
+	while (sm)
+	{
+		lm = sm->lin;
+		while (lm)
+		{
+			if (!lm->typ)
+				lm->typ = "arg";
+			lm = lm->nxt;
+		}
+		sm = sm->nxt;
+	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 15:58:58 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/20 22:26:10 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/23 18:45:47 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,14 @@ void	ft_backline(t_line **lin, t_line *new)
 	}
 	else
 		(*lin) = new;
+}
+
+void	ft_backenv(t_env **env, t_env *new)
+{
+	if (!env || !new)
+		return ;
+	if ((*env))
+		ft_lastenv((*env))->nxt = new;
+	else
+		(*env) = new;
 }

@@ -28,6 +28,7 @@ SOURCES_LIST =	charloc.c \
 				ft_lstclear.c \
 				ft_lstlast.c \
 				ft_lstnew.c \
+				ft_lstsize.c \
 				ft_strchr.c \
 				ft_strdup.c \
 				ft_strlen.c \
@@ -35,6 +36,9 @@ SOURCES_LIST =	charloc.c \
 				ft_substr.c \
 				lin_type.c \
 				minishell.c \
+				set_arg.c \
+				set_cmd.c \
+				set_env.c \
 				trim_space.c \
 
 SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))

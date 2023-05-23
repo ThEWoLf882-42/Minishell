@@ -6,14 +6,16 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 15:25:26 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/23 18:19:07 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/23 19:41:26 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	main(void)
+int	main(int ac, char **av, char **env)
 {
+	(void)ac;
+	(void)av;
 	while (1)
 	{
 		g_va.line = readline("minishell-69$ ");
@@ -34,13 +36,15 @@ int	main(void)
 		lin_type();
 		expand();
 		clean();
-		
+		set_env(env);
+		set_cmd();
+		set_arg();
 		while (g_va.sp)
 		{
 			printf("sp: [%s]\n", g_va.sp->pl);
 			while (g_va.sp->lin)
 			{
-				printf("	lin: (%s) -->typ: (%s)\n", g_va.sp->lin->shx, g_va.sp->lin->typ);
+				printf("	lin: (%s)   -->typ: (%s)  ===> path = (%s)\n", g_va.sp->lin->shx, g_va.sp->lin->typ, g_va.sp->lin->path);
 				g_va.sp->lin = g_va.sp->lin->nxt;
 			}
 			g_va.sp = g_va.sp->nxt;
