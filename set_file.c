@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 21:14:15 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/23 21:49:56 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/23 22:41:13 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	test(t_pipe *sm, t_line *lm)
 		else if (!ft_strcmp(lm->typ, "in"))
 			ft_backfin(&sm->fin, new_fin(lm->nxt->shx, 0, NULL));
 		else if (!ft_strcmp(lm->typ, "herdoc"))
-			ft_backfin(&sm->fin, new_fin(NULL, 1, lm->nxt->shx));
+			ft_backfin(&sm->fin, new_fin("/tmp/herdoc", 1, lm->nxt->shx));
 	}
 	else
 		if (!ft_strcmp(lm->typ, "herdoc"))

@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/23 21:33:42 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/23 22:44:20 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ typedef struct vars
 	char	*line;
 	t_pipe	*sp;
 	t_env	*env;
+	pid_t	*pids;
 }	t_vars;
 
 t_vars	g_va;
@@ -131,6 +132,9 @@ void	clean(void);
 void	set_cmd(void);
 void	set_env(char **env);
 void	set_arg(void);
+void	forking(void);
 void	set_file(void);
+void	open_fin(t_pipe *sp);
+void	open_fout(t_pipe *sp);
 
 #endif

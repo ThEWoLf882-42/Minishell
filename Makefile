@@ -21,6 +21,7 @@ SOURCES_LIST =	charloc.c \
 				expand.c \
 				fill_lin.c \
 				fill_sp.c \
+				forking.c \
 				ft_free.c \
 				ft_is_2.c \
 				ft_is.c \
@@ -36,6 +37,8 @@ SOURCES_LIST =	charloc.c \
 				ft_substr.c \
 				lin_type.c \
 				minishell.c \
+				open_fin.c \
+				open_fout.c \
 				set_arg.c \
 				set_cmd.c \
 				set_env.c \

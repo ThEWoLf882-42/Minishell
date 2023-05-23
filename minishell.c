@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 15:25:26 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/23 21:14:06 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/23 22:28:16 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,14 @@ int	main(int ac, char **av, char **env)
 		set_cmd();
 		set_arg();
 		set_file();
+		fork();
 		while (g_va.sp)
 		{
-			printf("sp: [%s]\n", g_va.sp->pl);
+			printf("sp:[%s]\n", g_va.sp->pl);
 			while (g_va.sp->lin)
 			{
-				printf("	lin: (%s)   -->typ: (%s)  ===> path = (%s)\n", g_va.sp->lin->shx, g_va.sp->lin->typ, g_va.sp->lin->path);
+				printf("	lin: (%s)-->typ: (%s)===> path = (%s)\n", \
+					g_va.sp->lin->shx, g_va.sp->lin->typ, g_va.sp->lin->path);
 				g_va.sp->lin = g_va.sp->lin->nxt;
 			}
 			g_va.sp = g_va.sp->nxt;
