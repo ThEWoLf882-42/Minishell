@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 21:14:15 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/23 21:45:58 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/23 21:49:56 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ void	set_file(void)
 {
 	t_pipe	*sm;
 	t_line	*lm;
-	t_fin	*fin;
-	t_fout	*fout;
 
 	sm = g_va.sp;
 	while (sm)
