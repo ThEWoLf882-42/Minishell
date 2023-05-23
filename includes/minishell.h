@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/23 11:31:16 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/23 15:30:48 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 void	ft_free(void);
 char	*ft_strchr(const char *s, int c);
+char	*ft_substr(char *s, int start, int len);
 /***********************LIBFT***********************/
 
 int		fill_sp(char *line);
@@ -78,5 +79,6 @@ void	clean_lin(void);
 int		check_error(void);
 void	lin_type(void);
 void	expand(void);
+int		charloc(char *str, int n);
 
 #endif

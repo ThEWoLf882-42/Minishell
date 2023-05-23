@@ -9,8 +9,10 @@ HEADERS_DIRECTORY = ./includes/
 HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 
 SOURCES_DIRECTORY = ./
-SOURCES_LIST =	check_error.c \
+SOURCES_LIST =	charloc.c \
+				check_error.c \
 				clean_lin.c \
+				copy.c \
 				delete_space.c \
 				expand.c \
 				fill_lin.c \
@@ -26,6 +28,7 @@ SOURCES_LIST =	check_error.c \
 				ft_strdup.c \
 				ft_strlen.c \
 				ft_strncmp.c \
+				ft_substr.c \
 				lin_type.c \
 				minishell.c \
 				trim_space.c \
