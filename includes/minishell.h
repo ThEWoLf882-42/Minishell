@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/23 15:52:48 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/23 16:56:01 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ typedef struct line
 	char		*shx;
 	char		*typ;
 	int			err;
-	int			len;
 	struct line	*nxt;
 	struct line	*prv;
 }	t_line;
@@ -86,5 +85,6 @@ int		charloc(char *str, int n);
 void	copy_bef(char *new, int start, char *lin);
 void	copy_mid(char *new, int start, char *found);
 void	copy_af(char *new, int start, int nst, char *lin);
+void	clean(void);
 
 #endif

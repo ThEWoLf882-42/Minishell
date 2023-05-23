@@ -1,27 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_2.c                                          :+:      :+:    :+:   */
+/*   clean.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/23 11:30:06 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/23 17:32:59 by agimi            ###   ########.fr       */
+/*   Created: 2023/05/23 16:46:26 by agimi             #+#    #+#             */
+/*   Updated: 2023/05/23 17:32:18 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	ft_isalpha(int c)
+void	clean(void)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return (1);
-	return (0);
-}
+	t_pipe	*sm;
+	t_line	*lm;
+	int		i;
+	int		j;
 
-int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	sm = g_va.sp;
+	while (sm)
+	{
+		lm = sm->lin;
+		while (lm)
+		{
+			if (ft_strchr(lm->shx, '#'))
+			{
+				i = 0;
+				j = -1;
+				while (lm->shx[i])
+				{
+					if (lm->shx[i] == '#')
+						i++;
+					else
+						lm->shx[++j] = lm->shx[i++];
+				}
+				lm->shx[++j] = '\0';
+			}
+			lm = lm->nxt;
+		}
+		sm = sm->nxt;
+	}
 }

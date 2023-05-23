@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 15:25:26 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/23 16:08:21 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/23 17:33:27 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	main(void)
 		clean_lin();
 		lin_type();
 		expand();
+		clean();
 		while (g_va.sp)
 		{
 			printf("sp: [%s]\n", g_va.sp->pl);

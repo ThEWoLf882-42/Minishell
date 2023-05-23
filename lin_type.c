@@ -6,13 +6,26 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 22:37:08 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/22 22:58:27 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/23 16:33:29 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static	void	set_red(t_line	*lm)
+void	test_31(t_line *lm)
+{
+	int	i;
+
+	i = -1;
+	if (ft_strchr(lm->shx, 31))
+	{
+		while (lm->shx[++i])
+			if (lm->shx[i] == 31)
+				lm->shx[i] = '$';
+	}
+}
+
+static	void	set_red(t_line *lm)
 {
 	if (!ft_strcmp(lm->shx, ">>"))
 	{
@@ -36,7 +49,10 @@ static	void	set_red(t_line	*lm)
 	{
 		lm->typ = "herdoc";
 		if (lm->nxt)
+		{
 			lm->nxt->typ = "delimiter";
+			test_31(lm->nxt);
+		}
 	}
 }
 

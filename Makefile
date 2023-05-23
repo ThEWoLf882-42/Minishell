@@ -15,6 +15,7 @@ SOURCES_LIST =	charloc.c \
 				check_quote.c \
 				check_red.c \
 				clean_lin.c \
+				clean.c \
 				copy.c \
 				delete_space.c \
 				expand.c \
