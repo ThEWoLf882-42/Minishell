@@ -11,6 +11,9 @@ HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 SOURCES_DIRECTORY = ./
 SOURCES_LIST =	charloc.c \
 				check_error.c \
+				check_pipe.c \
+				check_quote.c \
+				check_red.c \
 				clean_lin.c \
 				copy.c \
 				delete_space.c \

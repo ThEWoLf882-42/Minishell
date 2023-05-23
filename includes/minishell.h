@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/23 15:30:48 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/23 15:52:48 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,14 @@ void	trim_space(char *line);
 void	delete_space(void);
 void	clean_lin(void);
 int		check_error(void);
+int		check_pipe(void);
+int		check_quote(void);
+int		check_red(void);
 void	lin_type(void);
 void	expand(void);
 int		charloc(char *str, int n);
+void	copy_bef(char *new, int start, char *lin);
+void	copy_mid(char *new, int start, char *found);
+void	copy_af(char *new, int start, int nst, char *lin);
 
 #endif

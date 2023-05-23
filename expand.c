@@ -6,13 +6,14 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:11:05 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/23 15:45:36 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/23 15:46:20 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 /*
-get is the variable in env substr start + 1 to skip $ and len to substr is = end - (start + 1),EX: $USER&# len = 4  start + 1 = U, end = &
+get is the variable in env substr start + 1 to skip $ and len to 
+substr is = end - (start + 1),EX: $USER&# len = 4  start + 1 = U, end = &
 found is USER variable in env
 start + ft_strlen(found) len in the new 
 start + ft_strlen(get) + 1 len in the old shx

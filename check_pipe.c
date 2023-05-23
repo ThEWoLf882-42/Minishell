@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_error.c                                      :+:      :+:    :+:   */
+/*   check_pipe.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/22 18:15:28 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/23 15:50:20 by agimi            ###   ########.fr       */
+/*   Created: 2023/05/23 15:50:08 by agimi             #+#    #+#             */
+/*   Updated: 2023/05/23 15:50:38 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	check_error(void)
+int	check_pipe(void)
 {
-	if (check_pipe() || check_quote() || check_red())
-		return (1);
+	t_pipe	*mv;
+
+	mv = g_va.sp;
+	while (mv)
+	{
+		if (!mv->lin)
+			return (write(2, "Error empty pipe line\n", 22), 1);
+		mv = mv->nxt;
+	}
 	return (0);
 }
