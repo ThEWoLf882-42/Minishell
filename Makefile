@@ -39,6 +39,7 @@ SOURCES_LIST =	charloc.c \
 				set_arg.c \
 				set_cmd.c \
 				set_env.c \
+				set_file.c \
 				trim_space.c \
 
 SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))

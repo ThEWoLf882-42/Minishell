@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/23 20:25:08 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/23 21:33:42 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,5 +131,6 @@ void	clean(void);
 void	set_cmd(void);
 void	set_env(char **env);
 void	set_arg(void);
+void	set_file(void);
 
 #endif
