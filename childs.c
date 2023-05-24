@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   childs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:10:25 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/24 20:26:23 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/24 21:45:16 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void exit_print(char *str)
+void	exit_print(char *str)
 {
 	dup2(2, 1);
 	printf("minishell-69: %s: command not found\n", str);
@@ -26,7 +26,7 @@ int	nargs(t_line *lm)
 	i = 0;
 	while (lm)
 	{
-		if (ft_strcmp(lm->typ, "arg"))
+		if (!ft_strcmp(lm->typ, "arg"))
 			i++;
 		lm = lm->nxt;
 	}
@@ -36,9 +36,20 @@ int	nargs(t_line *lm)
 char	**join_arg(t_line *lm)
 {
 	char	**cmd;
+	int		i;
 
+	i = 0;
 	cmd = malloc(sizeof(char *) * nargs(lm));
-	
+	while (lm)
+	{
+		if (!ft_strcmp(lm->typ, "arg"))
+			cmd[++i] = lm->shx;
+		if (!ft_strcmp(lm->typ, "cmd"))
+			cmd[0] = lm->shx;
+		lm = lm->nxt;
+	}
+	cmd[++i] = NULL;
+	return (cmd);
 }
 
 void	childs(t_pipe *sp)
@@ -54,7 +65,7 @@ void	childs(t_pipe *sp)
 	if (!sp->lin->path)
 		exit_print(sp->lin->shx);
 	cmd = join_arg(lm);
-	// execve(sp->lin->path, cmd, g_va.envp);
-	// 	print_error(sp->lin->shx);
+	if (execve(sp->lin->path, cmd, g_va.envp))
+		print_error(sp->lin->shx);
 	exit (0);
 }

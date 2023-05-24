@@ -3,23 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 15:25:26 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/24 20:12:48 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/24 21:41:30 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
 void	wait_pid(void)
 {
 	int	i;
 
 	i = -1;
 	while (++i < ft_pipesize(g_va.sp))
-		if (waitpid(g_va.pids[i] , NULL, 0) == -1)
+		if (waitpid(g_va.pids[i], NULL, 0) == -1)
 			printf("wait Error\n");
 }
+
 int	main(int ac, char **av, char **env)
 {
 	(void)ac;
