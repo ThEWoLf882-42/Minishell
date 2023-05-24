@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:11:05 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/23 15:46:20 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/24 18:29:26 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	exp_dlr(t_line *lm, int start, int end)
 	copy_bef(new, start, lm->shx);
 	copy_mid(new, start, found);
 	copy_af(new, start + ft_strlen(found), start + ft_strlen(get) + 1, lm->shx);
+	free(get);
+	get = NULL;
 	free(lm->shx);
 	lm->shx = new;
 }

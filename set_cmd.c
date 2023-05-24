@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_cmd.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 18:20:53 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/23 19:45:16 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/24 17:11:22 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	check_access(t_line *lm, char *path)
 	return (0);
 }
 
-void	get_path(t_line *lm, char *arg)
+static void	get_path(t_line *lm, char *arg)
 {
 	char	*path;
 	int		i;
@@ -44,14 +44,14 @@ void	get_path(t_line *lm, char *arg)
 		if (check_access(lm, path))
 			return ;
 	}
+	free(path);
+	path = NULL;
 }
 
-void	set_path(t_line *lm)
+static void	set_path(t_line *lm)
 {
 	t_env	*em;
-	int		i;
 
-	i = -1;
 	em = g_va.env;
 	while (em)
 	{
@@ -76,7 +76,7 @@ void	set_cmd(void)
 		{
 			lm->typ = "cmd";
 			if (ft_strchr(lm->shx, '/'))
-				lm->path = lm->shx;
+				lm->path = ft_strdup(lm->shx);
 			else
 				set_path(lm);
 		}

@@ -14,10 +14,10 @@ SOURCES_LIST =	charloc.c \
 				check_pipe.c \
 				check_quote.c \
 				check_red.c \
+				childs.c \
 				clean_lin.c \
 				clean.c \
 				copy.c \
-				delete_space.c \
 				expand.c \
 				fill_lin.c \
 				fill_sp.c \
@@ -39,6 +39,7 @@ SOURCES_LIST =	charloc.c \
 				minishell.c \
 				open_fin.c \
 				open_fout.c \
+				print_error.c \
 				set_arg.c \
 				set_cmd.c \
 				set_env.c \

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   open_fout.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 22:42:49 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/23 22:53:21 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/24 15:07:03 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	open_fout(t_pipe *sp)
 	{
 		fout->fd = open(fout->file, fout->flag, fout->perm);
 		if (fout->fd == -1)
-			perror("");
+			print_error(fout->file);
+		dup2(fout->fd, 1);
 		fout = fout->nxt;
 	}
 }

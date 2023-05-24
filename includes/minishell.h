@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/23 22:44:20 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/24 18:28:59 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ typedef struct file_in
 {
 	int				fd;
 	int				herdoc;
-	char			*del;
 	int				flag;
 	char			*file;
+	char			*del;
 	struct file_in	*nxt;
 }	t_fin;
 
@@ -53,7 +53,6 @@ typedef struct pipe
 
 //Shanks
 //type
-//error
 typedef struct line
 {
 	char		*shx;
@@ -72,6 +71,7 @@ typedef struct envir
 //struct pipe
 typedef struct vars
 {
+	char	**envp;
 	char	*line;
 	t_pipe	*sp;
 	t_env	*env;
@@ -116,7 +116,6 @@ char	*ft_substr(char *s, int start, int len);
 int		fill_sp(char *line);
 void	fill_lin(void);
 void	trim_space(char *line);
-void	delete_space(void);
 void	clean_lin(void);
 int		check_error(void);
 int		check_pipe(void);
@@ -136,5 +135,7 @@ void	forking(void);
 void	set_file(void);
 void	open_fin(t_pipe *sp);
 void	open_fout(t_pipe *sp);
+void	print_error(char *str);
+void	childs(t_pipe *sp);
 
 #endif

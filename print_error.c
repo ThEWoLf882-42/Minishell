@@ -1,44 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   forking.c                                          :+:      :+:    :+:   */
+/*   print_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/23 22:39:26 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/24 16:27:04 by zouaraqa         ###   ########.fr       */
+/*   Created: 2023/05/24 15:07:22 by zouaraqa          #+#    #+#             */
+/*   Updated: 2023/05/24 16:29:23 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	forking(void)
+void	print_error(char *str)
 {
-	t_pipe	*sp;
-	// int		p1[2];
-	// int		p2[2];
-	int		i;
-
-	sp = g_va.sp;
-	g_va.pids = malloc(sizeof(pid_t) * ft_pipesize(sp));
-	if (!g_va.pids)
-		return ;
-	i = -1;
-	while (sp)
-	{
-		i++;
-		g_va.pids[i] = fork();
-		if (g_va.pids[i] == -1)
-		{
-			printf("error fork\n");
-			return ;
-		}
-		if (!g_va.pids[i])
-		{
-			childs(sp);
-			break ;
-		}
-		// close_open();
-		sp = sp->nxt;
-	}
+	write(2, "minishell-69: ", 14);
+	perror(str);
+	exit(1);
 }

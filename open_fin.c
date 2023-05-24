@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   open_fin.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 22:42:07 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/23 22:49:16 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/24 15:08:12 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@ void	open_fin(t_pipe *sp)
 	{
 		fin->fd = open(fin->file, fin->flag);
 		if (fin->fd == -1)
-			perror("");
-		if (fin->herdoc == 1)
-			herdoc();
+			print_error(fin->file);
+		dup2(fin->fd, 0);
+		// if (fin->herdoc == 1)
+		// 	herdoc();
 		fin = fin->nxt;
 	}
 }
