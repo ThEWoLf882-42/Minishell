@@ -6,22 +6,23 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/24 22:01:45 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/24 23:50:03 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
+# include <readline/readline.h>
+# include <readline/history.h>
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <signal.h>
 # include <sys/types.h>
 # include <sys/wait.h>
-# include <readline/readline.h>
-# include <readline/history.h>
 
 typedef struct file_in
 {
@@ -73,11 +74,12 @@ typedef struct envir
 //struct pipe
 typedef struct vars
 {
-	char	**envp;
-	char	*line;
-	t_pipe	*sp;
-	t_env	*env;
-	pid_t	*pids;
+	char				**envp;
+	char				*line;
+	t_pipe				*sp;
+	t_env				*env;
+	pid_t				*pids;
+	struct sigaction	sa;
 }	t_vars;
 
 t_vars	g_va;
@@ -142,5 +144,7 @@ void	childs(t_pipe *sp);
 void	free_env(t_env **env);
 void	free_fin(t_pipe *sp);
 void	free_fout(t_pipe *sp);
+void	ha_sig(int sig);
+void	sig_handel(void);
 
 #endif
