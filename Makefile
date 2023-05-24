@@ -64,7 +64,7 @@ RESET = \033[0m
 all: $(NAME)
 
 $(NAME): $(OBJECTS_DIRECTORY) $(OBJECTS)
-	@$(CC) $(FLAGS) -lreadline $(OBJECTS) $(INCLUDES) -o $(NAME)
+	@$(CC) $(FLAGS) $(OBJECTS) $(INCLUDES) -lreadline -o $(NAME)
 	@echo "\n$(NAME): $(GREEN)$(NAME) object files were created$(RESET)"
 	@echo "$(NAME): $(GREEN)$(NAME) was created$(RESET)"
 
