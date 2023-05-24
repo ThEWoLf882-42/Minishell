@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 16:16:25 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/22 22:33:52 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/24 22:05:40 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	fill_sp(char *line)
 	i = -1;
 	if (line[ft_strlen(line) - 1] == '|')
 		return (write(2, "Error pipe | at end of line\n", 28), 1);
-	pl = malloc(sizeof(char) * ft_strlen(line) + 1);
+	pl = malloc(sizeof(char) * ft_strlen(line) + 2);
 	if (!pl)
 		return (1);
 	while (line[++i])
