@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 19:20:23 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/24 18:29:54 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/24 20:01:34 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,6 @@ void	fill_lin(void)
 		while (mv->pl[++i])
 			creat_line(mv, line, &i, &j);
 		free(line);
-		line = NULL;
 		mv = mv->nxt;
 	}
 }

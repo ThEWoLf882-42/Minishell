@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/24 18:28:59 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/24 20:09:11 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <sys/types.h>
+# include <sys/wait.h>
 # include <readline/readline.h>
 # include <readline/history.h>
 
@@ -137,5 +139,6 @@ void	open_fin(t_pipe *sp);
 void	open_fout(t_pipe *sp);
 void	print_error(char *str);
 void	childs(t_pipe *sp);
+void	free_env(t_env **env);
 
 #endif

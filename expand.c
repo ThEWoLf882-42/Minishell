@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:11:05 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/24 18:29:26 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/24 20:01:03 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	exp_dlr(t_line *lm, int start, int end)
 	copy_mid(new, start, found);
 	copy_af(new, start + ft_strlen(found), start + ft_strlen(get) + 1, lm->shx);
 	free(get);
-	get = NULL;
 	free(lm->shx);
 	lm->shx = new;
 }
@@ -70,9 +69,7 @@ void	expand(void)
 {
 	t_pipe	*sm;
 	t_line	*lm;
-	int		i;
 
-	i = -1;
 	sm = g_va.sp;
 	while (sm)
 	{

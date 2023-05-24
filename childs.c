@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:10:25 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/24 18:25:54 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/24 20:00:42 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void exit_print(char *str)
 
 void	childs(t_pipe *sp)
 {
-	char **cmd;
+	// char **cmd;
 
 	open_fin(sp);
 	open_fout(sp);
@@ -33,7 +33,7 @@ void	childs(t_pipe *sp)
 	// cmd[0] = "catt";
 	// cmd[1] = NULL;
 	// cmd[0]
-	execve(sp->lin->path, cmd, g_va.envp);
-		print_error(sp->lin->shx);
+	// execve(sp->lin->path, cmd, g_va.envp);
+	// 	print_error(sp->lin->shx);
 	exit (0);
 }

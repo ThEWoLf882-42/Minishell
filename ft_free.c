@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:51:08 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/24 16:50:36 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/24 20:02:25 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_free(void)
 {
-	ft_lstclear(&g_va.sp);
 	free(g_va.line);
 	free(g_va.pids);
+	ft_lstclear(&g_va.sp);
 }

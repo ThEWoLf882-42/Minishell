@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 16:52:39 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/20 18:53:58 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/24 20:03:22 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strdup(char *s1)
 	char	*du;
 
 	i = -1;
-	du = malloc(sizeof(char) * ft_strlen(s1) + 1);
+	du = malloc(sizeof(char) * ft_strlen(s1) + 2);
 	if (!du)
 		return (NULL);
 	while (s1[++i])

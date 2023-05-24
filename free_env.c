@@ -1,41 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   free_env.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/22 18:40:38 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/24 20:02:56 by zouaraqa         ###   ########.fr       */
+/*   Created: 2023/05/24 20:06:33 by zouaraqa          #+#    #+#             */
+/*   Updated: 2023/05/24 20:07:27 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	lin_clear(t_pipe *sp)
+void	free_env(t_env **env)
 {
-	t_line	*ltmp;
+    t_env	*tenv;
 
-	while (sp->lin)
+	while (*env)
 	{
-		ltmp = sp->lin->nxt;
-		free(sp->lin->shx);
-		free(sp->lin->path);
-		free(sp->lin);
-		sp->lin = ltmp;
-	}
-}
-
-void	ft_lstclear(t_pipe **sp)
-{
-	t_pipe	*stmp;
-
-	while (*sp)
-	{
-		stmp = (*sp)->nxt;
-		lin_clear(*sp);
-		free((*sp)->pl);
-		free(*sp);
-		*sp = stmp;
+		tenv = (*env)->nxt;
+		free((*env)->arg);
+		free(*env);
+		*env = tenv;
 	}
 }

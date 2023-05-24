@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 16:05:04 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/23 20:21:34 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/24 19:35:34 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ t_pipe	*new_sp(char *str)
 	sp->pl = ft_strdup(str);
 	sp->nxt = NULL;
 	sp->lin = NULL;
+	sp->fin = NULL;
+	sp->fout = NULL;
 	return (sp);
 }
 
