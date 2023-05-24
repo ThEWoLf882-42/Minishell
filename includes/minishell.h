@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/24 20:09:11 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/24 22:01:45 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,5 +140,7 @@ void	open_fout(t_pipe *sp);
 void	print_error(char *str);
 void	childs(t_pipe *sp);
 void	free_env(t_env **env);
+void	free_fin(t_pipe *sp);
+void	free_fout(t_pipe *sp);
 
 #endif

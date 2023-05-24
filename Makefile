@@ -22,7 +22,7 @@ SOURCES_LIST =	charloc.c \
 				fill_lin.c \
 				fill_sp.c \
 				forking.c \
-				free_env.c \
+				free.c \
 				ft_free.c \
 				ft_is_2.c \
 				ft_is.c \
