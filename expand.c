@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:11:05 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/24 20:01:03 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/25 11:52:57 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	expand_it(t_line *lm)
 		if (!lm->shx[start])
 			break ;
 		end = start + 1;
-		if ((lm->shx[start + 1] == 31 || lm->shx[start + 1] == '?'))
+		if ((lm->shx[start + 1] == 31 || lm->shx[start + 1] == '?' || ft_isdigit(lm->shx[start + 1])))
 			end++;
 		else
 			while (ft_isdigit(lm->shx[end]) || ft_isalpha(lm->shx[end])

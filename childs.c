@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   childs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:10:25 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/24 21:45:16 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/25 12:06:55 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,21 +42,22 @@ char	**join_arg(t_line *lm)
 	cmd = malloc(sizeof(char *) * nargs(lm));
 	while (lm)
 	{
-		if (!ft_strcmp(lm->typ, "arg"))
-			cmd[++i] = lm->shx;
 		if (!ft_strcmp(lm->typ, "cmd"))
 			cmd[0] = lm->shx;
+		if (!ft_strcmp(lm->typ, "arg"))
+			cmd[++i] = lm->shx;
 		lm = lm->nxt;
 	}
 	cmd[++i] = NULL;
 	return (cmd);
 }
 
-void	childs(t_pipe *sp)
+void	childs(t_pipe *sp, int i)
 {
 	char	**cmd;
 	t_line	*lm;
 
+	which_pipe(i);
 	open_fin(sp);
 	open_fout(sp);
 	lm = sp->lin;

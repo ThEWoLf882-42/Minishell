@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/24 23:50:03 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/25 12:10:07 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ typedef struct vars
 {
 	char				**envp;
 	char				*line;
+	int					p1[2];
+	int					p2[2];
 	t_pipe				*sp;
 	t_env				*env;
 	pid_t				*pids;
@@ -140,11 +142,16 @@ void	set_file(void);
 void	open_fin(t_pipe *sp);
 void	open_fout(t_pipe *sp);
 void	print_error(char *str);
-void	childs(t_pipe *sp);
+void	childs(t_pipe *sp, int i);
 void	free_env(t_env **env);
 void	free_fin(t_pipe *sp);
 void	free_fout(t_pipe *sp);
 void	ha_sig(int sig);
 void	sig_handel(void);
+void	set_pipes(int i);
+void	last_pipe(int i);
+void	which_pipe(int i);
+void	open_pipes(void);
+void	close_opened(int i);
 
 #endif

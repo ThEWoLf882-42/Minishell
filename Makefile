@@ -40,6 +40,7 @@ SOURCES_LIST =	charloc.c \
 				minishell.c \
 				open_fin.c \
 				open_fout.c \
+				pipes.c \
 				print_error.c \
 				set_arg.c \
 				set_cmd.c \

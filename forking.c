@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 22:39:26 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/24 16:27:04 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/25 12:09:26 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,13 @@
 void	forking(void)
 {
 	t_pipe	*sp;
-	// int		p1[2];
-	// int		p2[2];
 	int		i;
 
 	sp = g_va.sp;
 	g_va.pids = malloc(sizeof(pid_t) * ft_pipesize(sp));
 	if (!g_va.pids)
 		return ;
+	open_pipes();
 	i = -1;
 	while (sp)
 	{
@@ -35,10 +34,10 @@ void	forking(void)
 		}
 		if (!g_va.pids[i])
 		{
-			childs(sp);
+			childs(sp, i);
 			break ;
 		}
-		// close_open();
+		close_opened(i);
 		sp = sp->nxt;
 	}
 }
