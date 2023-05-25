@@ -3,35 +3,60 @@
 /*                                                        :::      ::::::::   */
 /*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 13:09:29 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/20 16:23:14 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/25 20:07:02 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	main(int ac, char **av)
+void	change_pwd(t_env *em, char *cd)
 {
-	char	*cd;
-	char	home;
+	char	*str;
+	int		i;
+	int		j;
 
-	cd = getcwd(NULL, 0);
-	home = getenv("HOME");
-	if (!cd)
-		return (1);
-	if (ac == 1)
+	while (em)
 	{
-		if (!home)
+		i = -1;
+		j = -1;
+		if (!ft_strncmp(em->arg, "PWD=", 4))
 		{
-			return (1);
+			str = malloc(sizeof(char) * (4 + ft_strlen(cd) + 1));
+			if (!str)
+				return ;
+			while (em->arg[++i] && i < 4)
+				str[++j] = em->arg[i];
+			free(em->arg);
+			i = -1;
+			while (cd[++i])
+				str[++j] = cd[i];
+			str[++j] = '\0';
+			em->arg = str;
+			free(cd);
 		}
-		chdir(home);
+		em = em->nxt;
 	}
-	else
+}
+
+void	cd_cmd(t_line *lm, int x)
+{
+	t_env	*em;
+	char	*cd;
+
+	if (!lm->nxt)
 	{
-		chdir(av[1]);
+		cd = getenv("HOME");
+		if (chdir(cd) == -1)
+			print_error(cd, 1, x);
 	}
-	printf("%s\n", getcwd(NULL, 0));
+	else if (chdir(lm->nxt->shx) == -1)
+		print_error(lm->nxt->shx, 1, x);
+	if (x)
+		exit(0);
+	cd = getcwd(NULL, 0);
+	em = g_va.env;
+	change_pwd(em, cd);
 }

@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pwd.c                                              :+:      :+:    :+:   */
+/*   builtins.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/20 11:54:41 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/25 19:44:09 by zouaraqa         ###   ########.fr       */
+/*   Created: 2023/05/25 18:24:34 by zouaraqa          #+#    #+#             */
+/*   Updated: 2023/05/25 19:09:13 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	pwd_cmd(int x)
+void	builtins(t_line *lm, int x)
 {
-	char	*pwd;
-
-	pwd = getcwd(NULL, 0);
-	if (!pwd)
-		print_error(pwd, 1, x);
-	printf("%s\n", pwd);
-	free(pwd);
-	if (x)
-		exit(0);
+	// if (!ft_strcmp(lm->shx, "echo"))
+	// 	echo_cmd();
+	if (!ft_strcmp(lm->shx, "cd"))
+		cd_cmd(lm, x);
+	if (!ft_strcmp(lm->shx, "pwd"))
+		pwd_cmd(x);
+	// if (!ft_strcmp(lm->shx, "export"))
+	// 	export_cmd();
+	// if (!ft_strcmp(lm->shx, "unset"))
+	// 	unset_cmd();
+	// if (!ft_strcmp(lm->shx, "env"))
+	// 	env_cmd();
+	// if (!ft_strcmp(lm->shx, "exit"))
+	// 	exit_cmd();
 }

@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 22:42:49 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/24 15:07:03 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/25 19:06:41 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	open_fout(t_pipe *sp)
 	{
 		fout->fd = open(fout->file, fout->flag, fout->perm);
 		if (fout->fd == -1)
-			print_error(fout->file);
+			print_error(fout->file, 1, 1);
 		dup2(fout->fd, 1);
 		fout = fout->nxt;
 	}

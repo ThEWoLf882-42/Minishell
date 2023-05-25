@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:07:06 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/25 12:09:35 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/25 19:06:51 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	open_pipes(void)
 {
 	if (pipe(g_va.p1) == -1)
-		print_error("pipe error\n");
+		print_error("pipe error", 1, 1);
 	if (pipe(g_va.p2) == -1)
-		print_error("pipe error\n");
+		print_error("pipe error", 1, 1);
 }
 
 void	close_opened(int i)
@@ -27,14 +27,14 @@ void	close_opened(int i)
 		close(g_va.p2[0]);
 		close(g_va.p2[1]);
 		if (pipe(g_va.p2) == -1)
-			print_error("pipe error");
+			print_error("pipe error", 1, 1);
 	}
 	else if (i % 2 != 0)
 	{
 		close(g_va.p1[0]);
 		close(g_va.p1[1]);
 		if (pipe(g_va.p1) == -1)
-			print_error("pipe error");
+			print_error("pipe error", 1, 1);
 	}
 }
 

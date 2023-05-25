@@ -9,7 +9,9 @@ HEADERS_DIRECTORY = ./includes/
 HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 
 SOURCES_DIRECTORY = ./
-SOURCES_LIST =	charloc.c \
+SOURCES_LIST =	builtins.c \
+				cd.c \
+				charloc.c \
 				check_error.c \
 				check_pipe.c \
 				check_quote.c \
@@ -42,12 +44,14 @@ SOURCES_LIST =	charloc.c \
 				open_fout.c \
 				pipes.c \
 				print_error.c \
+				pwd.c \
 				set_arg.c \
 				set_cmd.c \
 				set_env.c \
 				set_file.c \
 				sig_handel.c \
 				trim_space.c \
+				wait.c
 
 SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
 
