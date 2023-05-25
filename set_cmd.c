@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 18:20:53 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/25 12:46:49 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/25 13:13:07 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static void	set_path(t_line *lm)
 	em = g_va.env;
 	while (em)
 	{
-		if (ft_strcmp(em->arg, "PATH=") == '/' || !ft_strcmp(em->arg, "PATH="))
+		if (!ft_strncmp(em->arg, "PATH=", 5))
 			get_path(lm, em->arg);
 		em = em->nxt;
 	}

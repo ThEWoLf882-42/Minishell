@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/25 12:10:07 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/25 13:02:46 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ t_env	*ft_lastenv(t_env *env);
 void	ft_backenv(t_env **env, t_env *new);
 char	*ft_strdup(char *s1);
 size_t	ft_strlen(char *str);
+int		ft_strncmp(const char *s1, const char *s2, size_t len);
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_isspace(char c);
 int		ft_isred(char c);

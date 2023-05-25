@@ -23,6 +23,7 @@ SOURCES_LIST =	charloc.c \
 				fill_sp.c \
 				forking.c \
 				free.c \
+				ft_cmp.c \
 				ft_free.c \
 				ft_is_2.c \
 				ft_is.c \
@@ -34,7 +35,6 @@ SOURCES_LIST =	charloc.c \
 				ft_strchr.c \
 				ft_strdup.c \
 				ft_strlen.c \
-				ft_strcmp.c \
 				ft_substr.c \
 				lin_type.c \
 				minishell.c \
