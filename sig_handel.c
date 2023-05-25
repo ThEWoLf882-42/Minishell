@@ -14,8 +14,8 @@
 
 void	ha_sig(int sig)
 {
-	if (sig == SIGQUIT)
-		;
+	// if (sig == SIGQUIT)
+	// 	;
 	if (sig == SIGTSTP)
 	{
 		ft_free();

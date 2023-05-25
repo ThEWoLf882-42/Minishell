@@ -60,7 +60,7 @@ int	main(int ac, char **av, char **env)
 		// 	printf("sp:[%s]\n", g_va.sp->pl);
 		// 	while (g_va.sp->lin)
 		// 	{
-		// 		printf("	lin: (%s) ->typ: (%s) =>path = (%s)\n", \
+		// 		printf("	lin: (%s) ->typ: (%s) =>path = (%s)\n",
 		// 			g_va.sp->lin->shx, g_va.sp->lin->typ, g_va.sp->lin->path);
 		// 		g_va.sp->lin = g_va.sp->lin->nxt;
 		// 	}
