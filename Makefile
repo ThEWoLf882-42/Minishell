@@ -34,7 +34,7 @@ SOURCES_LIST =	charloc.c \
 				ft_strchr.c \
 				ft_strdup.c \
 				ft_strlen.c \
-				ft_strncmp.c \
+				ft_strcmp.c \
 				ft_substr.c \
 				lin_type.c \
 				minishell.c \
