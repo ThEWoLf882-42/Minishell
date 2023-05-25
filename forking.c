@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 22:39:26 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/25 15:15:34 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/25 19:06:29 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	forking(void)
 		i++;
 		g_va.pids[i] = fork();
 		if (g_va.pids[i] == -1)
-			print_error("fork ");
+			print_error("fork ", 1, 1);
 		if (!g_va.pids[i])
 		{
 			childs(sp, i);

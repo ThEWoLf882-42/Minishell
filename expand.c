@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:11:05 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/25 16:41:06 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/25 16:51:23 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*which_env(char *get)
 	while (em)
 	{
 		if (!ft_strncmp(get, em->arg, ft_strlen(get)))
-			return (ft_strdup(&em->arg[ft_strlen(get)]));// to chek
+			return (ft_strdup(&em->arg[ft_strlen(get) + 1]));// to chek
 		em = em->nxt;
 	}
 	return (NULL); 

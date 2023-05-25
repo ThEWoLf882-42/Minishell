@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:10:25 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/25 16:40:50 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/25 19:11:53 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	exit_print(char *str)
 {
 	dup2(2, 1);
 	printf("minishell-69: %s: command not found\n", str);
-	exit(1);
+	exit(127);
 }
 
 int	nargs(t_line *lm)
@@ -52,6 +52,15 @@ char	**join_arg(t_line *lm)
 	return (cmd);
 }
 
+// void	is_dir(char *cmd)
+// {
+// 	/* to check after  */
+// 	if (!access(cmd, F_OK))
+// 		if (!access(cmd, X_OK))
+// 			return ;
+// 	print_error(cmd);
+// }
+
 void	childs(t_pipe *sp, int i)
 {
 	char	**cmd;
@@ -63,12 +72,14 @@ void	childs(t_pipe *sp, int i)
 	lm = sp->lin;
 	while (sp->lin && ft_strcmp(sp->lin->typ, "cmd"))
 		sp->lin = sp->lin->nxt;
+	builtins(lm, 1);
 	if (!sp->lin->shx)
 		exit(0);
 	if (!sp->lin->path || !*sp->lin->shx)
 		exit_print(sp->lin->shx);
 	cmd = join_arg(lm);
+	// is_dir(*cmd);
 	if (execve(sp->lin->path, cmd, g_va.envp))
-		print_error(sp->lin->shx);
+		print_error(sp->lin->shx, 127, 1);
 	exit (0);
 }

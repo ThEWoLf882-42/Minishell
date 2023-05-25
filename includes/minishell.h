@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/25 16:44:58 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/25 19:09:47 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <signal.h>
 # include <sys/types.h>
 # include <sys/wait.h>
+# include <errno.h>
 
 typedef struct file_in
 {
@@ -76,6 +77,7 @@ typedef struct vars
 {
 	char				**envp;
 	char				*line;
+	int					exit_s;
 	int					p1[2];
 	int					p2[2];
 	t_pipe				*sp;
@@ -142,7 +144,7 @@ void	forking(void);
 void	set_file(void);
 void	open_fin(t_pipe *sp);
 void	open_fout(t_pipe *sp);
-void	print_error(char *str);
+void	print_error(char *str, int exn, int x);
 void	childs(t_pipe *sp, int i);
 void	free_env(t_env **env);
 void	free_fin(t_pipe *sp);
@@ -154,5 +156,9 @@ void	last_pipe(int i);
 void	which_pipe(int i);
 void	open_pipes(void);
 void	close_opened(int i);
+void	wait_pid(void);
+void	builtins(t_line *lm, int x);
+void	pwd_cmd(int x);
+void	cd_cmd(t_line *lm, int x);
 
 #endif

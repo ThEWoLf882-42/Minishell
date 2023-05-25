@@ -6,21 +6,11 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 15:25:26 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/25 16:44:06 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/25 19:28:50 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-void	wait_pid(void)
-{
-	int	i;
-
-	i = -1;
-	while (++i < ft_pipesize(g_va.sp))
-		if (waitpid(g_va.pids[i], NULL, 0) == -1)
-			printf("wait Error\n");
-}
 
 int	main(int ac, char **av, char **env)
 {
@@ -28,6 +18,7 @@ int	main(int ac, char **av, char **env)
 	(void)av;
 	// sig_handel();
 	g_va.envp = env;
+	g_va.exit_s = 0;
 	set_env(env);
 	while (1)
 	{
@@ -52,8 +43,15 @@ int	main(int ac, char **av, char **env)
 		set_cmd();
 		set_arg();
 		set_file();
+		if (ft_pipesize(g_va.sp) == 1)
+		{
+			builtins(g_va.sp->lin, 0);
+			ft_free();
+			continue ;
+		}
 		forking();
 		wait_pid();
+		printf("exstatus [%d]\n",g_va.exit_s);
 		ft_free();
 		// while (g_va.sp)
 		// {

@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pwd.c                                              :+:      :+:    :+:   */
+/*   wait.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/20 11:54:41 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/25 19:44:09 by zouaraqa         ###   ########.fr       */
+/*   Created: 2023/05/25 16:52:15 by zouaraqa          #+#    #+#             */
+/*   Updated: 2023/05/25 17:04:28 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	pwd_cmd(int x)
+void	wait_pid(void)
 {
-	char	*pwd;
+	int	i;
+	int	np;
+	int	status;
 
-	pwd = getcwd(NULL, 0);
-	if (!pwd)
-		print_error(pwd, 1, x);
-	printf("%s\n", pwd);
-	free(pwd);
-	if (x)
-		exit(0);
+	i = -1;
+	np = ft_pipesize(g_va.sp);
+	while (++i < np)
+	{
+		if (waitpid(g_va.pids[i], &status, 0) == -1)
+			printf("wait Error\n");
+		if (i + 1 == np)
+			g_va.exit_s = (status >> 8) & 0x0000ffff;
+	}
 }
