@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 18:20:53 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/25 13:13:07 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/25 16:39:47 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	get_path(t_line *lm, char *arg)
 		while (arg[i] && arg[i] != ':')
 			path[j++] = arg[i++];
 		path[j++] = '/';
-		while (lm->shx[++y])
+		while (lm->shx && lm->shx[++y])
 			path[j++] = lm->shx[y];
 		path[j] = '\0';
 		if (check_access(lm, path))

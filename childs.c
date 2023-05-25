@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:10:25 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/25 12:06:55 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/25 16:40:50 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,9 @@ void	childs(t_pipe *sp, int i)
 	lm = sp->lin;
 	while (sp->lin && ft_strcmp(sp->lin->typ, "cmd"))
 		sp->lin = sp->lin->nxt;
-	if (!sp->lin->path)
+	if (!sp->lin->shx)
+		exit(0);
+	if (!sp->lin->path || !*sp->lin->shx)
 		exit_print(sp->lin->shx);
 	cmd = join_arg(lm);
 	if (execve(sp->lin->path, cmd, g_va.envp))

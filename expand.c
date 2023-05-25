@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:11:05 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/25 11:52:57 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/25 16:41:06 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,25 @@ found is USER variable in env
 start + ft_strlen(found) len in the new 
 start + ft_strlen(get) + 1 len in the old shx
 */
+char	*which_env(char *get)
+{
+	t_env	*em;
+
+	em = g_va.env;
+	if (!*get)
+		return (ft_strdup("$"));
+	if (get[0] == 31 && get[1] == '\0')
+		return (ft_strdup("69"));
+	// if (get[0] == '?' && get[1] == '\0')
+	// 	return ();
+	while (em)
+	{
+		if (!ft_strncmp(get, em->arg, ft_strlen(get)))
+			return (ft_strdup(&em->arg[ft_strlen(get)]));// to chek
+		em = em->nxt;
+	}
+	return (NULL); 
+}
 
 void	exp_dlr(t_line *lm, int start, int end)
 {
@@ -27,17 +46,25 @@ void	exp_dlr(t_line *lm, int start, int end)
 	int		len;
 
 	get = ft_substr(lm->shx, start + 1, end - (start + 1));
-	found = getenv(get);
-	len = (ft_strlen(lm->shx) - (ft_strlen(get) + 1)) + ft_strlen(found) + 1;
-	new = malloc(sizeof(char) * len);
-	if (!new)
-		return ;
-	copy_bef(new, start, lm->shx);
-	copy_mid(new, start, found);
-	copy_af(new, start + ft_strlen(found), start + ft_strlen(get) + 1, lm->shx);
-	free(get);
-	free(lm->shx);
-	lm->shx = new;
+	found = which_env(get);
+	if (!found && (end - start == (int)ft_strlen(lm->shx)))
+	{
+		free(lm->shx);
+		lm->shx = NULL;
+	}
+	else
+	{
+		len = (ft_strlen(lm->shx) - (ft_strlen(get) + 1)) + ft_strlen(found) + 1;
+		new = malloc(sizeof(char) * len);
+		if (!new)
+			return ;
+		copy_bef(new, start, lm->shx);
+		copy_mid(new, start, found);
+		copy_af(new, start + ft_strlen(found), start + ft_strlen(get) + 1, lm->shx);
+		free(get);
+		free(lm->shx);
+		lm->shx = new;
+	}
 }
 /*
 locat the 31 and incrementend untill reaching non expandable char
@@ -52,7 +79,7 @@ void	expand_it(t_line *lm)
 	while (1)
 	{
 		start = charloc(lm->shx, 31);
-		if (!lm->shx[start])
+		if (start == -1 || !lm->shx[start])
 			break ;
 		end = start + 1;
 		if ((lm->shx[start + 1] == 31 || lm->shx[start + 1] == '?' || ft_isdigit(lm->shx[start + 1])))
