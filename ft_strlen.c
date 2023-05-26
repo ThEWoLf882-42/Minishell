@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 16:42:06 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/26 17:59:10 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/26 18:29:07 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ size_t	ft_strlen(char *str)
 {
 	size_t	i;
 
-	i = -1;
+	i = 0;
 	if (!str)
 		return (0);
-	while (str[++i])
-		;
+	while (str[i])
+		i++;
 	return (i);
 }

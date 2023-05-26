@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 16:16:25 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/26 18:13:27 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/26 18:18:41 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	fill_sp(char *line)
 			pl[++j] = line[i++];
 		pl[++j] = '\0';
 		ft_backpipe(&g_va.sp, new_sp(pl));
+		if (line[i] == '\0')
+			break ;
 	}
 	free(pl);
 	return (0);
