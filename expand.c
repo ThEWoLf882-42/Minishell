@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:11:05 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/25 16:51:23 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/26 22:44:57 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ char	*which_env(char *get)
 	while (em)
 	{
 		if (!ft_strncmp(get, em->arg, ft_strlen(get)))
-			return (ft_strdup(&em->arg[ft_strlen(get) + 1]));// to chek
+			return (ft_strdup(&em->arg[ft_strlen(get) + 1]));
 		em = em->nxt;
 	}
-	return (NULL); 
+	return (NULL);
 }
 
 void	exp_dlr(t_line *lm, int start, int end)

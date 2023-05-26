@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 13:09:29 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/26 16:09:03 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/26 22:43:34 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ void	change_pwd(t_env *em, char *cd)
 	}
 }
 /*
-lm->nxt && ft_strcmp(lm->nxt->typ, "arg")  to skip to the next arg after cmd  cd k > out
+lm->nxt && ft_strcmp(lm->nxt->typ, "arg")  to skip to the next arg 
+after cmd  cd k > out
 */
 
 void	cd_cmd(t_line *lm, int x)
