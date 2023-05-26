@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 22:37:18 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/26 21:34:33 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/26 21:42:02 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,15 @@ void	unset_cmd(t_line *lm, int x)
 	if (open_file(g_va.sp, x))
 		return ;
 	env = g_va.env;
-	if (lm && lm->nxt)
-		s = lm->nxt->shx;
-	unset_loop(env, tenv, s);
+	while (lm)
+	{
+		if (!ft_strcmp(lm->typ, "arg"))
+		{
+			s = lm->shx;
+			unset_loop(env, tenv, s);
+		}
+		lm = lm->nxt;
+	}
 	if (x)
 		exit(0);
 	close_fd();
