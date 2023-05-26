@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 13:09:29 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/26 15:40:46 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/26 16:09:03 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ void	change_pwd(t_env *em, char *cd)
 		em = em->nxt;
 	}
 }
+/*
+lm->nxt && ft_strcmp(lm->nxt->typ, "arg")  to skip to the next arg after cmd  cd k > out
+*/
 
 void	cd_cmd(t_line *lm, int x)
 {
@@ -48,13 +51,15 @@ void	cd_cmd(t_line *lm, int x)
 
 	if (open_file(g_va.sp, x))
 		return ;
-	if (!lm->nxt)
+	while (lm->nxt && ft_strcmp(lm->nxt->typ, "arg"))
+		lm = lm->nxt;
+	if (lm && !lm->nxt)
 	{
 		cd = getenv("HOME");
 		if (chdir(cd) == -1)
 			print_error(cd, 1, x);
 	}
-	else if (chdir(lm->nxt->shx) == -1)
+	else if (lm && chdir(lm->nxt->shx) == -1)
 		print_error(lm->nxt->shx, 1, x);
 	if (x)
 		exit(0);

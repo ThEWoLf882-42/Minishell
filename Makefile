@@ -1,14 +1,12 @@
 CC = cc
 NAME = minishell
-FLAGS = -Wall -Wextra -Werror #-fsanitize=thread -g
-FLAGS = -Wall -Wextra -Werror #-fsanitize=thread -g
+FLAGS = -Wall -Wextra -Werror #-fsanitize=address -g
 
 INCLUDES = -I$(HEADERS_DIRECTORY)
-INCLUDES = -I$(HEADERS_DIRECTORY)
+LIBRARIES = -lreadline
 
-HEADERS_LIST = minishell.h
-HEADERS_LIST = minishell.h
 HEADERS_DIRECTORY = ./includes/
+HEADERS_LIST = minishell.h
 HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 
 SOURCES_DIRECTORY = ./
@@ -64,12 +62,9 @@ SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
 
 OBJECTS_DIRECTORY = objects/
 OBJECTS_LIST = $(patsubst %.c, %.o, $(SOURCES_LIST))
-OBJECTS	= $(addprefix $(OBJECTS_DIRECTORY), $(OBJECTS_LIST))
-OBJECTS	= $(addprefix $(OBJECTS_DIRECTORY), $(OBJECTS_LIST))
+OBJECTS = $(addprefix $(OBJECTS_DIRECTORY), $(OBJECTS_LIST))
 
 # COLORS
-
-
 GREEN = \033[0;32m
 RED = \033[0;31m
 RESET = \033[0m
@@ -79,8 +74,7 @@ RESET = \033[0m
 all: $(NAME)
 
 $(NAME): $(OBJECTS_DIRECTORY) $(OBJECTS)
-	@$(CC)  $(FLAGS) $(OBJECTS) $(INCLUDES)  -o $(NAME) -lreadline
-	@$(CC)  $(FLAGS) $(OBJECTS) $(INCLUDES)  -o $(NAME) -lreadline
+	@$(CC) $(FLAGS) $(OBJECTS) $(INCLUDES) -o $(NAME) $(LIBRARIES)
 	@echo "\n$(NAME): $(GREEN)$(NAME) object files were created$(RESET)"
 	@echo "$(NAME): $(GREEN)$(NAME) was created$(RESET)"
 
@@ -101,9 +95,4 @@ fclean: clean
 	@rm -f $(NAME)
 	@echo "$(NAME): $(RED)$(NAME) was deleted$(RESET)"
 
-re:
-	@$(MAKE) fclean
-	@$(MAKE) all
-re:
-	@$(MAKE) fclean
-	@$(MAKE) all
+re: fclean all

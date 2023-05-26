@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 18:24:34 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/26 12:40:00 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/26 15:54:30 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	builtins(t_line *lm, int x)
 {
-	while (ft_strcmp(lm->typ, "cmd"))
+	while (lm && ft_strcmp(lm->typ, "cmd"))
 		lm = lm->nxt;
 	if (!ft_strcmp(lm->shx, "cd"))
 		cd_cmd(lm, x);
