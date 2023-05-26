@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/25 22:56:46 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/26 15:39:53 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,8 +142,9 @@ void	set_env(char **env);
 void	set_arg(void);
 void	forking(void);
 void	set_file(void);
-void	open_fin(t_pipe *sp);
-void	open_fout(t_pipe *sp);
+int		open_fin(t_pipe *sp, int x);
+int		open_fout(t_pipe *sp, int x);
+int		open_file(t_pipe *sp, int x);
 void	print_error(char *str, int exn, int x);
 void	childs(t_pipe *sp, int i);
 void	free_env(t_env **env);
@@ -164,5 +165,6 @@ void	exit_cmd(void);
 void	env_cmd(int x);
 void	echo_cmd(t_line *lm, int x);
 void	unset_cmd(t_line *lm, int x);
+void	close_fd(void);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 18:24:34 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/25 22:56:32 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/26 12:40:00 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ int	builtins(t_line *lm, int x)
 		lm = lm->nxt;
 	if (!ft_strcmp(lm->shx, "cd"))
 		cd_cmd(lm, x);
-	else if (!ft_strcmp(lm->shx, "echo"))
-		echo_cmd(lm->nxt, x);
 	else if (!ft_strcmp(lm->shx, "pwd"))
 		pwd_cmd(x);
+	else if (!ft_strcmp(lm->shx, "echo") && x == 1)
+		echo_cmd(lm->nxt, x);
 	// else if (!ft_strcmp(lm->shx, "export"))
 	// 	export_cmd();
 	else if (!ft_strcmp(lm->shx, "unset"))

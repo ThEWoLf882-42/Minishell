@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   open_fout.c                                        :+:      :+:    :+:   */
+/*   close.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/23 22:42:49 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/25 19:06:41 by zouaraqa         ###   ########.fr       */
+/*   Created: 2023/05/26 15:28:27 by agimi             #+#    #+#             */
+/*   Updated: 2023/05/26 15:28:55 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	open_fout(t_pipe *sp)
+void	close_fd(void)
 {
-	t_fout	*fout;
-
-	fout = sp->fout;
-	while (fout)
-	{
-		fout->fd = open(fout->file, fout->flag, fout->perm);
-		if (fout->fd == -1)
-			print_error(fout->file, 1, 1);
-		dup2(fout->fd, 1);
-		fout = fout->nxt;
-	}
+	close(0);
+	close(1);
+	dup2(69, 0);
+	dup2(88, 1);
 }

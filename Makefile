@@ -22,6 +22,7 @@ SOURCES_LIST =	builtins.c \
 				childs.c \
 				clean_lin.c \
 				clean.c \
+				close.c \
 				copy.c \
 				echo.c \
 				env.c \
@@ -46,8 +47,7 @@ SOURCES_LIST =	builtins.c \
 				ft_substr.c \
 				lin_type.c \
 				minishell.c \
-				open_fin.c \
-				open_fout.c \
+				open.c \
 				pipes.c \
 				print_error.c \
 				pwd.c \

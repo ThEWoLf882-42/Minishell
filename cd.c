@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 13:09:29 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/25 20:07:02 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/26 15:40:46 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ void	cd_cmd(t_line *lm, int x)
 	t_env	*em;
 	char	*cd;
 
+	if (open_file(g_va.sp, x))
+		return ;
 	if (!lm->nxt)
 	{
 		cd = getenv("HOME");
@@ -59,4 +61,5 @@ void	cd_cmd(t_line *lm, int x)
 	cd = getcwd(NULL, 0);
 	em = g_va.env;
 	change_pwd(em, cd);
+	close_fd();
 }

@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 15:25:26 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/25 20:34:36 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/26 15:11:00 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	main(int ac, char **av, char **env)
 		}
 		forking();
 		wait_pid();
-		printf("exstatus [%d]\n", g_va.exit_s);
+		// printf("exstatus [%d]\n", g_va.exit_s);
 		ft_free();
 		// while (g_va.sp)
 		// {
