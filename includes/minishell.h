@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/26 21:51:05 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/26 22:54:05 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,7 @@ char	*ft_substr(char *s, int start, int len);
 void	ft_backexp(t_exp **exp, t_exp *new);
 t_exp	*ft_lastexp(t_exp *exp);
 t_exp	*new_exp(char *str);
+char	*ft_itoa(int n);
 /***********************LIBFT***********************/
 
 int		fill_sp(char *line);
@@ -178,5 +179,6 @@ void	unset_cmd(t_line *lm, int x);
 void	close_fd(void);
 void	export_cmd(t_line *lm, int x);
 void	set_xport(t_env *em);
+void	copy(void);
 
 #endif

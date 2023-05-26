@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   copy.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:31:31 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/25 16:45:11 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/26 22:57:00 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,11 @@ void	copy_af(char *new, int start, int nst, char *lin)
 	while (lin[j])
 		new[i++] = lin[j++];
 	new[i] = '\0';
+}
+
+void	copy(char *new, int start, char *get)
+{
+	copy_bef(new, start, lm->shx);
+	copy_mid(new, start, found);
+	copy_af(new, start + ft_strlen(found), start + ft_strlen(get) + 1, lm->shx);
 }

@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:11:05 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/26 22:44:57 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/26 22:57:19 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ char	*which_env(char *get)
 		return (ft_strdup("$"));
 	if (get[0] == 31 && get[1] == '\0')
 		return (ft_strdup("69"));
-	// if (get[0] == '?' && get[1] == '\0')
-	// 	return ();
+	if (get[0] == '?' && get[1] == '\0')
+		return (ft_itoa(g_va.exit_s));
 	while (em)
 	{
 		if (!ft_strncmp(get, em->arg, ft_strlen(get)))
@@ -82,7 +82,8 @@ void	expand_it(t_line *lm)
 		if (start == -1 || !lm->shx[start])
 			break ;
 		end = start + 1;
-		if ((lm->shx[start + 1] == 31 || lm->shx[start + 1] == '?' || ft_isdigit(lm->shx[start + 1])))
+		if ((lm->shx[start + 1] == 31 || lm->shx[start + 1] == '?'
+				|| ft_isdigit(lm->shx[start + 1])))
 			end++;
 		else
 			while (ft_isdigit(lm->shx[end]) || ft_isalpha(lm->shx[end])
