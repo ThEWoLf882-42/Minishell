@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/26 16:00:54 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/26 19:54:25 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,12 @@ typedef struct envir
 	struct envir	*nxt;
 }	t_env;
 
+typedef struct export
+{
+	char			*xarg;
+	struct export	*nxt;
+}	t_exp;
+
 //struct pipe
 typedef struct vars
 {
@@ -81,6 +87,7 @@ typedef struct vars
 	int					p1[2];
 	int					p2[2];
 	t_pipe				*sp;
+	t_exp				*exprt;
 	t_env				*env;
 	pid_t				*pids;
 	struct sigaction	sa;
@@ -166,5 +173,7 @@ void	env_cmd(int x);
 void	echo_cmd(t_line *lm, int x);
 void	unset_cmd(t_line *lm, int x);
 void	close_fd(void);
+void	export_cmd(t_line *lm, int x);
+void	set_xport(t_env *em);
 
 #endif

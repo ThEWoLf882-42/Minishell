@@ -1,6 +1,6 @@
 CC = cc
 NAME = minishell
-FLAGS = -Wall -Wextra -Werror #-fsanitize=address -g
+FLAGS = -Wall -Wextra -Werror #-fsanitize=thread -g
 
 INCLUDES = -I$(HEADERS_DIRECTORY)
 LIBRARIES = -lreadline
@@ -26,6 +26,7 @@ SOURCES_LIST =	builtins.c \
 				env.c \
 				exit.c \
 				expand.c \
+				export.c \
 				fill_lin.c \
 				fill_sp.c \
 				forking.c \

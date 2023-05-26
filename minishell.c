@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 15:25:26 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/26 15:11:00 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/26 19:26:11 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main(int ac, char **av, char **env)
 	g_va.envp = env;
 	g_va.exit_s = 0;
 	set_env(env);
+	set_xport(g_va.env);
 	while (1)
 	{
 		g_va.line = readline("minishell-69$ ");
