@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 22:49:35 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/26 17:43:35 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/26 20:29:36 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,6 @@ void	ha_sig(int sig)
 	}
 }
 
-//ctrl-"\"
-//ctrl-C
-//ctrl-D ctrl-Z??
 void	sig_handel(void)
 {
 	g_va.sa.sa_handler = &ha_sig;
