@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/26 20:25:54 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/26 21:51:05 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,9 @@ int		ft_pipesize(t_pipe *sp);
 void	ft_free(void);
 char	*ft_strchr(const char *s, int c);
 char	*ft_substr(char *s, int start, int len);
+void	ft_backexp(t_exp **exp, t_exp *new);
+t_exp	*ft_lastexp(t_exp *exp);
+t_exp	*new_exp(char *str);
 /***********************LIBFT***********************/
 
 int		fill_sp(char *line);

@@ -36,9 +36,12 @@ SOURCES_LIST =	builtins.c \
 				ft_is_2.c \
 				ft_is.c \
 				ft_lstadd_back.c \
+				ft_lstadd_back2.c \
 				ft_lstclear.c \
 				ft_lstlast.c \
+				ft_lstlast2.c \
 				ft_lstnew.c \
+				ft_lstnew2.c \
 				ft_lstsize.c \
 				ft_strchr.c \
 				ft_strdup.c \

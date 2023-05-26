@@ -6,42 +6,11 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 16:21:19 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/26 21:18:43 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/26 22:05:28 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-t_exp	*ft_lastexp(t_exp *exp)
-{
-	if (!exp)
-		return (NULL);
-	while (exp->nxt)
-		exp = exp->nxt;
-	return (exp);
-}
-
-t_exp	*new_exp(char *str)
-{
-	t_exp	*exp;
-
-	exp = malloc(sizeof(t_exp));
-	if (!exp)
-		return (NULL);
-	exp->xarg = ft_strdup(str);
-	exp->nxt = NULL;
-	return (exp);
-}
-
-void	ft_backexp(t_exp **exp, t_exp *new)
-{
-	if (!exp || !new)
-		return ;
-	if ((*exp))
-		ft_lastexp((*exp))->nxt = new;
-	else
-		(*exp) = new;
-}
 
 char	*copy_it(char *dec_x, char *arg)
 {
@@ -80,9 +49,9 @@ void	set_xport(t_env *em)
 
 void	change_arg(t_env *em, char *narg)
 {
-	(void)em;
-	(void)narg;
-	printf("lala\n");
+	free(em->arg);
+	em->arg = ft_strdup(narg);
+	printf("em[%s] na[%s]\n", em->arg, narg);
 }
 
 void	add_env(char *narg)
