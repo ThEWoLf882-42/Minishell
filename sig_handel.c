@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 22:49:35 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/26 16:33:35 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/26 17:35:51 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	ha_sig(int sig)
 	}
 	if (sig == SIGINT)
 	{
+		rl_replace_line("", 0);
 		printf("\n");
-		// rl_replace_line("", 0);
 		rl_on_new_line();
 		rl_redisplay();
 	}
