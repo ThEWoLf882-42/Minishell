@@ -6,15 +6,19 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 20:24:34 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/26 12:26:24 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/26 17:49:33 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	exit_cmd(void)
+void	exit_cmd(int x)
 {
+	if (!x)
+	{
+		printf("exit\n");
+		free_env(&g_va.env);
+	}
 	ft_free();
-	free_env(&g_va.env);
 	exit(g_va.exit_s);
 }

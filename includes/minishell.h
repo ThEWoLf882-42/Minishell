@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/26 19:54:25 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/26 20:25:54 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,7 +168,7 @@ void	wait_pid(void);
 int		builtins(t_line *lm, int x);
 void	pwd_cmd(int x);
 void	cd_cmd(t_line *lm, int x);
-void	exit_cmd(void);
+void	exit_cmd(int x);
 void	env_cmd(int x);
 void	echo_cmd(t_line *lm, int x);
 void	unset_cmd(t_line *lm, int x);

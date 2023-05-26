@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_cmd.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 18:20:53 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/25 16:39:47 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/26 19:01:44 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ static void	get_path(t_line *lm, char *arg)
 	int		j;
 	int		y;
 
-	path = malloc(sizeof(char) * ft_strlen(arg) + 1);
+	path = malloc(sizeof(char) * (ft_strlen(arg) + ft_strlen(lm->shx) + 2));
 	if (!path)
 		return ;
-	i = 4;
-	while (arg[++i])
+	i = 5;
+	while (arg[i])
 	{
 		j = 0;
 		y = -1;
@@ -43,6 +43,8 @@ static void	get_path(t_line *lm, char *arg)
 		path[j] = '\0';
 		if (check_access(lm, path))
 			return ;
+		if (arg[i])
+			i++;
 	}
 	free(path);
 }
