@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   export.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 16:21:19 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/26 20:22:09 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/26 21:18:43 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,6 @@ char	*copy_it(char *dec_x, char *arg)
 	while (arg[j])
 		dec_x[i++] = arg[j++];
 	dec_x[i] = '\0';
-	// printf("arg = %s\n",arg);
-	// printf("xpr = %s\n",dec_x);
 	return (dec_x);
 }
 
@@ -67,8 +65,7 @@ void	set_xport(t_env *em)
 	size_t		xlen;
 	char		*dec_x;
 
-	dec_x = NULL;
-	xlen = ft_strlen(dec_x);
+	xlen = ft_strlen("declare -x ");
 	while (em)
 	{
 		dec_x = malloc(sizeof(char) * (xlen + ft_strlen(em->arg) + 1));
@@ -76,7 +73,7 @@ void	set_xport(t_env *em)
 			return ;
 		dec_x = copy_it(dec_x, em->arg);
 		ft_backexp(&g_va.exprt, new_exp(dec_x));
-		// free(dec_x);
+		free(dec_x);
 		em = em->nxt;
 	}
 }

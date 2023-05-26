@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtins.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 18:24:34 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/26 20:24:45 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/26 21:06:33 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	builtins(t_line *lm, int x)
 	else if (!ft_strcmp(lm->shx, "echo") && x == 1)
 		echo_cmd(lm->nxt, x);
 	else if (!ft_strcmp(lm->shx, "export"))
-		export_cmd(lm ,x);
+		export_cmd(lm, x);
 	else if (!ft_strcmp(lm->shx, "unset"))
 		unset_cmd(lm, x);
 	else if (!ft_strcmp(lm->shx, "env"))
