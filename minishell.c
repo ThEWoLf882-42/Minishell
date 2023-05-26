@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 15:25:26 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/25 19:28:50 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/25 20:34:36 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,15 @@ int	main(int ac, char **av, char **env)
 		set_file();
 		if (ft_pipesize(g_va.sp) == 1)
 		{
-			builtins(g_va.sp->lin, 0);
-			ft_free();
-			continue ;
+			if (builtins(g_va.sp->lin, 0))
+			{
+				ft_free();
+				continue ;
+			}
 		}
 		forking();
 		wait_pid();
-		printf("exstatus [%d]\n",g_va.exit_s);
+		printf("exstatus [%d]\n", g_va.exit_s);
 		ft_free();
 		// while (g_va.sp)
 		// {

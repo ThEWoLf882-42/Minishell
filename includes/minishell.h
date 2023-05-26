@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/25 19:09:47 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/25 22:56:46 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,8 +157,12 @@ void	which_pipe(int i);
 void	open_pipes(void);
 void	close_opened(int i);
 void	wait_pid(void);
-void	builtins(t_line *lm, int x);
+int		builtins(t_line *lm, int x);
 void	pwd_cmd(int x);
 void	cd_cmd(t_line *lm, int x);
+void	exit_cmd(void);
+void	env_cmd(int x);
+void	echo_cmd(t_line *lm, int x);
+void	unset_cmd(t_line *lm, int x);
 
 #endif
