@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/26 16:00:54 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/26 16:40:43 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,7 +161,7 @@ void	wait_pid(void);
 int		builtins(t_line *lm, int x);
 void	pwd_cmd(int x);
 void	cd_cmd(t_line *lm, int x);
-void	exit_cmd(void);
+void	exit_cmd(int x);
 void	env_cmd(int x);
 void	echo_cmd(t_line *lm, int x);
 void	unset_cmd(t_line *lm, int x);

@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 15:25:26 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/26 15:11:00 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/26 16:41:34 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(int ac, char **av, char **env)
 {
 	(void)ac;
 	(void)av;
-	// sig_handel();
+	sig_handel();
 	g_va.envp = env;
 	g_va.exit_s = 0;
 	set_env(env);
@@ -24,6 +24,8 @@ int	main(int ac, char **av, char **env)
 	{
 		g_va.line = readline("minishell-69$ ");
 		add_history(g_va.line);
+		if (!g_va.line)
+			exit_cmd(0);
 		trim_space(g_va.line);
 		if (fill_sp(g_va.line))
 		{

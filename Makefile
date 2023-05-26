@@ -1,9 +1,9 @@
 CC = cc
 NAME = minishell
-FLAGS = -Wall -Wextra -Werror #-fsanitize=address -g
+FLAGS = -Wall -Wextra -Werror -fsanitize=address -g
 
 INCLUDES = -I$(HEADERS_DIRECTORY)
-LIBRARIES = -lreadline
+LIBRARIES = -L /goinfre/agimi/.brew/opt/readline/lib -lreadline
 
 HEADERS_DIRECTORY = ./includes/
 HEADERS_LIST = minishell.h

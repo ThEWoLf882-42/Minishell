@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sig_handel.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 22:49:35 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/25 13:26:18 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/26 16:33:35 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,10 @@
 
 void	ha_sig(int sig)
 {
-	// if (sig == SIGQUIT)
-	// 	;
-	if (sig == SIGTSTP)
+	if (sig == SIGQUIT)
 	{
-		ft_free();
-		free_env(&g_va.env);
-		exit(0);
+		rl_on_new_line();
+		rl_redisplay();
 	}
 	if (sig == SIGINT)
 	{
@@ -39,8 +36,6 @@ void	sig_handel(void)
 	g_va.sa.sa_handler = &ha_sig;
 	sigemptyset(&g_va.sa.sa_mask);
 	g_va.sa.sa_flags = SA_RESTART;
-	// sigaddset(&g_va.sa.sa_mask, SIGQUIT);
-	// sigaddset(&g_va.sa.sa_mask, SIGINT);
 	sigaction(SIGQUIT, &g_va.sa, NULL);
 	sigaction(SIGINT, &g_va.sa, NULL);
 }
