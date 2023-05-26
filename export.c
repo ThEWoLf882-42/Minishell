@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 16:21:19 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/26 22:05:28 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/26 22:34:09 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,10 @@ void	add_env(char *narg)
 			change_arg(em, narg);
 			break ;
 		}
-		else if (!em->nxt)
-			ft_backenv(&g_va.env, new_env(narg));
 		em = em->nxt;
 	}
+	if (!em)
+		ft_backenv(&g_va.env, new_env(narg));
 }
 
 void	export_cmd(t_line *lm, int x)
