@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 16:42:06 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/23 13:10:53 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/26 17:59:10 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ size_t	ft_strlen(char *str)
 {
 	size_t	i;
 
-	i = 0;
+	i = -1;
 	if (!str)
 		return (0);
-	while (str[i])
-		i++;
+	while (str[++i])
+		;
 	return (i);
 }
