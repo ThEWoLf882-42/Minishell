@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 12:14:50 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/26 15:39:24 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/27 14:35:32 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	open_fin(t_pipe *sp, int x)
 			return (1);
 		}
 		dup2(fin->fd, 0);
+		if (fin->herdoc == 1)
+			heredoc(fin);
 		close(fin->fd);
-		// if (fin->herdoc == 1)
-		// 	herdoc();
 		fin = fin->nxt;
 	}
 	return (0);

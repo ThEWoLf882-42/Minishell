@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/27 16:14:59 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/27 17:14:04 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <readline/history.h>
 # include <unistd.h>
 # include <fcntl.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <signal.h>
 # include <sys/types.h>
@@ -180,6 +179,6 @@ void	unset_cmd(t_line *lm, int x);
 void	close_fd(void);
 void	export_cmd(t_line *lm, int x);
 void	set_xport(t_env *em);
-void	copy(void);
+void	heredoc(t_fin	*fin);
 
 #endif

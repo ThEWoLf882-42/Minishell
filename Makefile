@@ -1,9 +1,9 @@
 CC = cc
 NAME = minishell
-FLAGS = -Wall -Wextra -Werror -fsanitize=address -g 
+FLAGS = -Wall -Wextra -Werror #-fsanitize=address -g 
 
-INCLUDES = -I$(HEADERS_DIRECTORY) -I /goinfre/agimi/.brew/Cellar/readline/8.2.1/include
-LIBRARIES = -L /goinfre/agimi/.brew/Cellar/readline/8.2.1/lib -lreadline 
+INCLUDES = -I$(HEADERS_DIRECTORY) -I /goinfre/$(USER)/.brew/Cellar/readline/8.2.1/include
+LIBRARIES = -L /goinfre/$(USER)/.brew/Cellar/readline/8.2.1/lib -lreadline 
 
 HEADERS_DIRECTORY = ./includes/
 HEADERS_LIST = minishell.h
@@ -48,6 +48,7 @@ SOURCES_LIST =	builtins.c \
 				ft_strdup.c \
 				ft_strlen.c \
 				ft_substr.c \
+				heredoc.c \
 				lin_type.c \
 				minishell.c \
 				open.c \
@@ -79,7 +80,7 @@ RESET = \033[0m
 all: $(NAME)
 
 $(NAME): $(OBJECTS_DIRECTORY) $(OBJECTS)
-	@$(CC) $(FLAGS) $(INCLUDES)  $(OBJECTS) -o $(NAME) $(LIBRARIES)
+	@$(CC) $(FLAGS) $(INCLUDES) $(OBJECTS) -o $(NAME) $(LIBRARIES)
 	@echo "\n$(NAME): $(GREEN)$(NAME) object files were created$(RESET)"
 	@echo "$(NAME): $(GREEN)$(NAME) was created$(RESET)"
 
@@ -88,7 +89,7 @@ $(OBJECTS_DIRECTORY):
 	@echo "$(NAME): $(GREEN)$(OBJECTS_DIRECTORY) was created$(RESET)"
 
 $(OBJECTS_DIRECTORY)%.o : $(SOURCES_DIRECTORY)%.c $(HEADERS)
-	@$(CC) $(FLAGS) -c $(INCLUDES) $< -o $@
+	@$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
 	@echo "$(GREEN).$(RESET)\c"
 
 clean:
