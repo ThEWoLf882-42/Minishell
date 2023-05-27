@@ -6,14 +6,16 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 22:37:18 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/26 21:42:02 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/27 14:40:41 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	unset_loop(t_env *env, t_env *tenv, char *s)
+void	unset_loop(t_env *env, char *s)
 {
+	t_env	*tenv;
+
 	while (env)
 	{
 		if (!ft_strncmp(s, env->arg, ft_strlen(s)))
@@ -34,7 +36,6 @@ void	unset_loop(t_env *env, t_env *tenv, char *s)
 void	unset_cmd(t_line *lm, int x)
 {
 	t_env	*env;
-	t_env	*tenv;
 	char	*s;
 
 	if (open_file(g_va.sp, x))
@@ -45,7 +46,7 @@ void	unset_cmd(t_line *lm, int x)
 		if (!ft_strcmp(lm->typ, "arg"))
 		{
 			s = lm->shx;
-			unset_loop(env, tenv, s);
+			unset_loop(env, s);
 		}
 		lm = lm->nxt;
 	}

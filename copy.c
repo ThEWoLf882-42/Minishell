@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:31:31 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/26 22:57:00 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/27 14:39:30 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ void	copy_af(char *new, int start, int nst, char *lin)
 	new[i] = '\0';
 }
 
-void	copy(char *new, int start, char *get)
-{
-	copy_bef(new, start, lm->shx);
-	copy_mid(new, start, found);
-	copy_af(new, start + ft_strlen(found), start + ft_strlen(get) + 1, lm->shx);
-}
+// void	copy(char *new, int start, char *get)
+// {
+// 	copy_bef(new, start, lm->shx);
+// 	copy_mid(new, start, found);
+// 	copy_af(new, start + ft_strlen(found), start + ft_strlen(get) + 1, lm->shx);
+// }

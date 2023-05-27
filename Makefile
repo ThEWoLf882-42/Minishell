@@ -48,6 +48,7 @@ SOURCES_LIST =	builtins.c \
 				ft_strdup.c \
 				ft_strlen.c \
 				ft_substr.c \
+				heredoc.c \
 				lin_type.c \
 				minishell.c \
 				open.c \
