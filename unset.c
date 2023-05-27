@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 22:37:18 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/27 17:12:21 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/27 17:13:48 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,8 @@ void	unset_cmd(t_line *lm, int x)
 		if (!ft_strcmp(lm->typ, "arg"))
 		{
 			s = lm->shx;
-			unset_loop(env, tenv, s);
+			unset_env(env, s);
+			unset_xport(exp, s);
 		}
 		lm = lm->nxt;
 	}
