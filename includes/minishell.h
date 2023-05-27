@@ -3,27 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/26 22:54:05 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/27 16:14:59 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
+# include <stdio.h>
 # include <readline/readline.h>
 # include <readline/history.h>
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include <stdio.h>
 # include <signal.h>
 # include <sys/types.h>
 # include <sys/wait.h>
 # include <errno.h>
+# include <dirent.h>
 
 typedef struct file_in
 {
@@ -87,7 +88,7 @@ typedef struct vars
 	int					p1[2];
 	int					p2[2];
 	t_pipe				*sp;
-	t_exp				*exprt;
+	t_exp				*xport;
 	t_env				*env;
 	pid_t				*pids;
 	struct sigaction	sa;
@@ -173,7 +174,7 @@ int		builtins(t_line *lm, int x);
 void	pwd_cmd(int x);
 void	cd_cmd(t_line *lm, int x);
 void	exit_cmd(int x);
-void	env_cmd(int x);
+void	env_cmd(t_line *lm, int x);
 void	echo_cmd(t_line *lm, int x);
 void	unset_cmd(t_line *lm, int x);
 void	close_fd(void);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   childs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:10:25 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/26 12:26:54 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/27 17:06:46 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,42 @@ char	**join_arg(t_line *lm)
 	return (cmd);
 }
 
-// void	is_dir(char *cmd)
-// {
-// 	/* to check after  */
-// 	if (!access(cmd, F_OK))
-// 		if (!access(cmd, X_OK))
-// 			return ;
-// 	print_error(cmd);
-// }
+void	is_dir(char *cmd)
+{
+	if (opendir(cmd))
+	{
+		dup2(2, 1);
+		printf("minishell-69: %s: is a directory\n", cmd);
+		exit(126);
+	}
+}
+
+void	if_nopath(t_line *lm)
+{
+	t_env	*em;
+	int		count;
+
+	em = g_va.env;
+	count = 0;
+	is_dir(lm->shx);
+	while (em)
+	{
+		if (!ft_strncmp(em->arg, "PATH=", 5))
+		{
+			if (!em->arg[5])
+				count = 0;
+			else
+				count++;
+		}
+		em = em->nxt;
+	}
+	if (!count)
+	{
+		dup2(2, 1);
+		printf("minishell-69: %s: No such file or directory\n", lm->shx);
+		exit(126);
+	}
+}
 
 void	childs(t_pipe *sp, int i)
 {
@@ -74,10 +102,10 @@ void	childs(t_pipe *sp, int i)
 	builtins(lm, 1);
 	if (!sp->lin->shx)
 		exit(0);
+	if_nopath(sp->lin);
 	if (!sp->lin->path || !*sp->lin->shx)
 		exit_print(sp->lin->shx);
 	cmd = join_arg(lm);
-	// is_dir(*cmd);
 	if (execve(sp->lin->path, cmd, g_va.envp))
 		print_error(sp->lin->shx, 127, 1);
 	exit (0);

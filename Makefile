@@ -1,8 +1,8 @@
 CC = cc
 NAME = minishell
-FLAGS =-fsanitize=address -g #-Wall -Wextra -Werror 
+FLAGS = -Wall -Wextra -Werror -fsanitize=address -g 
 
-INCLUDES = -I$(HEADERS_DIRECTORY) #-I /goinfre/agimi/.brew/Cellar/readline/8.2.1/include
+INCLUDES = -I$(HEADERS_DIRECTORY) -I /goinfre/agimi/.brew/Cellar/readline/8.2.1/include
 LIBRARIES = -L /goinfre/agimi/.brew/Cellar/readline/8.2.1/lib -lreadline 
 
 HEADERS_DIRECTORY = ./includes/
@@ -79,7 +79,7 @@ RESET = \033[0m
 all: $(NAME)
 
 $(NAME): $(OBJECTS_DIRECTORY) $(OBJECTS)
-	@$(CC) $(FLAGS) $(OBJECTS) $(INCLUDES) -o $(NAME) $(LIBRARIES)
+	@$(CC) $(FLAGS) $(INCLUDES)  $(OBJECTS) -o $(NAME) $(LIBRARIES)
 	@echo "\n$(NAME): $(GREEN)$(NAME) object files were created$(RESET)"
 	@echo "$(NAME): $(GREEN)$(NAME) was created$(RESET)"
 
