@@ -6,16 +6,20 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 18:24:34 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/27 15:30:16 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/28 16:55:50 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
+/*
+!lm to prevent segv 
+*/
 int	builtins(t_line *lm, int x)
 {
 	while (lm && ft_strcmp(lm->typ, "cmd"))
 		lm = lm->nxt;
+	if (!lm)
+		return (0);
 	if (!ft_strcmp(lm->shx, "cd"))
 		cd_cmd(lm, x);
 	else if (!ft_strcmp(lm->shx, "pwd"))

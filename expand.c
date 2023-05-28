@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:11:05 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/27 10:10:28 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/28 14:36:30 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,17 @@ found is USER variable in env
 start + ft_strlen(found) len in the new 
 start + ft_strlen(get) + 1 len in the old shx
 */
-char	*which_env(char *get)
+
+// char	*expanded_nod(t_env *em, t_line *lm, char *get)
+// {
+// 	t_line	*tmp;
+	
+// }
+
+char	*which_env(t_line *lm, char *get)
 {
 	t_env	*em;
-
+(void)lm;
 	em = g_va.env;
 	if (!*get)
 		return (ft_strdup("$"));
@@ -31,6 +38,8 @@ char	*which_env(char *get)
 		return (ft_itoa(g_va.exit_s));
 	while (em)
 	{
+		// if (!ft_strncmp(get, em->arg, ft_strlen(get)) && (ft_strchr(em->arg, ' ') || ft_strchr(em->arg, '\t')))
+		// 	return (expanded_nod(em, lm, get));
 		if (!ft_strncmp(get, em->arg, ft_strlen(get)))
 			return (ft_strdup(&em->arg[ft_strlen(get) + 1]));
 		em = em->nxt;
@@ -46,7 +55,7 @@ void	exp_dlr(t_line *lm, int start, int end)
 	int		len;
 
 	get = ft_substr(lm->shx, start + 1, end - (start + 1));
-	found = which_env(get);
+	found = which_env(lm, get);
 	if (!found && (end - start == (int)ft_strlen(lm->shx)))
 	{
 		free(lm->shx);
@@ -93,6 +102,17 @@ void	expand_it(t_line *lm)
 	}
 }
 
+void	put_dlr_bex(t_line *lm)
+{
+	int	i;
+
+	i = -1;
+	lm->bex = ft_strdup(lm->shx);
+	while (lm->bex[++i])
+		if (lm->bex[i] == 31)
+			lm->bex[i] = '$';
+}
+
 void	expand(void)
 {
 	t_pipe	*sm;
@@ -105,7 +125,10 @@ void	expand(void)
 		while (lm)
 		{
 			if (ft_strchr(lm->shx, 31))
+			{
+				put_dlr_bex(lm);
 				expand_it(lm);
+			}
 			lm = lm->nxt;
 		}
 		sm = sm->nxt;

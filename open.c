@@ -3,14 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   open.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 12:14:50 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/27 14:35:32 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/28 16:41:04 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+void	redirect_error(char *str, int x)
+{
+	dup2(1, 2);
+	printf("minishell-69: %s: ambiguous redirect\n", str);
+	if (x)
+		exit(1);
+	dup2(2, 1);
+}
 
 int	open_fin(t_pipe *sp, int x)
 {
@@ -19,6 +28,9 @@ int	open_fin(t_pipe *sp, int x)
 	fin = sp->fin;
 	while (fin)
 	{
+		if ((ft_strchr(fin->file, ' ') || ft_strchr(fin->file, ' ')) \
+			&& fin->lm->nxt->bex)
+			redirect_error(fin->lm->nxt->bex, x);
 		fin->fd = open(fin->file, fin->flag);
 		if (fin->fd == -1)
 		{
@@ -41,6 +53,9 @@ int	open_fout(t_pipe *sp, int x)
 	fout = sp->fout;
 	while (fout)
 	{
+		if ((ft_strchr(fout->file, ' ') || ft_strchr(fout->file, ' ')) \
+			&& fout->lm->nxt->bex)
+			redirect_error(fout->lm->nxt->bex, x);
 		fout->fd = open(fout->file, fout->flag, fout->perm);
 		if (fout->fd == -1)
 		{

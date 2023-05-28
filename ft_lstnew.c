@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 16:05:04 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/27 14:43:24 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/28 16:31:03 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ t_line	*new_lin(char *str)
 	if (!lin)
 		return (NULL);
 	lin->shx = ft_strdup(str);
+	lin->bex = NULL;
 	lin->path = NULL;
 	lin->nxt = NULL;
 	lin->typ = NULL;
@@ -54,13 +55,14 @@ t_env	*new_env(char *str)
 	return (env);
 }
 
-t_fin	*new_fin(char *file, int her, char *del)
+t_fin	*new_fin(t_line *lm, char *file, int her, char *del)
 {
 	t_fin	*fin;
 
 	fin = malloc(sizeof(t_fin));
 	if (!fin)
 		return (NULL);
+	fin->lm = lm;
 	fin->herdoc = her;
 	fin->del = del;
 	fin->file = file;
@@ -73,13 +75,14 @@ t_fin	*new_fin(char *file, int her, char *del)
 	return (fin);
 }
 
-t_fout	*new_fout(char *file, int app)
+t_fout	*new_fout(t_line *lm, char *file, int app)
 {
 	t_fout	*fout;
 
 	fout = malloc(sizeof(t_fout));
 	if (!fout)
 		return (NULL);
+	fout->lm = lm;
 	fout->file = file;
 	fout->fd = 0;
 	if (app == 1)

@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 15:25:26 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/27 10:41:15 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/28 17:01:20 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,14 @@ int	main(int ac, char **av, char **env)
 		if (fill_sp(g_va.line))
 		{
 			ft_free();
+			g_va.exit_s = 258;
 			continue ;
 		}
 		fill_lin();
 		if (check_error())
 		{
 			ft_free();
+			g_va.exit_s = 258;
 			continue ;
 		}
 		clean_lin();
@@ -63,8 +65,8 @@ int	main(int ac, char **av, char **env)
 		// 	printf("sp:[%s]\n", g_va.sp->pl);
 		// 	while (g_va.sp->lin)
 		// 	{
-		// 		printf("	lin: (%s) ->typ: (%s) =>path = (%s)\n",
-		// 			g_va.sp->lin->shx, g_va.sp->lin->typ, g_va.sp->lin->path);
+		// 		printf("	lin: (%s) bex->(%s) ->typ: (%s) =>path = (%s)\n",
+		// 			g_va.sp->lin->shx, g_va.sp->lin->bex, g_va.sp->lin->typ, g_va.sp->lin->path);
 		// 		g_va.sp->lin = g_va.sp->lin->nxt;
 		// 	}
 		// 	// printf(" ->fil= (%s) \n", g_va.sp->fin->file);

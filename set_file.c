@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_file.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 21:14:15 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/23 22:41:13 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/28 16:31:52 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ static void	test(t_pipe *sm, t_line *lm)
 	if (lm->nxt)
 	{
 		if (!ft_strcmp(lm->typ, "out append"))
-			ft_backfout(&sm->fout, new_fout(lm->nxt->shx, 1));
+			ft_backfout(&sm->fout, new_fout(lm, lm->nxt->shx, 1));
 		else if (!ft_strcmp(lm->typ, "out"))
-			ft_backfout(&sm->fout, new_fout(lm->nxt->shx, 0));
+			ft_backfout(&sm->fout, new_fout(lm, lm->nxt->shx, 0));
 		else if (!ft_strcmp(lm->typ, "in"))
-			ft_backfin(&sm->fin, new_fin(lm->nxt->shx, 0, NULL));
+			ft_backfin(&sm->fin, new_fin(lm, lm->nxt->shx, 0, NULL));
 		else if (!ft_strcmp(lm->typ, "herdoc"))
-			ft_backfin(&sm->fin, new_fin("/tmp/herdoc", 1, lm->nxt->shx));
+			ft_backfin(&sm->fin, new_fin(lm, "/tmp/herdoc", 1, lm->nxt->shx));
 	}
 	else
 		if (!ft_strcmp(lm->typ, "herdoc"))

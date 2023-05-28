@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:40:38 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/25 16:23:46 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/28 16:36:35 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	lin_clear(t_pipe *sp)
 		ltmp = sp->lin->nxt;
 		if (sp->lin->shx)
 			free(sp->lin->shx);
+		if (sp->lin->bex)
+			free(sp->lin->bex);
 		free(sp->lin->path);
 		free(sp->lin);
 		sp->lin = ltmp;

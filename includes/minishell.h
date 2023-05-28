@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/27 17:14:04 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/28 16:31:12 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct file_in
 	int				flag;
 	char			*file;
 	char			*del;
+	struct line		*lm;
 	struct file_in	*nxt;
 }	t_fin;
 
@@ -40,6 +41,7 @@ typedef struct file_out
 	int				fd;
 	int				flag;
 	char			*file;
+	struct line		*lm;
 	mode_t			perm;
 	struct file_out	*nxt;
 }	t_fout;
@@ -60,6 +62,7 @@ typedef struct pipe
 typedef struct line
 {
 	char		*shx;
+	char		*bex;
 	char		*typ;
 	char		*path;
 	struct line	*nxt;
@@ -106,8 +109,8 @@ t_line	*ft_lastline(t_line *lin);
 t_fin	*ft_lastfin(t_fin *fin);
 t_fout	*ft_lastfout(t_fout *fout);
 t_pipe	*new_sp(char *str);
-t_fin	*new_fin(char *file, int her, char *del);
-t_fout	*new_fout(char *file, int app);
+t_fin	*new_fin(t_line *lm, char *file, int her, char *del);
+t_fout	*new_fout(t_line *lm, char *file, int app);
 t_line	*new_lin(char *str);
 t_env	*new_env(char *str);
 t_env	*ft_lastenv(t_env *env);
