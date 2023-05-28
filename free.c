@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 20:06:33 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/24 22:01:33 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/28 22:40:42 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,18 @@ void	free_env(t_env **env)
 		free((*env)->arg);
 		free(*env);
 		*env = tenv;
+	}
+}
+
+void	free_exp(t_exp **exp)
+{
+	t_exp	*texp;
+
+	while (*exp)
+	{
+		texp = (*exp)->nxt;
+		free((*exp)->xarg);
+		free(*exp);
+		*exp = texp;
 	}
 }
