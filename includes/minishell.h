@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/29 19:48:18 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/29 19:51:32 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,6 +187,7 @@ void	unset_cmd(t_line *lm, int x);
 void	close_fd(void);
 void	export_cmd(t_line *lm, int x);
 void	set_xport(t_env *em);
-void	heredoc(t_fin	*fin);
+void	heredoc(t_fin *fin, int i);
+void	open_here(t_pipe *sp, int i);
 
 #endif
