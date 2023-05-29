@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 20:24:34 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/28 16:59:50 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/28 22:41:15 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	exit_cmd(int x)
 	{
 		printf("exit\n");
 		free_env(&g_va.env);
-		//add free export
+		free_exp(&g_va.xport);
 	}
 	ft_free();
 	exit(g_va.exit_s);
