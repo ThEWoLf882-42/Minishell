@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:10:25 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/27 17:06:46 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/29 16:15:39 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,11 +96,12 @@ void	childs(t_pipe *sp, int i)
 
 	which_pipe(i);
 	open_file(sp, 1);
+	open_here(sp, i);
 	lm = sp->lin;
 	while (sp->lin && ft_strcmp(sp->lin->typ, "cmd"))
 		sp->lin = sp->lin->nxt;
 	builtins(lm, 1);
-	if (!sp->lin->shx)
+	if (!sp->lin || !sp->lin->shx)
 		exit(0);
 	if_nopath(sp->lin);
 	if (!sp->lin->path || !*sp->lin->shx)

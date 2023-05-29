@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 15:25:26 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/28 17:01:20 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/29 17:50:22 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	main(int ac, char **av, char **env)
 	g_va.exit_s = 0;
 	set_env(env);
 	set_xport(g_va.env);
+	g_va.stdi = dup(0);
+	g_va.stdo = dup(1);
 	while (1)
 	{
 		g_va.line = readline("minishell-69$ ");

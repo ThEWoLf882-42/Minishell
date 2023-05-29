@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/28 16:31:12 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/29 18:00:05 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,8 @@ typedef struct vars
 	t_env				*env;
 	pid_t				*pids;
 	struct sigaction	sa;
+	int					stdi;
+	int					stdo;
 }	t_vars;
 
 t_vars	g_va;
@@ -134,6 +136,9 @@ void	ft_backexp(t_exp **exp, t_exp *new);
 t_exp	*ft_lastexp(t_exp *exp);
 t_exp	*new_exp(char *str);
 char	*ft_itoa(int n);
+char	**ft_split(char *s, char c);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putchar_fd(char c, int fd);
 /***********************LIBFT***********************/
 
 int		fill_sp(char *line);
@@ -182,6 +187,7 @@ void	unset_cmd(t_line *lm, int x);
 void	close_fd(void);
 void	export_cmd(t_line *lm, int x);
 void	set_xport(t_env *em);
-void	heredoc(t_fin	*fin);
+void	heredoc(t_fin *fin, int i);
+void	open_here(t_pipe *sp, int i);
 
 #endif

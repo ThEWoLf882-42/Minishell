@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 12:14:50 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/28 16:41:04 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/28 18:16:32 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,17 @@ int	open_fin(t_pipe *sp, int x)
 		if ((ft_strchr(fin->file, ' ') || ft_strchr(fin->file, ' ')) \
 			&& fin->lm->nxt->bex)
 			redirect_error(fin->lm->nxt->bex, x);
-		fin->fd = open(fin->file, fin->flag);
-		if (fin->fd == -1)
+		if (!fin->herdoc)
 		{
-			print_error(fin->file, 1, x);
-			return (1);
+			fin->fd = open(fin->file, fin->flag);
+			if (fin->fd == -1)
+			{
+				print_error(fin->file, 1, x);
+				return (1);
+			}
+			dup2(fin->fd, 0);
+			close(fin->fd);
 		}
-		dup2(fin->fd, 0);
-		if (fin->herdoc == 1)
-			heredoc(fin);
-		close(fin->fd);
 		fin = fin->nxt;
 	}
 	return (0);
@@ -73,9 +74,9 @@ int	open_file(t_pipe *sp, int x)
 {
 	dup2(0, 69);
 	dup2(1, 88);
-	if (open_fin(sp, x))
-		return (1);
 	if (open_fout(sp, x))
+		return (1);
+	if (open_fin(sp, x))
 		return (1);
 	return (0);
 }

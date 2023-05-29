@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 21:14:15 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/28 16:31:52 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/28 18:11:01 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	test(t_pipe *sm, t_line *lm)
 		else if (!ft_strcmp(lm->typ, "in"))
 			ft_backfin(&sm->fin, new_fin(lm, lm->nxt->shx, 0, NULL));
 		else if (!ft_strcmp(lm->typ, "herdoc"))
-			ft_backfin(&sm->fin, new_fin(lm, "/tmp/herdoc", 1, lm->nxt->shx));
+			ft_backfin(&sm->fin, new_fin(lm, NULL, 1, lm->nxt->shx));
 	}
 	else
 		if (!ft_strcmp(lm->typ, "herdoc"))
