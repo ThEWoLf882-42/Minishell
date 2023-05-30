@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:11:05 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/30 15:52:19 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/30 18:48:51 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void	expand_that(t_exp_utl *exp, t_line *lm, int start, int end)
 	char	*lnew;
 	size_t	s;
 
-	lnew = ft_lastline(exp->newlm)->shx;
+	if (exp->newlm)
+		lnew = ft_lastline(exp->newlm)->shx;
 	s = ft_strlen(lm->shx) - end;
 	if (exp->bf)
 	{
