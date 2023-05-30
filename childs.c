@@ -3,21 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   childs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:10:25 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/29 16:15:39 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/30 15:45:24 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-void	exit_print(char *str)
-{
-	dup2(2, 1);
-	printf("minishell-69: %s: command not found\n", str);
-	exit(127);
-}
 
 int	nargs(t_line *lm)
 {

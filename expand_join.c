@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   expand_utils.c                                     :+:      :+:    :+:   */
+/*   expand_join.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:03:29 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/30 15:04:05 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/30 15:46:04 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,8 @@ void	join_af(t_line **newlm, char *shx, char *found, int end)
 	i = 0;
 	while (str[i])
 		i++;
-	ft_backline(newlm, new_lin(ft_strjoin(str[i - 1], ft_substr(shx, end + 2, ft_strlen(shx) - end))));
+	ft_backline(newlm, new_lin(ft_strjoin(str[i - 1], ft_substr(shx, end + 2,
+					ft_strlen(shx) - end))));
 	i = -1;
 	while (str[++i])
 		free(str[i]);

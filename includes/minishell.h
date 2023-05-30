@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/30 15:15:37 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/30 16:03:25 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,8 @@ typedef struct exp_utl
 {
 	t_line	*newlm;
 	char	*found;
-	int	bf;
-	int	af;
+	int		bf;
+	int		af;
 }	t_exp_utl;
 
 //struct pipe
@@ -208,5 +208,14 @@ int		char_bf(int start);
 int		char_af(char *shx, int end);
 void	join_bf(t_line **newlm, char *shx, char *found, int start);
 void	join_af(t_line **newlm, char *shx, char *found, int end);
+char	*sp_dlr(char *get, int *bf, int *af);
+void	creat_expnod(t_line **newlm, char *found, int bf);
+void	exit_print(char *str);
+char	*which_env(char *get, int *bf, int *af);
+char	*copy_exp(char *arg);
+void	add_env(char *narg);
+void	change_envarg(t_env *em, char *narg);
+void	add_exp(char *narg);
+void	change_xarg(t_exp *xm, char *narg);
 
 #endif

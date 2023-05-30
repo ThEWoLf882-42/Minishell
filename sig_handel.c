@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sig_handel.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 22:49:35 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/28 17:44:52 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/30 16:02:48 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ha_sig(int sig)
 	}
 	if (sig == SIGINT)
 	{
-		// rl_replace_line("", 0);
+		rl_replace_line("", 0);
 		printf("\n");
 		rl_on_new_line();
 		rl_redisplay();
