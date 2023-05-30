@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   childs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:10:25 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/30 15:45:24 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/30 17:50:25 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ void	childs(t_pipe *sp, int i)
 
 	which_pipe(i);
 	open_file(sp, 1);
-	open_here(sp, i);
 	lm = sp->lin;
 	while (sp->lin && ft_strcmp(sp->lin->typ, "cmd"))
 		sp->lin = sp->lin->nxt;

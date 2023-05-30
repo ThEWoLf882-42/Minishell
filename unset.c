@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 22:37:18 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/27 17:13:48 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/30 18:41:12 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,12 @@ void	unset_cmd(t_line *lm, int x)
 	t_exp	*exp;
 	char	*s;
 
-	if (open_file(g_va.sp, x))
-		return ;
+	if (!x)
+	{
+		open_here();
+		if (open_file(g_va.sp, x))
+			return ;
+	}
 	env = g_va.env;
 	exp = g_va.xport;
 	while (lm)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   export.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 16:21:19 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/30 16:01:15 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/30 18:40:34 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,12 @@ void	export_cmd(t_line *lm, int x)
 	t_exp	*xm;
 
 	xm = g_va.xport;
-	if (open_file(g_va.sp, x))
-		return ;
+	if (!x)
+	{
+		open_here();
+		if (open_file(g_va.sp, x))
+			return ;
+	}
 	if (!lm->nxt || ft_strcmp(lm->nxt->typ, "arg"))
 	{
 		while (xm)

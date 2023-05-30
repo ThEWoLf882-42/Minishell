@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:31:51 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/27 15:33:08 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/30 18:41:19 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,12 @@ void	env_cmd(t_line *lm, int x)
 {
 	t_env	*env;
 
-	if (open_file(g_va.sp, x))
-		return ;
+	if (!x)
+	{
+		open_here();
+		if (open_file(g_va.sp, x))
+			return ;
+	}
 	env = g_va.env;
 	if (lm && lm->nxt)
 	{

@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 22:39:26 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/25 19:06:29 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/30 18:36:33 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	forking(void)
 		return ;
 	open_pipes();
 	i = -1;
+	open_here();
 	while (sp)
 	{
 		i++;

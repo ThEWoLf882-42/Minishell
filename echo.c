@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   echo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:38:53 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/28 22:38:03 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/30 18:40:22 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,12 @@ void	echo_cmd(t_line *lm, int x)
 {
 	int	n;
 
-	if (open_file(g_va.sp, x))
-		return ;
+	if (!x)
+	{
+		open_here();
+		if (open_file(g_va.sp, x))
+			return ;
+	}
 	n = 0;
 	skip_n(&lm, &n);
 	while (lm && lm->shx)

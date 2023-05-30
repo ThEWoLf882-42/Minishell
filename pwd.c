@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pwd.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 11:54:41 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/26 15:41:20 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/30 18:39:28 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,12 @@ void	pwd_cmd(int x)
 {
 	char	*pwd;
 
-	if (open_file(g_va.sp, x))
-		return ;
+	if (!x)
+	{
+		open_here();
+		if (open_file(g_va.sp, x))
+			return ;
+	}
 	pwd = getcwd(NULL, 0);
 	if (!pwd)
 		print_error(pwd, 1, x);

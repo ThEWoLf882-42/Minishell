@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 12:14:50 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/30 15:00:31 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/30 17:51:19 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ int	open_fin(t_pipe *sp, int x)
 				print_error(fin->file, 1, x);
 				return (1);
 			}
-			dup2(fin->fd, 0);
-			close(fin->fd);
 		}
+		dup2(fin->fd, 0);
+		close(fin->fd);
 		fin = fin->nxt;
 	}
 	return (0);
