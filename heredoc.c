@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 14:26:39 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/30 18:37:01 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/30 19:57:04 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,23 @@
 
 void	heredoc(t_fin *fin, int h[])
 {
-	char	*line;
+	char	*li;
 	int		at;
 
 	at = dup(0);
 	dup2(g_va.stdi, 0);
 	while (1)
 	{
-		line = readline("> ");
-		if (!ft_strcmp(line, fin->del))
+		li = readline("> ");
+		if (!ft_strcmp(li, fin->del) || !li)
 			break ;
-		else
+		if (ft_strchr(fin->del, '\'') || ft_strchr(fin->del, '"'))
 		{
-			ft_putstr_fd(line, h[1]);
+			ft_putstr_fd(li, h[1]);
 			ft_putchar_fd('\n', h[1]);
 		}
+		else
+			here_exp(li, h[1]);
 	}
 	close(h[1]);
 	dup2(at, 0);

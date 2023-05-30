@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/30 18:37:35 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/30 19:07:53 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -216,6 +216,7 @@ char	*copy_exp(char *arg);
 void	add_env(char *narg);
 void	change_envarg(t_env *em, char *narg);
 void	add_exp(char *narg);
+void	here_exp(char *li, int fd);
 void	change_xarg(t_exp *xm, char *narg);
 
 #endif

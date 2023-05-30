@@ -56,6 +56,7 @@ SOURCES_LIST =	add_x.c \
 				ft_strjoin.c \
 				ft_strlen.c \
 				ft_substr.c \
+				here_exp.c \
 				heredoc.c \
 				lin_type.c \
 				minishell.c \
