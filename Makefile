@@ -1,6 +1,6 @@
 CC = cc
 NAME = minishell
-FLAGS = -Wall -Wextra -Werror #-fsanitize=thread -g 
+FLAGS = -Wall -Wextra -Werror -fsanitize=thread -g 
 
 INCLUDES = -I$(HEADERS_DIRECTORY) -I /goinfre/$(USER)/.brew/Cellar/readline/8.2.1/include
 LIBRARIES = -L /goinfre/$(USER)/.brew/Cellar/readline/8.2.1/lib -lreadline 
@@ -25,6 +25,7 @@ SOURCES_LIST =	builtins.c \
 				echo.c \
 				env.c \
 				exit.c \
+				expand_join.c \
 				expand.c \
 				export.c \
 				fill_lin.c \
@@ -48,6 +49,7 @@ SOURCES_LIST =	builtins.c \
 				ft_split.c \
 				ft_strchr.c \
 				ft_strdup.c \
+				ft_strjoin.c \
 				ft_strlen.c \
 				ft_substr.c \
 				heredoc.c \

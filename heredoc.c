@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 14:26:39 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/29 18:09:44 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/30 10:07:24 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	heredoc(t_fin *fin, int i)
 {
+	(void)i;
 	char	*line;
 	int at;
 	at = dup(0);

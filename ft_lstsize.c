@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 19:32:51 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/23 19:35:45 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/30 11:10:59 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,19 @@ int	ft_pipesize(t_pipe *sp)
 	{
 		i++;
 		sp = sp->nxt;
+	}
+	return (i);
+}
+
+int	ft_linesize(t_line *lin)
+{
+	int	i;
+
+	i = 0;
+	while (lin)
+	{
+		i++;
+		lin = lin->nxt;
 	}
 	return (i);
 }

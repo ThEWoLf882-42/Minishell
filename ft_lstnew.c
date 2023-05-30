@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 16:05:04 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/28 16:31:03 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/30 13:09:14 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ t_line	*new_lin(char *str)
 		return (NULL);
 	lin->shx = ft_strdup(str);
 	lin->bex = NULL;
+	lin->space = 0;
 	lin->path = NULL;
 	lin->nxt = NULL;
 	lin->typ = NULL;

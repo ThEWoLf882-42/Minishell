@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/29 19:51:32 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/30 15:15:37 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct line
 {
 	char		*shx;
 	char		*bex;
+	int			space;
 	char		*typ;
 	char		*path;
 	struct line	*nxt;
@@ -80,6 +81,14 @@ typedef struct export
 	char			*xarg;
 	struct export	*nxt;
 }	t_exp;
+
+typedef struct exp_utl
+{
+	t_line	*newlm;
+	char	*found;
+	int	bf;
+	int	af;
+}	t_exp_utl;
 
 //struct pipe
 typedef struct vars
@@ -129,6 +138,7 @@ int		ft_isdlr(char c);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_pipesize(t_pipe *sp);
+int		ft_linesize(t_line *lin);
 void	ft_free(void);
 char	*ft_strchr(const char *s, int c);
 char	*ft_substr(char *s, int start, int len);
@@ -139,6 +149,8 @@ char	*ft_itoa(int n);
 char	**ft_split(char *s, char c);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putchar_fd(char c, int fd);
+char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strjoin2fr(char *s1, char *s2);
 /***********************LIBFT***********************/
 
 int		fill_sp(char *line);
@@ -189,5 +201,12 @@ void	export_cmd(t_line *lm, int x);
 void	set_xport(t_env *em);
 void	heredoc(t_fin *fin, int i);
 void	open_here(t_pipe *sp, int i);
+void	free_exp(t_exp **exp);
+void	redirect_error(char *str, int x);
+void	put_dlr_bex(t_line *lm);
+int		char_bf(int start);
+int		char_af(char *shx, int end);
+void	join_bf(t_line **newlm, char *shx, char *found, int start);
+void	join_af(t_line **newlm, char *shx, char *found, int end);
 
 #endif
