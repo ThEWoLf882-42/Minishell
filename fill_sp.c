@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 16:16:25 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/26 22:38:57 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/30 16:21:28 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	fill_sp(char *line)
 	if (!*line)
 		return (1);
 	if (line[ft_strlen(line) - 1] == '|')
-		return (write(2, "Error pipe | at end of line\n", 28), 1);
+		return (write(2, " syntax error near unexpected token `|'\n", 40), 1);
 	pl = malloc(sizeof(char) * ft_strlen(line) + 1);
 	if (!pl)
 		return (1);
