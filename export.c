@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   export.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 16:21:19 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/30 18:40:34 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/30 21:52:21 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,10 @@ void	export_cmd(t_line *lm, int x)
 	{
 		while (xm)
 		{
-			printf("declare -x %s\n", xm->xarg);
+			ft_putstr_fd("declare -x ", 1);
+			ft_putstr_fd(xm->xarg, 1);
+			ft_putchar_fd('\n', 1);
+			// printf("declare -x %s\n", xm->xarg);
 			xm = xm->nxt;
 		}
 	}

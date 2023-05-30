@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   open.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 12:14:50 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/30 17:51:19 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/30 22:30:55 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	redirect_error(char *str, int x)
 {
-	dup2(1, 2);
-	printf("minishell-69: %s: ambiguous redirect\n", str);
+	ft_putstr_fd("minishell-69: ", 2);
+	ft_putstr_fd(str, 2);
+	ft_putstr_fd(": ambiguous redirect\n", 2);
 	if (x)
 		exit(1);
-	dup2(2, 1);
 }
 
 int	open_fin(t_pipe *sp, int x)

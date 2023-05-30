@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:31:51 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/30 18:41:19 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/30 22:30:34 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ void	env_cmd(t_line *lm, int x)
 	}
 	while (env)
 	{
-		printf("%s\n", env->arg);
+		ft_putstr_fd(env->arg, 1);
+		ft_putchar_fd('\n', 1);
 		env = env->nxt;
 	}
 	if (x)

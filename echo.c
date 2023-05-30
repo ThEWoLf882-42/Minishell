@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   echo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:38:53 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/30 18:40:22 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/30 22:30:30 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,14 @@ void	echo_cmd(t_line *lm, int x)
 	{
 		if (!ft_strcmp(lm->typ, "arg"))
 		{
-			printf("%s", lm->shx);
+			ft_putstr_fd(lm->shx, 1);
 			if (lm->nxt)
-				printf(" ");
+				ft_putchar_fd(' ', 1);
 		}
 		lm = lm->nxt;
 	}
 	if (!n)
-		printf("\n");
+		ft_putchar_fd('\n', 1);
 	if (x)
 		exit(0);
 	close_fd();

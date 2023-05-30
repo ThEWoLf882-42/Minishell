@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   childs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:10:25 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/30 17:50:25 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/30 22:30:21 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,9 @@ void	is_dir(char *cmd)
 {
 	if (opendir(cmd))
 	{
-		dup2(2, 1);
-		printf("minishell-69: %s: is a directory\n", cmd);
+		ft_putstr_fd("minishell-69: ", 2);
+		ft_putstr_fd(cmd, 2);
+		ft_putstr_fd(": is a directory\n", 2);
 		exit(126);
 	}
 }
@@ -76,8 +77,9 @@ void	if_nopath(t_line *lm)
 	}
 	if (!count)
 	{
-		dup2(2, 1);
-		printf("minishell-69: %s: No such file or directory\n", lm->shx);
+		ft_putstr_fd("minishell-69: ", 2);
+		ft_putstr_fd(lm->shx, 2);
+		ft_putstr_fd(": No such file or directory\n", 2);
 		exit(126);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:44:07 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/30 15:44:32 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/30 22:30:39 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	exit_print(char *str)
 {
-	dup2(2, 1);
-	printf("minishell-69: %s: command not found\n", str);
+	ft_putstr_fd("minishell-69: ", 2);
+	ft_putstr_fd(str, 2);
+	ft_putstr_fd(": command not found\n", 2);
 	exit(127);
 }
