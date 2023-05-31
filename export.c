@@ -81,7 +81,6 @@ void	export_cmd(t_line *lm, int x)
 			ft_putstr_fd("declare -x ", 1);
 			ft_putstr_fd(xm->xarg, 1);
 			ft_putchar_fd('\n', 1);
-			// printf("declare -x %s\n", xm->xarg);
 			xm = xm->nxt;
 		}
 	}

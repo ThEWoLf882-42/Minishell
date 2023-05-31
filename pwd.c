@@ -27,7 +27,6 @@ void	pwd_cmd(int x)
 		print_error(pwd, 1, x);
 	ft_putstr_fd(pwd, 1);
 	ft_putchar_fd('\n', 1);
-	// printf("%s\n", pwd);
 	free(pwd);
 	if (x)
 		exit(0);
