@@ -38,7 +38,6 @@ int	char_bf(int start)
 
 int	char_af(char *shx, int end)
 {
-	// end++;
 	if (shx[end] != '\0' && shx[end] != ' ' && shx[end] != '\t')
 		return (1);
 	return (0);

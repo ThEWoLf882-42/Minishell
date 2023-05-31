@@ -36,8 +36,13 @@ void	expand_that(t_exp_utl *exp, t_line *lm, int start, int end)
 	}
 	else
 	{
-		if (char_af(lm->shx, end))
+		if (char_af(lm->shx, end) && lnew)
 			lnew = ft_strjoin2fr(lnew, ft_substr(lm->shx, end + 1, s));
+		else if (char_af(lm->shx, end) && !lnew)
+		{
+			lnew = ft_strjoin2fr(lnew, ft_substr(lm->shx, end + 1, s));
+			exp->newlm = new_lin(lnew);
+		}
 	}
 }
 
@@ -47,7 +52,7 @@ void	exp_dlr(t_line *lm, int start, int end)
 	char		*get;
 
 	exp.newlm = NULL;
-	get = ft_substr(lm->shx, start + 1, end - (start + 1));
+	get = ft_substr(lm->shx, start + 1, end - (start));
 	exp.found = which_env(get, &exp.bf, &exp.af);
 	if (!exp.found && (end - start == (int)ft_strlen(lm->shx)))
 	{
