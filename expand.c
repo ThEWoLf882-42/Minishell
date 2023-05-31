@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:11:05 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/31 18:38:50 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/31 19:36:55 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ void	exp_dlr(t_line *lm, int start, int end)
 	exp.newlm = NULL;
 	get = ft_substr(lm->shx, start + 1, end - (start + 1));
 	exp.found = which_env(get, &exp.bf, &exp.af);
-	printf("get[%s] fo[%s]\n", get, exp.found);
 	if (!exp.found && (end - start == (int)ft_strlen(lm->shx)))
 	{
 		free(lm->shx);
