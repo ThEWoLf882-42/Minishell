@@ -54,7 +54,6 @@ void	join_bf(t_line **newlm, char *shx, char *found, int start)
 		return ;
 	}
 	str = ft_split(found, ' ');
-	printf("s[%s]\n", ft_strjoin(ft_substr(shx, 0, start), str[0]));
 	ft_backline(newlm, new_lin(ft_strjoin(ft_substr(shx, 0, start), str[0])));
 	i = -1;
 	while (str[++i])

@@ -34,13 +34,10 @@ void	expand_that(t_exp_utl *exp, t_line *lm, int start, int end)
 	}
 	else
 	{
-		if (char_af(lm->shx, end) && lnew)
-			lnew = ft_strjoin2fr(lnew, ft_substr(lm->shx, end + 1, s));
-		// else if (char_af(lm->shx, end) && !lnew)
-		// {
-		// 	lnew = ft_strjoin2fr(lnew, ft_substr(lm->shx, end + 1, s));
-		// 	exp->newlm = new_lin(lnew);
-		// }
+		if (char_af(lm->shx, end))
+			lnew = ft_strjoin2fr(lnew, ft_substr(lm->shx, end, s));
+		free(ft_lastline(exp->newlm)->shx);
+		ft_lastline(exp->newlm)->shx = lnew;
 	}
 }
 
@@ -88,14 +85,15 @@ void	expand_it(t_line *lm)
 		if (start == -1 || !lm->shx[start])
 			break ;
 		end = start + 1;
-		if ((lm->shx[start + 1] == 31 || lm->shx[start + 1] == '?'
-				|| ft_isdigit(lm->shx[start + 1]) || lm->shx[start + 1] == '$'))
-			end++;
+		if (!ft_isalpha(lm->shx[end]) && lm->shx[end] != '_')
+			exp_dlr(lm, start, end + 1);
 		else
+		{
 			while (ft_isdigit(lm->shx[end]) || ft_isalpha(lm->shx[end])
-				|| lm->shx[end] == '_')
+			|| lm->shx[end] == '_')
 				end++;
-		exp_dlr(lm, start, end);
+			exp_dlr(lm, start, end);
+		}
 	}
 }
 

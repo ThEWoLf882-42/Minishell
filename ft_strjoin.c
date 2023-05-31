@@ -58,7 +58,7 @@ char	*ft_strjoin2fr(char *s1, char *s2)
 	while (s2 && s2[j])
 		str[i++] = s2[j++];
 	str[i] = '\0';
-	free(s1);
-	free(s2);
+	// free(s1);
+	// free(s2);
 	return (str);
 }
