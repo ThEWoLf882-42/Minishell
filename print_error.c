@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:07:22 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/26 15:37:00 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/31 12:26:43 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,5 @@ void	print_error(char *str, int exn, int x)
 	perror(str);
 	if (x)
 		exit(exn);
+	g_va.exit_s = exn;
 }

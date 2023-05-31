@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:11:05 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/30 18:48:51 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/31 12:56:49 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	expand_that(t_exp_utl *exp, t_line *lm, int start, int end)
 	char	*lnew;
 	size_t	s;
 
+	lnew = NULL;
 	if (exp->newlm)
 		lnew = ft_lastline(exp->newlm)->shx;
 	s = ft_strlen(lm->shx) - end;

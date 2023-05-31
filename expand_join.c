@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand_join.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:03:29 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/30 15:46:04 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/31 12:24:30 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	char_bf(int start)
 
 int	char_af(char *shx, int end)
 {
-	end++;
+	// end++;
 	if (shx[end] != '\0' && shx[end] != ' ' && shx[end] != '\t')
 		return (1);
 	return (0);
