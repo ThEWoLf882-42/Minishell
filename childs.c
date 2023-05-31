@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:10:25 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/31 20:27:55 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/31 21:29:12 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	if_nopath(t_line *lm)
 		ft_putstr_fd("minishell-69: ", 2);
 		ft_putstr_fd(lm->shx, 2);
 		ft_putstr_fd(": No such file or directory\n", 2);
-		exit(126);
+		exit(127);
 	}
 }
 
