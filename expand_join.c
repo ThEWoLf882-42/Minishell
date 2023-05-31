@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:03:29 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/31 18:31:51 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/31 20:21:50 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ int	char_bf(int start)
 
 int	char_af(char *shx, int end)
 {
-	end--;
+	if ((size_t)end > ft_strlen(shx))
+		end--;
 	if (shx[end] != '\0' && shx[end] != ' ' && shx[end] != '\t')
 		return (1);
 	return (0);
