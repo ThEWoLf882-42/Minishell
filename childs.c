@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:10:25 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/31 19:57:58 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/31 20:27:55 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	**join_arg(t_line *lm)
 			cmd[0] = lm->shx;
 		if (!ft_strcmp(lm->typ, "arg"))
 			cmd[++i] = lm->shx;
-		if (!ft_strcmp(cmd[i], ""))
+		if (!ft_strcmp(cmd[i], "") || !ft_strcmp(cmd[i], " "))
 			i--;
 		lm = lm->nxt;
 	}

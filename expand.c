@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:11:05 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/31 20:13:40 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/31 20:26:49 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void	expand_that(t_exp_utl *exp, t_line *lm, int start, int end)
 	else
 		join_bf(&exp->newlm, lm->shx, exp->found, start);
 	creat_expnod(&exp->newlm, exp->found, exp->bf);
-	lnew = ft_lastline(exp->newlm)->shx;
+	if (exp->newlm)
+		lnew = ft_lastline(exp->newlm)->shx;
 	if (exp->af)
 	{
 		if (char_af(lm->shx, end))
@@ -55,7 +56,7 @@ void	exp_dlr(t_line *lm, int start, int end)
 		return ;
 	}
 	expand_that(&exp, lm, start, end);
-	if (lm->nxt)
+	if (lm->nxt && exp.newlm)
 		ft_lastline(exp.newlm)->nxt = lm->nxt;
 	free(lm->shx);
 	if (exp.af || exp.bf)
