@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:11:05 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/31 21:25:01 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/31 21:27:23 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	expand_it(t_line *lm)
 		else
 		{
 			while (ft_isdigit(lm->shx[end]) || ft_isalpha(lm->shx[end])
-			|| lm->shx[end] == '_')
+				|| lm->shx[end] == '_')
 				end++;
 			exp_dlr(lm, start, end);
 		}
