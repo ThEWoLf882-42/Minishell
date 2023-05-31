@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:11:05 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/31 20:26:49 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/31 21:25:01 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ void	exp_dlr(t_line *lm, int start, int end)
 	expand_that(&exp, lm, start, end);
 	if (lm->nxt && exp.newlm)
 		ft_lastline(exp.newlm)->nxt = lm->nxt;
+	if (!exp.newlm)
+		exp.newlm = lm->nxt;
 	free(lm->shx);
 	if (exp.af || exp.bf)
 		lm->space = 1;
