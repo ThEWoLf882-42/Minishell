@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 13:09:29 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/31 11:50:34 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/31 17:59:02 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,7 @@ void	cd_cmd(t_line *lm, int x)
 		lm = lm->nxt;
 	if (lm && !lm->nxt)
 	{
-		//our getenv
-		cd = getenv("HOME");
+		cd = get_env("HOME");
 		if (chdir(cd) == -1)
 			print_error(cd, 1, x);
 	}

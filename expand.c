@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:11:05 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/31 12:56:49 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/31 18:38:50 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@ void	expand_that(t_exp_utl *exp, t_line *lm, int start, int end)
 	char	*lnew;
 	size_t	s;
 
-	lnew = NULL;
-	if (exp->newlm)
-		lnew = ft_lastline(exp->newlm)->shx;
 	s = ft_strlen(lm->shx) - end;
 	if (exp->bf)
 	{
@@ -29,6 +26,7 @@ void	expand_that(t_exp_utl *exp, t_line *lm, int start, int end)
 	else
 		join_bf(&exp->newlm, lm->shx, exp->found, start);
 	creat_expnod(&exp->newlm, exp->found, exp->bf);
+	lnew = ft_lastline(exp->newlm)->shx;
 	if (exp->af)
 	{
 		if (char_af(lm->shx, end))
@@ -38,11 +36,11 @@ void	expand_that(t_exp_utl *exp, t_line *lm, int start, int end)
 	{
 		if (char_af(lm->shx, end) && lnew)
 			lnew = ft_strjoin2fr(lnew, ft_substr(lm->shx, end + 1, s));
-		else if (char_af(lm->shx, end) && !lnew)
-		{
-			lnew = ft_strjoin2fr(lnew, ft_substr(lm->shx, end + 1, s));
-			exp->newlm = new_lin(lnew);
-		}
+		// else if (char_af(lm->shx, end) && !lnew)
+		// {
+		// 	lnew = ft_strjoin2fr(lnew, ft_substr(lm->shx, end + 1, s));
+		// 	exp->newlm = new_lin(lnew);
+		// }
 	}
 }
 
@@ -52,8 +50,9 @@ void	exp_dlr(t_line *lm, int start, int end)
 	char		*get;
 
 	exp.newlm = NULL;
-	get = ft_substr(lm->shx, start + 1, end - (start));
+	get = ft_substr(lm->shx, start + 1, end - (start + 1));
 	exp.found = which_env(get, &exp.bf, &exp.af);
+	printf("get[%s] fo[%s]\n", get, exp.found);
 	if (!exp.found && (end - start == (int)ft_strlen(lm->shx)))
 	{
 		free(lm->shx);

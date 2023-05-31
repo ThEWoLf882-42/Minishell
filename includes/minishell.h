@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/30 19:07:53 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/31 18:00:33 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -218,5 +218,6 @@ void	change_envarg(t_env *em, char *narg);
 void	add_exp(char *narg);
 void	here_exp(char *li, int fd);
 void	change_xarg(t_exp *xm, char *narg);
+char	*get_env(char *env);
 
 #endif

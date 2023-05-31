@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand_join.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:03:29 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/31 12:24:30 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/31 18:31:51 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	join_bf(t_line **newlm, char *shx, char *found, int start)
 		return ;
 	}
 	str = ft_split(found, ' ');
+	printf("s[%s]\n", ft_strjoin(ft_substr(shx, 0, start), str[0]));
 	ft_backline(newlm, new_lin(ft_strjoin(ft_substr(shx, 0, start), str[0])));
 	i = -1;
 	while (str[++i])
