@@ -36,7 +36,6 @@ void	expand_that(t_exp_utl *exp, t_line *lm, int start, int end)
 	{
 		if (char_af(lm->shx, end))
 			lnew = ft_strjoin2fr(lnew, ft_substr(lm->shx, end, s));
-		// free(ft_lastline(exp->newlm)->shx);
 		ft_lastline(exp->newlm)->shx = lnew;
 	}
 }

@@ -33,6 +33,8 @@ void	creat_expnod(t_line **newlm, char *found, int bf)
 	if (!found)
 		return ;
 	str = ft_split(found, ' ');
+	if (!str[0])
+		return ;
 	i = -1;
 	if (!bf)
 	{
