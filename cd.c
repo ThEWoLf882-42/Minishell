@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 13:09:29 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/30 18:38:59 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/05/31 11:50:34 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void	cd_cmd(t_line *lm, int x)
 		lm = lm->nxt;
 	if (lm && !lm->nxt)
 	{
+		//our getenv
 		cd = getenv("HOME");
 		if (chdir(cd) == -1)
 			print_error(cd, 1, x);

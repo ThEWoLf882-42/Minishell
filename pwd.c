@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pwd.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 11:54:41 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/30 21:52:39 by agimi            ###   ########.fr       */
+/*   Updated: 2023/05/31 11:48:54 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	pwd_cmd(int x)
 		print_error(pwd, 1, x);
 	ft_putstr_fd(pwd, 1);
 	ft_putchar_fd('\n', 1);
-	// printf("%s\n", pwd);
 	free(pwd);
 	if (x)
 		exit(0);
