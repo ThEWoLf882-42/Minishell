@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 10:51:10 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/31 12:36:59 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/01 20:00:11 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	*ft_strjoin2fr(char *s1, char *s2)
 	i = 0;
 	j = 0;
 	if (!s1 && s2)
-		return(s2);
+		return (s2);
 	if (s1 && !s2)
 		return (s1);
 	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
