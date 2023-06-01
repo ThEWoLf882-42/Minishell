@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:11:05 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/06/01 19:59:38 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/01 20:22:48 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,9 @@ void	exp_dlr(t_line *lm, int start, int end)
 	if (!exp.newlm)
 		exp.newlm = lm->nxt;
 	free(lm->shx);
+	lm->shx = NULL;
 	if (exp.af || exp.bf)
-		lm->space = 1;
+		lm->space = 1; //ambig
 	if (exp.newlm)
 		set_lm(lm, &exp);
 	free(exp.found);
