@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 14:26:39 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/30 19:57:04 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/01 19:33:27 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	heredoc(t_fin *fin, int h[])
 		li = readline("> ");
 		if (!ft_strcmp(li, fin->del) || !li)
 			break ;
-		if (ft_strchr(fin->del, '\'') || ft_strchr(fin->del, '"'))
+		if (ft_strchr(fin->bex, '\'') || ft_strchr(fin->bex, '"'))
 		{
 			ft_putstr_fd(li, h[1]);
 			ft_putchar_fd('\n', h[1]);

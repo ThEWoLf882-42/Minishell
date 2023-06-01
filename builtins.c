@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 18:24:34 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/30 20:32:43 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/01 16:36:32 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	builtins(t_line *lm, int x)
 	else if (!ft_strcmp(lm->shx, "env"))
 		env_cmd(lm, x);
 	else if (!ft_strcmp(lm->shx, "exit"))
-		exit_cmd(x);
+		exit_cmd(lm, x);
 	else
 		return (0);
 	return (1);

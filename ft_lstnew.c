@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 16:05:04 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/30 13:09:14 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/01 19:04:38 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ t_line	*new_lin(char *str)
 	lin->nxt = NULL;
 	lin->typ = NULL;
 	lin->prv = NULL;
+	lin->del = NULL;
 	return (lin);
 }
 
@@ -71,7 +72,10 @@ t_fin	*new_fin(t_line *lm, char *file, int her, char *del)
 	if (!her)
 		fin->flag = O_RDONLY;
 	else
+	{
 		fin->flag = O_CREAT;
+		fin->bex = lm->nxt->del;
+	}
 	fin->nxt = NULL;
 	return (fin);
 }

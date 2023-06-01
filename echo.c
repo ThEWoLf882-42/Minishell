@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:38:53 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/31 21:34:13 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/01 19:56:26 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,6 @@ int	check_arg(char *arg)
 	}
 	return (0);
 }
-/*
-echo  echo $asd  
-*/
 
 void	skip_n(t_line **lm, int *n)
 {
@@ -39,6 +36,20 @@ void	skip_n(t_line **lm, int *n)
 		if (check_arg((*lm)->shx))
 			*n = 1;
 		(*lm) = (*lm)->nxt;
+	}
+}
+
+void	echo_loop(t_line *lm)
+{
+	while (lm && lm->shx)
+	{
+		if (!ft_strcmp(lm->typ, "arg"))
+		{
+			ft_putstr_fd(lm->shx, 1);
+			if (lm->nxt && !ft_strcmp(lm->nxt->typ, "arg"))
+				ft_putchar_fd(' ', 1);
+		}
+		lm = lm->nxt;
 	}
 }
 
@@ -54,19 +65,11 @@ void	echo_cmd(t_line *lm, int x)
 	}
 	n = 0;
 	skip_n(&lm, &n);
-	while (lm && lm->shx)
-	{
-		if (!ft_strcmp(lm->typ, "arg"))
-		{
-			ft_putstr_fd(lm->shx, 1);
-			if (lm->nxt && !ft_strcmp(lm->nxt->typ, "arg"))
-				ft_putchar_fd(' ', 1);
-		}
-		lm = lm->nxt;
-	}
+	echo_loop(lm);
 	if (!n)
 		ft_putchar_fd('\n', 1);
 	if (x)
 		exit(0);
 	close_fd();
+	g_va.exit_s = 0;
 }

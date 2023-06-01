@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:11:05 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/31 22:43:49 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/01 19:59:38 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,12 @@ void	expand_that(t_exp_utl *exp, t_line *lm, int start, int end)
 	}
 }
 
+void	set_lm(t_line *lm, t_exp_utl *exp)
+{
+	lm->shx = exp->newlm->shx;
+	lm->nxt = exp->newlm->nxt;
+}
+
 void	exp_dlr(t_line *lm, int start, int end)
 {
 	t_exp_utl	exp;
@@ -64,10 +70,7 @@ void	exp_dlr(t_line *lm, int start, int end)
 	if (exp.af || exp.bf)
 		lm->space = 1;
 	if (exp.newlm)
-	{
-		lm->shx = exp.newlm->shx;
-		lm->nxt = exp.newlm->nxt;
-	}
+		set_lm(lm, &exp);
 	free(exp.found);
 }
 /*
