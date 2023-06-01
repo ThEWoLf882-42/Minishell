@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   export.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 16:21:19 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/31 11:49:44 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/01 15:57:09 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,24 +43,53 @@ void	set_xport(t_env *em)
 
 	while (em)
 	{
-		dec_x = copy_exp(em->arg);
-		ft_backexp(&g_va.xport, new_exp(dec_x));
-		free(dec_x);
+		if (ft_strcmp(em->arg, "_=./minishell"))
+		{
+			dec_x = copy_exp(em->arg);
+			ft_backexp(&g_va.xport, new_exp(dec_x));
+			free(dec_x);
+		}
 		em = em->nxt;
 	}
+	ft_backexp(&g_va.xport, new_exp("OLDPWD"));
 }
 
-void	loop(t_line *lm)
+int	valid_exp(char *shx)
 {
+	int	i;
+
+	i = 0;
+	if (shx[i] != '_' && !ft_isalpha(shx[i]))
+		return (0);
+	while (shx[++i] && shx[i] != '=')
+		if (shx[i] != '_' && !ft_isalpha(shx[i]) && !ft_isdigit(shx[i]))
+			return (0);
+	return (1);
+}
+
+int	loop(t_line *lm)
+{
+	int	b;
+
+	b = 0;
 	while (lm)
 	{
-		if (!ft_strcmp(lm->typ, "arg"))
+		if (!valid_exp(lm->shx))
+		{
+			ft_putstr_fd("minishell-69: ", 2);
+			ft_putstr_fd(lm->shx, 2);
+			ft_putstr_fd(": not a valid identifier\n", 2);
+			g_va.exit_s = 1;
+			b = 1;
+		}
+		else if (!ft_strcmp(lm->typ, "arg"))
 		{
 			add_env(lm->shx);
 			add_exp(lm->shx);
 		}
 		lm = lm->nxt;
 	}
+	return (b);
 }
 
 void	export_cmd(t_line *lm, int x)
@@ -85,7 +114,8 @@ void	export_cmd(t_line *lm, int x)
 		}
 	}
 	lm = lm->nxt;
-	loop(lm);
+	if (loop(lm))
+		return ;
 	close_fd();
 	if (x)
 		exit(0);

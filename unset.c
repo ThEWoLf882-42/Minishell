@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   unset.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 22:37:18 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/30 18:41:12 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/01 12:59:50 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,16 @@ void	unset_env(t_env *env, char *s)
 	{
 		if (!ft_strncmp(s, env->arg, ft_strlen(s)))
 		{
-			if (tenv)
-				tenv->nxt = env->nxt;
-			else
-				g_va.env = env->nxt;
-			free(env->arg);
-			free(env);
-			break ;
+			if (env->arg[ft_strlen(s)] == '=')
+			{	
+				if (tenv)
+					tenv->nxt = env->nxt;
+				else
+					g_va.env = env->nxt;
+				free(env->arg);
+				free(env);
+				break ;
+			}
 		}
 		tenv = env;
 		env = env->nxt;
@@ -41,13 +44,16 @@ void	unset_xport(t_exp *exp, char *s)
 	{
 		if (!ft_strncmp(s, exp->xarg, ft_strlen(s)))
 		{
-			if (texp)
-				texp->nxt = exp->nxt;
-			else
-				g_va.xport = exp->nxt;
-			free(exp->xarg);
-			free(exp);
-			break ;
+			if (exp->xarg[ft_strlen(s)] == '=')
+			{
+				if (texp)
+					texp->nxt = exp->nxt;
+				else
+					g_va.xport = exp->nxt;
+				free(exp->xarg);
+				free(exp);
+				break ;
+			}
 		}
 		texp = exp;
 		exp = exp->nxt;

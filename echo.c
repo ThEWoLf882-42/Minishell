@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:38:53 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/31 21:34:13 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/01 16:27:34 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,6 @@ int	check_arg(char *arg)
 	}
 	return (0);
 }
-/*
-echo  echo $asd  
-*/
 
 void	skip_n(t_line **lm, int *n)
 {
@@ -69,4 +66,5 @@ void	echo_cmd(t_line *lm, int x)
 	if (x)
 		exit(0);
 	close_fd();
+	g_va.exit_s = 0;
 }

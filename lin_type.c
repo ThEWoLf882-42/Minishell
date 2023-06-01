@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lin_type.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 22:37:08 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/23 18:16:38 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/01 19:32:09 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@ void	test_31(t_line *lm)
 		while (lm->shx[++i])
 			if (lm->shx[i] == 31)
 				lm->shx[i] = '$';
+	}
+	i = -1;
+	if (ft_strchr(lm->del, 31))
+	{
+		while (lm->del[++i])
+			if (lm->del[i] == 31)
+				lm->del[i] = '$';
 	}
 }
 
@@ -46,6 +53,10 @@ static void	set_red(t_line *lm)
 		if (lm->nxt)
 		{
 			lm->nxt->typ = "delimiter";
+			if (lm->nxt->bex)
+				lm->nxt->del = ft_strdup(lm->nxt->bex);
+			else
+				lm->nxt->del = ft_strdup(lm->nxt->shx);
 			test_31(lm->nxt);
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 15:25:26 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/30 21:19:28 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/01 19:35:36 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int ac, char **av, char **env)
 		g_va.line = readline("minishell-69$ ");
 		add_history(g_va.line);
 		if (!g_va.line)
-			exit_cmd(0);
+			exit_cmd(NULL, 0);
 		trim_space(g_va.line);
 		if (fill_sp(g_va.line))
 		{
@@ -43,8 +43,8 @@ int	main(int ac, char **av, char **env)
 			g_va.exit_s = 258;
 			continue ;
 		}
-		clean_lin();
 		lin_type();
+		clean_lin();
 		expand();
 		clean();
 		set_cmd();

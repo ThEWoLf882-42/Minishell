@@ -36,6 +36,7 @@ SOURCES_LIST =	add_x.c \
 				fill_sp.c \
 				forking.c \
 				free.c \
+				ft_atoi.c \
 				ft_cmp.c \
 				ft_free.c \
 				ft_is_2.c \

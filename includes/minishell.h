@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/31 18:00:33 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/01 18:54:43 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct file_in
 	int				flag;
 	char			*file;
 	char			*del;
+	char			*bex;
 	struct line		*lm;
 	struct file_in	*nxt;
 }	t_fin;
@@ -63,6 +64,7 @@ typedef struct line
 {
 	char		*shx;
 	char		*bex;
+	char		*del;
 	int			space;
 	char		*typ;
 	char		*path;
@@ -151,6 +153,7 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putchar_fd(char c, int fd);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strjoin2fr(char *s1, char *s2);
+int		ft_atoi(const char *str);
 /***********************LIBFT***********************/
 
 int		fill_sp(char *line);
@@ -192,7 +195,7 @@ void	wait_pid(void);
 int		builtins(t_line *lm, int x);
 void	pwd_cmd(int x);
 void	cd_cmd(t_line *lm, int x);
-void	exit_cmd(int x);
+void	exit_cmd(t_line *lm, int x);
 void	env_cmd(t_line *lm, int x);
 void	echo_cmd(t_line *lm, int x);
 void	unset_cmd(t_line *lm, int x);

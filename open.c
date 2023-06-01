@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 12:14:50 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/30 22:30:55 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/01 16:33:40 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	redirect_error(char *str, int x)
 	ft_putstr_fd(": ambiguous redirect\n", 2);
 	if (x)
 		exit(1);
+	g_va.exit_s = 1;
 }
 
 int	open_fin(t_pipe *sp, int x)
@@ -29,7 +30,10 @@ int	open_fin(t_pipe *sp, int x)
 	while (fin)
 	{
 		if (fin->lm->nxt->space)
+		{
 			redirect_error(fin->lm->nxt->bex, x);
+			return (1);
+		}
 		if (!fin->herdoc)
 		{
 			fin->fd = open(fin->file, fin->flag);
@@ -54,7 +58,10 @@ int	open_fout(t_pipe *sp, int x)
 	while (fout)
 	{
 		if (fout->lm->nxt->space)
+		{
 			redirect_error(fout->lm->nxt->bex, x);
+			return (1);
+		}
 		fout->fd = open(fout->file, fout->flag, fout->perm);
 		if (fout->fd == -1)
 		{

@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 13:09:29 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/31 17:59:02 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/01 18:31:38 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,24 @@ lm->nxt && ft_strcmp(lm->nxt->typ, "arg")  to skip to the next arg
 after cmd  cd k > out
 */
 
+void	cd_env(char *cd, int x)
+{
+	cd = get_env("HOME");
+	if (!cd)
+	{
+		ft_putstr_fd("minishell-69: cd: HOME not set\n", 2);
+		g_va.exit_s = 1;
+	}
+	else if (chdir(cd) == -1)
+		print_error(cd, 1, x);
+}
+
 void	cd_cmd(t_line *lm, int x)
 {
 	t_env	*em;
 	char	*cd;
 
+	cd = NULL;
 	if (!x)
 	{
 		open_here();
@@ -59,11 +72,7 @@ void	cd_cmd(t_line *lm, int x)
 	while (lm->nxt && ft_strcmp(lm->nxt->typ, "arg"))
 		lm = lm->nxt;
 	if (lm && !lm->nxt)
-	{
-		cd = get_env("HOME");
-		if (chdir(cd) == -1)
-			print_error(cd, 1, x);
-	}
+		cd_env(cd, x);
 	else if (lm && chdir(lm->nxt->shx) == -1)
 		print_error(lm->nxt->shx, 1, x);
 	if (x)
