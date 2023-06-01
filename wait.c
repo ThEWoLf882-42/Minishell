@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wait.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 16:52:15 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/30 22:31:03 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/01 17:50:32 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	wait_pid(void)
 	int	i;
 	int	np;
 	int	status;
+	unsigned char *stat;
 
 	i = -1;
 	np = ft_pipesize(g_va.sp);
@@ -24,7 +25,10 @@ void	wait_pid(void)
 	{
 		if (waitpid(g_va.pids[i], &status, 0) == -1)
 			ft_putstr_fd("wait Error\n", 1);
-		if (i + 1 == np)
-			g_va.exit_s = (status >> 8) & 0x0000ffff;
+		stat = (unsigned char *)&status;
+		if (stat[0])
+			g_va.exit_s = stat[0] + 128;
+		else
+			g_va.exit_s = stat[1];
 	}
 }

@@ -6,12 +6,14 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 19:20:23 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/24 20:01:34 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/01 19:40:25 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
+/*
+i-- for somethisn fbgfh quotes piece of shitygimikfkfkf
+*/
 void	finish_it(t_pipe *mv, char *line, int *i, int *j)
 {
 	(*i)--;
@@ -62,7 +64,7 @@ void	quote_sep(t_pipe *mv, char *line, int *i, int *j)
 }
 
 /*
-copy until reaching auote or space or redirection and stop to check
+copy until reaching a quote or space or redirection and stop to check
 if its quote stop to go to the quote_sep
 if its not quote check if redirection or normal str
 */
