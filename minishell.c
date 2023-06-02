@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 15:25:26 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/01 19:35:36 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/02 16:52:57 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int	main(int ac, char **av, char **env)
 		lin_type();
 		clean_lin();
 		expand();
+		clean_q();
 		clean();
 		set_cmd();
 		set_arg();

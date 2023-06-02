@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:11:05 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/06/01 20:22:48 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/02 18:49:12 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,20 @@ void	expand_that(t_exp_utl *exp, t_line *lm, int start, int end)
 
 void	set_lm(t_line *lm, t_exp_utl *exp)
 {
-	lm->shx = exp->newlm->shx;
-	lm->nxt = exp->newlm->nxt;
+	if (lm->nxt && exp->newlm)
+		ft_lastline(exp->newlm)->nxt = lm->nxt;
+	if (!exp->newlm)
+		exp->newlm = lm->nxt;
+	free(lm->shx);
+	lm->shx = NULL;
+	if (exp->af || exp->bf)
+		lm->space = 1; //ambig
+	if (exp->newlm)
+	{
+		lm->shx = exp->newlm->shx;
+		lm->nxt = exp->newlm->nxt;
+	}
+	free(exp->found);
 }
 
 void	exp_dlr(t_line *lm, int start, int end)
@@ -61,18 +73,13 @@ void	exp_dlr(t_line *lm, int start, int end)
 		lm->shx = NULL;
 		return ;
 	}
-	expand_that(&exp, lm, start, end);
-	if (lm->nxt && exp.newlm)
-		ft_lastline(exp.newlm)->nxt = lm->nxt;
-	if (!exp.newlm)
-		exp.newlm = lm->nxt;
-	free(lm->shx);
-	lm->shx = NULL;
-	if (exp.af || exp.bf)
-		lm->space = 1; //ambig
-	if (exp.newlm)
+	if (between_dq(lm->shx, end))
+		exp_no_split(lm, exp.found, start, end);
+	else
+	{
+		expand_that(&exp, lm, start, end);
 		set_lm(lm, &exp);
-	free(exp.found);
+	}
 }
 /*
 locat the 31 and incrementend untill reaching non expandable char

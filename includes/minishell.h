@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/01 18:54:43 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/02 18:50:37 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -222,5 +222,8 @@ void	add_exp(char *narg);
 void	here_exp(char *li, int fd);
 void	change_xarg(t_exp *xm, char *narg);
 char	*get_env(char *env);
+void	clean_q(void);
+void	exp_no_split(t_line *lm, char *found, int start, int end);
+int		between_dq(char *shx, int end);
 
 #endif
