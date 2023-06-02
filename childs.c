@@ -31,8 +31,11 @@ char	**join_arg(t_line *lm)
 	char	**cmd;
 	int		i;
 
-	i = 0;
+	i = -1;
 	cmd = malloc(sizeof(char *) * nargs(lm));
+	while (++i < nargs(lm))
+		cmd[i] = NULL;
+	i = 0;
 	while (lm)
 	{
 		if (!ft_strcmp(lm->typ, "cmd"))
