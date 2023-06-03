@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 21:35:08 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/02 19:21:37 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/03 12:38:54 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,14 @@ int	q_check(t_line *lm, char *line, int *i, int *j)
 {
 	if (lm->shx[*i] == '\'')
 	{
-		// line[++(*j)] = 30;
 		line[++(*j)] = lm->shx[(*i)];
 		while (lm->shx[++(*i)] && lm->shx[*i] != '\'')
 			line[++(*j)] = lm->shx[*i];
-		// line[++(*j)] = 30;
 		line[++(*j)] = lm->shx[*i];
 		return (1);
 	}
 	if (lm->shx[*i] == '"')
 	{
-		// line[++(*j)] = 30;
 		line[++(*j)] = lm->shx[*i];
 		while (lm->shx[++(*i)] && lm->shx[*i] != '"')
 		{
@@ -39,7 +36,6 @@ int	q_check(t_line *lm, char *line, int *i, int *j)
 			else
 				line[++(*j)] = lm->shx[*i];
 		}
-		// line[++(*j)] = 30;
 		line[++(*j)] = lm->shx[*i];
 		return (1);
 	}
@@ -67,7 +63,7 @@ void	rdy_exp(t_line *lm, char *line, int *i, int *j)
 	lm->shx = line;
 }
 
-void	clean_lin(void)
+void	rdy_to_exp(void)
 {
 	t_pipe	*pm;
 	t_line	*lm;

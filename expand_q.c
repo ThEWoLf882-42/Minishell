@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 18:45:18 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/06/02 19:21:22 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/03 14:34:38 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	between_dq(char *shx, int end)
 	{
 		if (shx[i] == '"')
 			n++;
-		if (shx[i] == 31 && n == 1)
+		if (shx[i] == 31 && n % 2 != 0)
 		{
 			count++;
 			return (1);
@@ -48,6 +48,8 @@ void	cpy_mid(char *line, char *found, int *j)
 	int	i;
 
 	i = 0;
+	if (!found)
+		return ;
 	while (found[i])
 		line[(*j)++] = found[i++];
 }

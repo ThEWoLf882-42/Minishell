@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 16:52:15 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/06/01 17:50:32 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/03 14:37:53 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	wait_pid(void)
 {
-	int	i;
-	int	np;
-	int	status;
-	unsigned char *stat;
+	unsigned char	*stat;
+	int				status;
+	int				np;
+	int				i;
 
 	i = -1;
 	np = ft_pipesize(g_va.sp);

@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:11:05 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/06/02 18:49:12 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/03 13:09:06 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	expand_that(t_exp_utl *exp, t_line *lm, int start, int end)
 	if (exp->af)
 	{
 		if (char_af(lm->shx, end))
-			ft_backline(&exp->newlm, new_lin(ft_substr(lm->shx, end + 1, s)));
+			ft_backline(&exp->newlm, new_lin(ft_substr(lm->shx, end, s)));
 	}
 	else
 	{

@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/02 18:50:37 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/03 14:38:07 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,17 +159,14 @@ int		ft_atoi(const char *str);
 int		fill_sp(char *line);
 void	fill_lin(void);
 void	trim_space(char *line);
-void	clean_lin(void);
+void	rdy_to_exp(void);
 int		check_error(void);
 int		check_pipe(void);
-int		check_quote(void);
+int		check_q_nb(void);
 int		check_red(void);
 void	lin_type(void);
 void	expand(void);
 int		charloc(char *str, int n);
-void	copy_bef(char *new, int start, char *lin);
-void	copy_mid(char *new, int start, char *found);
-void	copy_af(char *new, int start, int nst, char *lin);
 void	clean(void);
 void	set_cmd(void);
 void	set_env(char **env);
@@ -222,6 +219,7 @@ void	add_exp(char *narg);
 void	here_exp(char *li, int fd);
 void	change_xarg(t_exp *xm, char *narg);
 char	*get_env(char *env);
+int		check_q(void);
 void	clean_q(void);
 void	exp_no_split(t_line *lm, char *found, int start, int end);
 int		between_dq(char *shx, int end);

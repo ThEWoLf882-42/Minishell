@@ -1,6 +1,6 @@
 CC = cc
 NAME = minishell
-FLAGS = -Wall -Wextra -Werror #-fsanitize=address -g 
+FLAGS = -Wall -Wextra -Werror -fsanitize=address -g 
 
 INCLUDES = -I$(HEADERS_DIRECTORY) #-I /goinfre/$(USER)/.brew/Cellar/readline/8.2.1/include
 LIBRARIES =-lreadline  #-L /goinfre/$(USER)/.brew/Cellar/readline/8.2.1/lib 
@@ -17,14 +17,13 @@ SOURCES_LIST =	add_x.c \
 				charloc.c \
 				check_error.c \
 				check_pipe.c \
-				check_quote.c \
+				check_q_nb.c \
+				check_q.c \
 				check_red.c \
 				childs.c \
-				clean_lin.c \
 				clean_q.c \
 				clean.c \
 				close.c \
-				copy.c \
 				echo.c \
 				env.c \
 				exit_print.c \
@@ -68,6 +67,7 @@ SOURCES_LIST =	add_x.c \
 				pipes.c \
 				print_error.c \
 				pwd.c \
+				rdy_to_exp.c \
 				set_arg.c \
 				set_cmd.c \
 				set_env.c \

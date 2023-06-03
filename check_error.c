@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:15:28 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/30 13:18:37 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/03 12:34:03 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	check_error(void)
 {
-	if (check_pipe() || check_quote() || check_red())
+	if (check_pipe() || check_q() || check_red())
 		return (1);
 	return (0);
 }

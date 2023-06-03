@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 15:25:26 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/02 16:52:57 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/03 12:58:38 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(int ac, char **av, char **env)
 			continue ;
 		}
 		lin_type();
-		clean_lin();
+		rdy_to_exp();
 		expand();
 		clean_q();
 		clean();

@@ -1,54 +1,63 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clean_q.c                                          :+:      :+:    :+:   */
+/*   check_q.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/03 12:41:38 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/06/03 14:36:56 by zouaraqa         ###   ########.fr       */
+/*   Created: 2023/06/02 16:35:21 by zouaraqa          #+#    #+#             */
+/*   Updated: 2023/06/03 13:08:23 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	rep_q(t_line *lm, int *i)
+int	is_q(t_line *lm, int *i, int *dq, int *sq)
 {
 	if (lm->shx[(*i)] == '\'')
 	{
-		lm->shx[(*i)] = 30;
+		(*sq)++;
 		while (lm->shx[++(*i)] && lm->shx[(*i)] != '\'')
 			;
 		if (lm->shx[*i] == '\'')
-			lm->shx[(*i)] = 30;
-		return ;
+			(*sq)++;
+		return (1);
 	}
 	if (lm->shx[(*i)] == '"')
 	{
-		lm->shx[(*i)] = 30;
+		(*dq)++;
 		while (lm->shx[++(*i)] && lm->shx[(*i)] != '"')
 			;
 		if (lm->shx[*i] == '"')
-			lm->shx[(*i)] = 30;
+			(*dq)++;
+		return (1);
 	}
+	return (0);
 }
 
-void	start_rm_q(t_line *lm)
+int	check_start(t_line *lm)
 {
 	int	i;
+	int	dq;
+	int	sq;
 
 	i = 0;
 	if (!lm || !lm->shx)
-		return ;
+		return (0);
 	while (lm->shx[i])
 	{
-		if (lm->shx[i] == '"' || lm->shx[i] == '\'')
-			rep_q(lm, &i);
+		dq = 0;
+		sq = 0;
+		if (lm->shx[i] == '\'' || lm->shx[i] == '"')
+			is_q(lm, &i, &dq, &sq);
+		if (dq % 2 != 0 || sq % 2 != 0)
+			return (write(2, "Syntax Error quote\n", 19), 1);
 		i++;
 	}
+	return (0);
 }
 
-void	clean_q(void)
+int	check_q(void)
 {
 	t_pipe	*sm;
 	t_line	*lm;
@@ -59,9 +68,11 @@ void	clean_q(void)
 		lm = sm->lin;
 		while (lm)
 		{
-			start_rm_q(lm);
+			if (check_start(lm))
+				return (1);
 			lm = lm->nxt;
 		}
 		sm = sm->nxt;
 	}
+	return (0);
 }

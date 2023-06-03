@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_quote.c                                      :+:      :+:    :+:   */
+/*   check_q_nb.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:49:08 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/23 15:49:54 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/03 14:30:17 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	qu_au(char c, int *sq, int *dq)
+void	qu_nb(char *shx, int *i, int *sq, int *dq)
 {
-	if (c == '\'')
-		(*sq)++;
-	else if (c == '"')
+	char	q;
+
+	q = shx[*i];
+	if (q == '"')
+	{
 		(*dq)++;
+		while (shx[*i] && shx[*i] != '"')
+			(*i)++;
+		if (shx[*i] == '"')
+			(*dq)++;
+	}
+	else if (q == '\'')
+	{
+		(*sq)++;
+		while (shx[*i] && shx[*i] != '\'')
+			(*i)++;
+		if (shx[*i] == '\'')
+			(*sq)++;
+	}
 }
 
-int	check_quote(void)
+int	check_q_nb(void)
 {
 	t_pipe	*sm;
 	t_line	*lm;
@@ -38,7 +53,7 @@ int	check_quote(void)
 		{
 			i = -1;
 			while (lm->shx[++i])
-				qu_au(lm->shx[i], &sq, &dq);
+				qu_nb(lm->shx, &i, &sq, &dq);
 			lm = lm->nxt;
 		}
 		if (sq % 2 != 0 || dq % 2 != 0)
