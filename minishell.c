@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 15:25:26 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/03 12:58:38 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/03 18:29:31 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ int	main(int ac, char **av, char **env)
 			g_va.exit_s = 258;
 			continue ;
 		}
-		lin_type();
 		rdy_to_exp();
+		lin_type();
 		expand();
 		clean_q();
 		clean();
@@ -61,15 +61,14 @@ int	main(int ac, char **av, char **env)
 		}
 		forking();
 		wait_pid();
-		// printf("exstatus [%d]\n", g_va.exit_s);
 		ft_free();
 		// while (g_va.sp)
 		// {
 		// 	printf("sp:[%s]\n", g_va.sp->pl);
 		// 	while (g_va.sp->lin)
 		// 	{
-		// 		printf("	lin: (%s) bex->(%s) ->typ: (%s) =>path = (%s)\n",
-		// 			g_va.sp->lin->shx, g_va.sp->lin->bex, g_va.sp->lin->typ, g_va.sp->lin->path);
+		// 		printf("	lin: (%s) bex->(%s) ->typ: (%s) ->del (%s) =>path = (%s)\n",
+		// 			g_va.sp->lin->shx, g_va.sp->lin->bex, g_va.sp->lin->typ, g_va.sp->lin->del, g_va.sp->lin->path);
 		// 		g_va.sp->lin = g_va.sp->lin->nxt;
 		// 	}
 		// 	// printf(" ->fil= (%s) \n", g_va.sp->fin->file);
