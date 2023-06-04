@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 18:20:53 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/26 19:01:44 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/04 13:59:55 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,12 @@ void	set_cmd(void)
 			lm = lm->nxt;
 		if (lm)
 		{
+			if (!lm->shx && lm->nxt)
+			{
+				lm = lm->nxt;
+				while (lm && lm->typ)
+					lm = lm->nxt;
+			}
 			lm->typ = "cmd";
 			if (ft_strchr(lm->shx, '/'))
 				lm->path = ft_strdup(lm->shx);
