@@ -124,7 +124,7 @@ t_fout	*ft_lastfout(t_fout *fout);
 t_pipe	*new_sp(char *str);
 t_fin	*new_fin(t_line *lm, char *file, int her, char *del);
 t_fout	*new_fout(t_line *lm, char *file, int app);
-t_line	*new_lin(char *str);
+t_line	*new_lin(char *str, int i);
 t_env	*new_env(char *str);
 t_env	*ft_lastenv(t_env *env);
 void	ft_backenv(t_env **env, t_env *new);

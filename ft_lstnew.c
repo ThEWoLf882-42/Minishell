@@ -27,14 +27,17 @@ t_pipe	*new_sp(char *str)
 	return (sp);
 }
 
-t_line	*new_lin(char *str)
+t_line	*new_lin(char *str, int i)
 {
 	t_line	*lin;
 
 	lin = malloc(sizeof(t_line));
 	if (!lin)
 		return (NULL);
-	lin->shx = ft_strdup(str);
+	if (i)
+		lin->shx = ft_strdup(str);
+	else
+		lin->shx = str;
 	lin->bex = NULL;
 	lin->space = 0;
 	lin->path = NULL;

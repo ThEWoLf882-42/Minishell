@@ -18,7 +18,7 @@ void	finish_it(t_pipe *mv, char *line, int *i, int *j)
 {
 	(*i)--;
 	line[++(*j)] = '\0';
-	ft_backline(&mv->lin, new_lin(line));
+	ft_backline(&mv->lin, new_lin(line, 1));
 }
 
 /*

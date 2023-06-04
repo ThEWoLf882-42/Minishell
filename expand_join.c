@@ -52,11 +52,11 @@ void	join_bf(t_line **newlm, char *shx, char *found, int start)
 
 	if (!found)
 	{
-		ft_backline(newlm, new_lin(ft_substr(shx, 0, start)));
+		ft_backline(newlm, new_lin(ft_substr(shx, 0, start), 0));
 		return ;
 	}
 	str = ft_split(found, ' ');
-	ft_backline(newlm, new_lin(ft_strjoin(ft_substr(shx, 0, start), str[0])));
+	ft_backline(newlm, new_lin(ft_strjoin(ft_substr(shx, 0, start), str[0]), 0));
 	i = -1;
 	while (str[++i])
 		free(str[i]);
@@ -73,7 +73,7 @@ void	join_af(t_line **newlm, char *shx, char *found, int end)
 	while (str[i])
 		i++;
 	ft_backline(newlm, new_lin(ft_strjoin(str[i - 1], ft_substr(shx, end + 2,
-					ft_strlen(shx) - end))));
+					ft_strlen(shx) - end)), 0));
 	i = -1;
 	while (str[++i])
 		free(str[i]);

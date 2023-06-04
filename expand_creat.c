@@ -43,7 +43,7 @@ void	creat_expnod(t_line **newlm, char *found, int bf)
 	}
 	while (str[++i])
 	{
-		ft_backline(newlm, new_lin(str[i]));
+		ft_backline(newlm, new_lin(str[i], 1));
 		free(str[i]);
 	}
 	free(str);

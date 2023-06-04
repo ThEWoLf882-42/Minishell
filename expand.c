@@ -21,7 +21,7 @@ void	expand_that(t_exp_utl *exp, t_line *lm, int start, int end)
 	if (exp->bf)
 	{
 		if (char_bf(start))
-			ft_backline(&exp->newlm, new_lin(ft_substr(lm->shx, 0, start)));
+			ft_backline(&exp->newlm, new_lin(ft_substr(lm->shx, 0, start), 0));
 	}
 	else
 		join_bf(&exp->newlm, lm->shx, exp->found, start);
@@ -31,7 +31,7 @@ void	expand_that(t_exp_utl *exp, t_line *lm, int start, int end)
 	if (exp->af)
 	{
 		if (char_af(lm->shx, end))
-			ft_backline(&exp->newlm, new_lin(ft_substr(lm->shx, end, s)));
+			ft_backline(&exp->newlm, new_lin(ft_substr(lm->shx, end, s), 0));
 	}
 	else
 	{
@@ -67,6 +67,7 @@ void	exp_dlr(t_line *lm, int start, int end)
 	exp.newlm = NULL;
 	get = ft_substr(lm->shx, start + 1, end - (start + 1));
 	exp.found = which_env(get, &exp.bf, &exp.af);
+	free(get);
 	if (!exp.found && (end - start == (int)ft_strlen(lm->shx)))
 	{
 		free(lm->shx);
