@@ -103,7 +103,7 @@ void	export_cmd(t_line *lm, int x)
 		if (open_file(g_va.sp, x))
 			return ;
 	}
-	if (!lm->nxt || ft_strcmp(lm->nxt->typ, "arg"))
+	if (!lm->nxt || ft_strcmp(lm->nxt->typ, "arg") || !lm->nxt->shx)
 	{
 		while (xm)
 		{
@@ -113,8 +113,7 @@ void	export_cmd(t_line *lm, int x)
 			xm = xm->nxt;
 		}
 	}
-	lm = lm->nxt;
-	if (loop(lm))
+	else if (loop(lm->nxt))
 		return ;
 	close_fd();
 	if (x)
