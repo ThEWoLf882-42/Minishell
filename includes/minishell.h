@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/03 14:38:07 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/04 16:19:58 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ typedef struct vars
 {
 	char				**envp;
 	char				*line;
+	int					err;
 	int					exit_s;
 	int					p1[2];
 	int					p2[2];
