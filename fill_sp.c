@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 16:16:25 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/04 16:21:43 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/04 17:10:21 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	skip_pipe(char *line, char *pl, int *i, int *j)
 	pl[++(*j)] = line[(*i)++];
 }
 
-int	start_cpy(char *line, char *pl, int *i, int *j)
+void	start_cpy(char *line, char *pl, int *i, int *j)
 {
 	(*j) = -1;
 	while (line[(*i)])
@@ -35,13 +35,10 @@ int	start_cpy(char *line, char *pl, int *i, int *j)
 		if (line[(*i)] == '|' && !line[(*i) + 1])
 			g_va.err = 1;
 		if (line[(*i)] == '|')
-			return (1);
+			break ;
 	}
 	pl[++(*j)] = '\0';
 	ft_backpipe(&g_va.sp, new_sp(pl));
-	if (line[(*i)] == '\0')
-		return (1);
-	return (0);
 }
 
 int	fill_sp(char *line)
@@ -58,8 +55,7 @@ int	fill_sp(char *line)
 	if (!pl)
 		return (1);
 	while (line[++i])
-		if (start_cpy(line, pl, &i, &j))
-			break ;
+		start_cpy(line, pl, &i, &j);
 	free(pl);
 	if (g_va.err)
 	{
