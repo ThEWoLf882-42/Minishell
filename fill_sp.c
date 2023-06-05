@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 16:16:25 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/04 17:10:21 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/05 11:54:40 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int	fill_sp(char *line)
 	while (line[++i])
 		start_cpy(line, pl, &i, &j);
 	free(pl);
+	// free(line);
 	if (g_va.err)
 	{
 		ft_lstclear(&g_va.sp);

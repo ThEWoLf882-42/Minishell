@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:41:14 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/04 16:49:53 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/05 12:05:41 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,8 @@ char	*which_env(char *get, int *bf, int *af)
 		return (sp_dlr(get, bf, af));
 	while (em)
 	{
-		if (!ft_strncmp(get, em->arg, ft_strlen(get)))
+		if (!ft_strncmp(get, em->arg, ft_strlen(get))
+			&& em->arg[ft_strlen(get)] == '=')
 		{
 			if (em->arg[ft_strlen(get) + 1] == ' ' \
 				|| em->arg[ft_strlen(get) + 1] == '\t')

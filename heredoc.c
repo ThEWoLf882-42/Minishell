@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 14:26:39 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/04 12:40:06 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/05 12:06:09 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ void	heredoc(t_fin *fin, int h[])
 		}
 		else
 			here_exp(li, h[1]);
+		free(li); 
 	}
+	free(li);
 	close(h[1]);
 	dup2(at, 0);
 }
