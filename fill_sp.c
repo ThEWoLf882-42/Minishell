@@ -61,9 +61,6 @@ int	fill_sp(char *line)
 	free(pl);
 	free(line);
 	if (g_va.err)
-	{
-		ft_lstclear(&g_va.sp);
 		return (write(2, "syntax error near unexpected token `|'\n", 40), 1);
-	}
 	return (0);
 }
