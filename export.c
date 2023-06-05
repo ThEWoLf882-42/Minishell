@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 16:21:19 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/06/01 15:57:09 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/05 16:47:06 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void	set_xport(t_env *em)
 		}
 		em = em->nxt;
 	}
-	ft_backexp(&g_va.xport, new_exp("OLDPWD"));
 }
 
 int	valid_exp(char *shx)

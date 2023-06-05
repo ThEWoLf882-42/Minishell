@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2023/06/05 15:52:03 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/05 16:29:49 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,9 @@ int	fill_sp(char *line)
 	free(pl);
 	free(line);
 	if (g_va.err)
-		return (write(2, "syntax error near unexpected token `|'\n", 40), 1);
+	{
+		g_va.exit_s = 258;
+		return (ft_putstr_fd("syntax error near unexpected token `|'\n", 2), 1);
+	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:48:10 by agimi             #+#    #+#             */
-/*   Updated: 2023/05/23 15:48:54 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/05 16:42:05 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,10 @@ int	check_red(void)
 			r = 1;
 			i = 0;
 			if (red_condition(lm, &i, &r))
-				return (write(2, "Error wrong redirections\n", 25), 1);
+			{
+				g_va.exit_s = 2;
+				return (ft_putstr_fd("Error wrong redirections\n", 2), 1);
+			}
 			lm = lm->nxt;
 		}
 		sm = sm->nxt;

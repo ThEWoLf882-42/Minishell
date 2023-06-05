@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 15:25:26 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/05 14:43:00 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/05 16:47:23 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	main(int ac, char **av, char **env)
 		if (fill_sp(g_va.line))
 		{
 			ft_free();
-			g_va.exit_s = 258;
 			continue ;
 		}
 		fill_lin();
