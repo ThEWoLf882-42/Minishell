@@ -23,6 +23,8 @@ void	lin_clear(t_pipe *sp)
 			free(sp->lin->shx);
 		if (sp->lin->bex)
 			free(sp->lin->bex);
+		if (sp->lin->del)
+			free(sp->lin->del);
 		free(sp->lin->path);
 		free(sp->lin);
 		sp->lin = ltmp;

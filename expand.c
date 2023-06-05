@@ -55,6 +55,7 @@ void	set_lm(t_line *lm, t_exp_utl *exp)
 	{
 		lm->shx = exp->newlm->shx;
 		lm->nxt = exp->newlm->nxt;
+		free(exp->newlm);
 	}
 	free(exp->found);
 }
