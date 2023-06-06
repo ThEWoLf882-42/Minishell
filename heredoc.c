@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 14:26:39 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/06 13:07:28 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/06 15:45:09 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	heredoc(t_fin *fin, int h[])
 		else
 			here_exp(li, h[1]);
 		free(li);
+		li = NULL;
 	}
 	free(li);
 	close(h[1]);

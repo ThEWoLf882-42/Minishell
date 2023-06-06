@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   fill_sp.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2023/06/05 16:29:49 by agimi            ###   ########.fr       */
+/*   Created: 2023/06/06 15:46:46 by zouaraqa          #+#    #+#             */
+/*   Updated: 2023/06/06 15:46:49 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 
 #include "minishell.h"
 
