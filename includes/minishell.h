@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/06 13:07:21 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/06 18:32:01 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,7 @@ int		ft_strcmp(const char *s1, const char *s2);
 int		ft_isspace(char c);
 int		ft_isred(char c);
 int		ft_isquot(char c);
+int		ft_iss(int c);
 int		ft_isspec(char c);
 int		ft_isdlr(char c);
 int		ft_isalpha(int c);
@@ -144,6 +145,7 @@ int		ft_pipesize(t_pipe *sp);
 int		ft_linesize(t_line *lin);
 void	ft_free(void);
 char	*ft_strchr(const char *s, int c);
+int		ft_strchr1(const char *s, int c);
 char	*ft_substr(char *s, int start, int len);
 void	ft_backexp(t_exp **exp, t_exp *new);
 t_exp	*ft_lastexp(t_exp *exp);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:11:05 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/06/05 14:42:35 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/06 18:53:05 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	set_lm(t_line *lm, t_exp_utl *exp)
 	free(lm->shx);
 	lm->shx = NULL;
 	if (exp->af || exp->bf)
-		lm->space = 1; //ambig
+		lm->space = 1;
 	if (exp->newlm)
 	{
 		lm->shx = exp->newlm->shx;
@@ -115,6 +115,7 @@ void	expand(void)
 {
 	t_pipe	*sm;
 	t_line	*lm;
+	int		d;
 
 	sm = g_va.sp;
 	while (sm)
@@ -122,11 +123,14 @@ void	expand(void)
 		lm = sm->lin;
 		while (lm)
 		{
-			if (ft_strchr(lm->shx, 31))
+			d = ft_strchr1(lm->shx, 31);
+			if (ft_strchr(lm->shx, 31) && !ft_iss(lm->shx[d + 1]))
 			{
 				put_dlr_bex(lm);
 				expand_it(lm);
 			}
+			else if (ft_strchr(lm->shx, 31) && ft_iss(lm->shx[d + 1]))
+				lm->shx[d] = '$';
 			lm = lm->nxt;
 		}
 		sm = sm->nxt;

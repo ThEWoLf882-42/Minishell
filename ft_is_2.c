@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:30:06 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/05/23 17:32:59 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/06 18:00:18 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@ int	ft_isalpha(int c)
 int	ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
+}
+
+int	ft_iss(int c)
+{
+	if (c == '-' || c == '+' || c == '/')
 		return (1);
 	return (0);
 }

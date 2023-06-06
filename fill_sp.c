@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_sp.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:46:46 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/06/06 15:46:49 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/06 18:37:37 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,11 @@ int	fill_sp(char *line)
 	if (!pl)
 		return (1);
 	while (line[++i])
+	{
 		start_cpy(line, pl, &i, &j);
+		if (!line[i])
+			break ;
+	}
 	free(pl);
 	free(line);
 	if (g_va.err)
