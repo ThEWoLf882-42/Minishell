@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:11:05 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/06/06 19:30:48 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/06 19:41:41 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	exp_dlr(t_line *lm, int start, int end)
 	if (!exp.found && (end - start == (int)ft_strlen(lm->shx)))
 	{
 		free(lm->shx);
-		// lm->shx = NULL;
+		lm->shx = ft_strdup("\0");
 		return ;
 	}
 	if (between_dq(lm->shx, end))
