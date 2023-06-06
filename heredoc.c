@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 14:26:39 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/06 12:24:41 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/06 13:07:28 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,10 @@ void	heredoc(t_fin *fin, int h[])
 	char	*li;
 	int		at;
 
-	g_va.x = 0;
 	at = dup(0);
 	dup2(g_va.stdi, 0);
-	sigaction(SIGINT, &g_va.child_sa, NULL);
 	while (1)
 	{
-		if (g_va.x)
-			break ;
 		li = readline("> ");
 		if (!ft_strcmp(li, fin->del) || !li)
 			break ;

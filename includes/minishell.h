@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/06 12:51:10 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/06 13:07:21 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,6 @@ typedef struct vars
 	char				**envp;
 	char				*line;
 	int					err;
-	int					x;
 	int					exit_s;
 	int					p1[2];
 	int					p2[2];
@@ -107,7 +106,6 @@ typedef struct vars
 	t_env				*env;
 	pid_t				*pids;
 	struct sigaction	sa;
-	struct sigaction	child_sa;
 	int					stdi;
 	int					stdo;
 }	t_vars;
