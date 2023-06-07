@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:48:10 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/07 16:56:24 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/07 17:17:04 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,6 @@ int	red_condition(t_line *lm, int *i, int *r)
 	return (0);
 }
 
-static void	pri(t_line *lm)
-{
-	ft_putstr_fd("minishell-69: ", 2);
-	ft_putstr_fd(lm->shx, 2);
-	ft_putstr_fd(": syntax error\n", 2);
-}
-
 int	check_red(void)
 {
 	t_pipe	*sm;
@@ -56,7 +49,7 @@ int	check_red(void)
 			if (red_condition(lm, &i, &r))
 			{
 				g_va.exit_s = 2;
-				pri(lm);
+				ft_putstr_fd("minishell-69: syntax error\n", 2);
 				return (1);
 			}
 			lm = lm->nxt;
