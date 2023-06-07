@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 16:05:04 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/01 19:04:38 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/06 20:35:31 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_pipe	*new_sp(char *str)
 	return (sp);
 }
 
-t_line	*new_lin(char *str, int i)
+t_line	*new_lin(char *str, char *ty, int i)
 {
 	t_line	*lin;
 
@@ -42,7 +42,7 @@ t_line	*new_lin(char *str, int i)
 	lin->space = 0;
 	lin->path = NULL;
 	lin->nxt = NULL;
-	lin->typ = NULL;
+	lin->typ = ty;
 	lin->prv = NULL;
 	lin->del = NULL;
 	return (lin);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_lin.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 19:20:23 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/06/05 14:42:37 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/06 20:37:12 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	finish_it(t_pipe *mv, char *line, int *i, int *j)
 {
 	(*i)--;
 	line[++(*j)] = '\0';
-	ft_backline(&mv->lin, new_lin(line, 1));
+	ft_backline(&mv->lin, new_lin(line, NULL, 1));
 }
 
 /*
