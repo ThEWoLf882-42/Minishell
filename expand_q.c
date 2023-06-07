@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 18:45:18 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/06/05 14:42:32 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/07 19:29:26 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,5 @@ void	exp_no_split(t_line *lm, char *found, int start, int end)
 	free(lm->shx);
 	lm->shx = NULL;
 	lm->shx = line;
+	free(found);
 }

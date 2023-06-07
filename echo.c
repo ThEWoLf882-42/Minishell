@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   echo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:38:53 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/07 16:44:10 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/07 19:23:45 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ void	skip_n(t_line **lm, int *n)
 
 void	echo_loop(t_line *lm)
 {
-	while (lm && lm->shx)
+	while (lm)
 	{
 		if (!ft_strcmp(lm->typ, "arg"))
 		{
 			ft_putstr_fd(lm->shx, 1);
-			if (lm->nxt && !ft_strcmp(lm->nxt->typ, "arg"))
+			if (lm->nxt)
 				ft_putchar_fd(' ', 1);
 		}
 		lm = lm->nxt;
