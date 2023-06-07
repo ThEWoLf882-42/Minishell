@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/06 18:32:01 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/07 15:43:58 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ typedef struct vars
 	char				**envp;
 	char				*line;
 	int					err;
+	int					x;
 	int					exit_s;
 	int					p1[2];
 	int					p2[2];
@@ -226,5 +227,6 @@ int		check_q(void);
 void	clean_q(void);
 void	exp_no_split(t_line *lm, char *found, int start, int end);
 int		between_dq(char *shx, int end);
+int		ambiguis(char *found);
 
 #endif

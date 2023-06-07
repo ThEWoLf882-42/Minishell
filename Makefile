@@ -1,6 +1,6 @@
 CC = cc
 NAME = minishell
-FLAGS = -Wall -Wextra -Werror #-fsanitize=address -g 
+FLAGS = -Wall -Wextra -Werror #-fsanitize=thread -g 
 
 INCLUDES = -I$(HEADERS_DIRECTORY) -I /goinfre/$(USER)/.brew/Cellar/readline/8.2.1/include
 LIBRARIES =-lreadline  -L /goinfre/$(USER)/.brew/Cellar/readline/8.2.1/lib 
@@ -11,6 +11,7 @@ HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 
 SOURCES_DIRECTORY = ./
 SOURCES_LIST =	add_x.c \
+				ambiguis.c \
 				builtins.c \
 				cd.c \
 				chane_x.c \
