@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/06 20:35:43 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/07 15:44:37 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ typedef struct exp_utl
 {
 	t_line	*newlm;
 	char	*found;
+	char	*typ;
 	int		bf;
 	int		af;
 }	t_exp_utl;
@@ -209,10 +210,10 @@ void	redirect_error(char *str, int x);
 void	put_dlr_bex(t_line *lm);
 int		char_bf(int start);
 int		char_af(char *shx, int end);
-void	join_bf(t_line **newlm, char *shx, char *found, int start);
-void	join_af(t_line **newlm, char *shx, char *found, int end);
+void	join_bf(t_exp_utl *exp, char *shx, char *found, int start);
+void	join_af(t_exp_utl *exp, char *shx, char *found, int end);
 char	*sp_dlr(char *get, int *bf, int *af);
-void	creat_expnod(t_line **newlm, char *found, int bf);
+void	creat_expnod(t_exp_utl *exp, char *found, int bf);
 void	exit_print(char *str);
 char	*which_env(char *get, int *bf, int *af);
 char	*copy_exp(char *arg);
@@ -226,5 +227,6 @@ int		check_q(void);
 void	clean_q(void);
 void	exp_no_split(t_line *lm, char *found, int start, int end);
 int		between_dq(char *shx, int end);
+void	set_ex(void);
 
 #endif

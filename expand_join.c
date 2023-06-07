@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:03:29 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/06/06 21:15:11 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/07 15:43:54 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,36 +45,40 @@ int	char_af(char *shx, int end)
 	return (0);
 }
 
-void	join_bf(t_line **newlm, char *shx, char *found, int start)
+void	join_bf(t_exp_utl *exp, char *shx, char *found, int start)
 {
+	t_line	**newlm;
 	char	**str;
 	int		i;
 
+	newlm = &exp->newlm;
 	if (!found)
 	{
-		ft_backline(newlm, new_lin(ft_substr(shx, 0, start), NULL, 0));
+		ft_backline(newlm, new_lin(ft_substr(shx, 0, start), exp->typ, 0));
 		return ;
 	}
 	str = ft_split(found, ' ');
 	ft_backline(newlm, new_lin(ft_strjoin(ft_substr(shx, 0, start), \
-			str[0]), NULL, 0));
+			str[0]), exp->typ, 0));
 	i = -1;
 	while (str[++i])
 		free(str[i]);
 	free(str);
 }
 
-void	join_af(t_line **newlm, char *shx, char *found, int end)
+void	join_af(t_exp_utl *exp, char *shx, char *found, int end)
 {
+	t_line	**newlm;
 	char	**str;
 	int		i;
 
+	newlm = &exp->newlm;
 	str = ft_split(found, ' ');
 	i = 0;
 	while (str[i])
 		i++;
 	ft_backline(newlm, new_lin(ft_strjoin(str[i - 1], ft_substr(shx, end + 2,
-					ft_strlen(shx) - end)), NULL, 0));
+					ft_strlen(shx) - end)), exp->typ, 0));
 	i = -1;
 	while (str[++i])
 		free(str[i]);

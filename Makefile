@@ -71,6 +71,7 @@ SOURCES_LIST =	add_x.c \
 				set_arg.c \
 				set_cmd.c \
 				set_env.c \
+				set_ex.c \
 				set_file.c \
 				sig_handel.c \
 				trim_space.c \

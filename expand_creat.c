@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:41:14 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/06 21:14:49 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/07 15:42:23 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,13 @@ void	replace_tab(char *found)
 			found[i] = ' ';
 }
 
-void	creat_expnod(t_line **newlm, char *found, int bf)
+void	creat_expnod(t_exp_utl *exp, char *found, int bf)
 {
+	t_line	**newlm;
 	char	**str;
 	int		i;
 
+	newlm = &exp->newlm;
 	if (!found)
 		return ;
 	replace_tab(found);
@@ -54,7 +56,7 @@ void	creat_expnod(t_line **newlm, char *found, int bf)
 	}
 	while (str[++i])
 	{
-		ft_backline(newlm, new_lin(str[i], NULL, 1));
+		ft_backline(newlm, new_lin(str[i], exp->typ, 1));
 		free(str[i]);
 	}
 	free(str);

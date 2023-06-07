@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:11:05 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/06/06 20:38:23 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/07 15:45:48 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,17 @@ void	expand_that(t_exp_utl *exp, t_line *lm, int start, int end)
 	if (exp->bf)
 	{
 		if (char_bf(start))
-			ft_backline(&exp->newlm, \
-			new_lin(ft_substr(lm->shx, 0, start), "ex", 0));
+			ft_backline(&exp->newlm, new_lin(ft_substr(lm->shx, 0, start), exp->typ, 0));
 	}
 	else
-		join_bf(&exp->newlm, lm->shx, exp->found, start);
-	creat_expnod(&exp->newlm, exp->found, exp->bf);
+		join_bf(exp, lm->shx, exp->found, start);
+	creat_expnod(exp, exp->found, exp->bf);
 	if (exp->newlm)
 		lnew = ft_lastline(exp->newlm)->shx;
 	if (exp->af)
 	{
 		if (char_af(lm->shx, end))
-			ft_backline(&exp->newlm, \
-			new_lin(ft_substr(lm->shx, end, s), "ex", 0));
+			ft_backline(&exp->newlm, new_lin(ft_substr(lm->shx, end, s), exp->typ, 0));
 	}
 	else
 	{
@@ -68,13 +66,14 @@ void	exp_dlr(t_line *lm, int start, int end)
 	char		*get;
 
 	exp.newlm = NULL;
+	exp.typ = lm->typ;
 	get = ft_substr(lm->shx, start + 1, end - (start + 1));
 	exp.found = which_env(get, &exp.bf, &exp.af);
 	free(get);
 	if (!exp.found && (end - start == (int)ft_strlen(lm->shx)))
 	{
 		free(lm->shx);
-		lm->shx = ft_strdup("\0");
+		lm->shx = NULL;
 		return ;
 	}
 	if (between_dq(lm->shx, end))
