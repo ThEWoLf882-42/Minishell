@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand_creat.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:41:14 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/05 14:42:28 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/06 21:14:49 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	creat_expnod(t_line **newlm, char *found, int bf)
 	}
 	while (str[++i])
 	{
-		ft_backline(newlm, new_lin(str[i], 1));
+		ft_backline(newlm, new_lin(str[i], NULL, 1));
 		free(str[i]);
 	}
 	free(str);

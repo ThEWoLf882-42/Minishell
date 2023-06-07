@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 18:20:53 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/06/06 17:54:33 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/06 20:01:52 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	set_cmd(void)
 		// 	else
 		// 		set_path(lm);
 		// }
-		if (!lm->shx)
+		if (lm && !lm->shx)
 			while (lm && !lm->shx && !lm->typ)
 				lm = lm->nxt;
 		if (lm && !lm->typ)

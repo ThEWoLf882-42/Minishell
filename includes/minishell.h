@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/06 18:32:01 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/06 20:35:43 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ t_fout	*ft_lastfout(t_fout *fout);
 t_pipe	*new_sp(char *str);
 t_fin	*new_fin(t_line *lm, char *file, int her, char *del);
 t_fout	*new_fout(t_line *lm, char *file, int app);
-t_line	*new_lin(char *str, int i);
+t_line	*new_lin(char *str, char *ty, int i);
 t_env	*new_env(char *str);
 t_env	*ft_lastenv(t_env *env);
 void	ft_backenv(t_env **env, t_env *new);

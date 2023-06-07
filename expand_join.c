@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand_join.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:03:29 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/06/05 14:42:30 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/06 21:15:11 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,12 @@ void	join_bf(t_line **newlm, char *shx, char *found, int start)
 
 	if (!found)
 	{
-		ft_backline(newlm, new_lin(ft_substr(shx, 0, start), 0));
+		ft_backline(newlm, new_lin(ft_substr(shx, 0, start), NULL, 0));
 		return ;
 	}
 	str = ft_split(found, ' ');
 	ft_backline(newlm, new_lin(ft_strjoin(ft_substr(shx, 0, start), \
-			str[0]), 0));
+			str[0]), NULL, 0));
 	i = -1;
 	while (str[++i])
 		free(str[i]);
@@ -74,7 +74,7 @@ void	join_af(t_line **newlm, char *shx, char *found, int end)
 	while (str[i])
 		i++;
 	ft_backline(newlm, new_lin(ft_strjoin(str[i - 1], ft_substr(shx, end + 2,
-					ft_strlen(shx) - end)), 0));
+					ft_strlen(shx) - end)), NULL, 0));
 	i = -1;
 	while (str[++i])
 		free(str[i]);
