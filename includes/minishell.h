@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/07 15:44:37 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/07 15:54:11 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ typedef struct vars
 	char				**envp;
 	char				*line;
 	int					err;
+	int					x;
 	int					exit_s;
 	int					p1[2];
 	int					p2[2];
@@ -228,5 +229,6 @@ void	clean_q(void);
 void	exp_no_split(t_line *lm, char *found, int start, int end);
 int		between_dq(char *shx, int end);
 void	set_ex(void);
+int		ambiguis(char *found);
 
 #endif

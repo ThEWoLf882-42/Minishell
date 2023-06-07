@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:11:05 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/06/07 15:45:48 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/07 15:52:09 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ void	set_lm(t_line *lm, t_exp_utl *exp)
 		exp->newlm = lm->nxt;
 	free(lm->shx);
 	lm->shx = NULL;
-	if (exp->af || exp->bf)
-		lm->space = 1;
+	// if (exp->af || exp->bf)
+	// 	lm->space = 1;
 	if (exp->newlm)
 	{
 		lm->shx = exp->newlm->shx;
@@ -76,6 +76,8 @@ void	exp_dlr(t_line *lm, int start, int end)
 		lm->shx = NULL;
 		return ;
 	}
+	if (ambiguis(exp.found))
+		lm->space = 1;
 	if (between_dq(lm->shx, end))
 		exp_no_split(lm, exp.found, start, end);
 	else

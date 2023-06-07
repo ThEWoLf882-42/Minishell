@@ -11,6 +11,7 @@ HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 
 SOURCES_DIRECTORY = ./
 SOURCES_LIST =	add_x.c \
+				ambiguis.c \
 				builtins.c \
 				cd.c \
 				chane_x.c \
