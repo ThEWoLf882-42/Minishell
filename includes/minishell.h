@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/07 16:10:26 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/07 18:17:34 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -231,5 +231,7 @@ void	exp_no_split(t_line *lm, char *found, int start, int end);
 int		between_dq(char *shx, int end);
 void	set_ex(void);
 int		ambiguis(char *found);
+void	check_bef(t_exp_utl *exp, t_line *lm, int start);
+void	check_af(t_exp_utl *exp, t_line *lm, size_t s, int end);
 
 #endif

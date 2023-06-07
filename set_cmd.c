@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_cmd.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 18:20:53 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/06/06 20:01:52 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/07 17:53:17 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,20 +73,6 @@ void	set_cmd(void)
 		lm = sm->lin;
 		while (lm && lm->typ)
 			lm = lm->nxt;
-		// if (lm)
-		// {
-		// 	if (!lm->shx && lm->nxt)
-		// 	{
-		// 		lm = lm->nxt;
-		// 		while (lm && lm->typ && lm->shx)
-		// 			lm = lm->nxt;
-		// 	}
-		// 	lm->typ = "cmd";
-		// 	if (ft_strchr(lm->shx, '/'))
-		// 		lm->path = ft_strdup(lm->shx);
-		// 	else
-		// 		set_path(lm);
-		// }
 		if (lm && !lm->shx)
 			while (lm && !lm->shx && !lm->typ)
 				lm = lm->nxt;

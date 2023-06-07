@@ -3,20 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 14:26:39 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/07 16:25:51 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/07 17:55:47 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+void	print_herdoc(char *li, int her)
+{
+	ft_putstr_fd(li, her);
+	ft_putchar_fd('\n', her);
+}
 
 void	heredoc(t_fin *fin, int h[])
 {
 	char	*li;
 	int		at;
 
+	li = NULL;
 	at = dup(0);
 	dup2(g_va.stdi, 0);
 	g_va.x = 1;
@@ -26,10 +33,7 @@ void	heredoc(t_fin *fin, int h[])
 		if (!ft_strcmp(li, fin->del) || !li)
 			break ;
 		if (ft_strchr(fin->bex, '\'') || ft_strchr(fin->bex, '"'))
-		{
-			ft_putstr_fd(li, h[1]);
-			ft_putchar_fd('\n', h[1]);
-		}
+			print_herdoc(li, h[1]);
 		else
 			here_exp(li, h[1]);
 		free(li);

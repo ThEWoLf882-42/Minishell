@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:11:05 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/06/07 15:52:09 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/07 18:16:18 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,14 @@ void	expand_that(t_exp_utl *exp, t_line *lm, int start, int end)
 
 	s = ft_strlen(lm->shx) - end;
 	if (exp->bf)
-	{
-		if (char_bf(start))
-			ft_backline(&exp->newlm, new_lin(ft_substr(lm->shx, 0, start), exp->typ, 0));
-	}
+		check_bef(exp, lm, start);
 	else
 		join_bf(exp, lm->shx, exp->found, start);
 	creat_expnod(exp, exp->found, exp->bf);
 	if (exp->newlm)
 		lnew = ft_lastline(exp->newlm)->shx;
 	if (exp->af)
-	{
-		if (char_af(lm->shx, end))
-			ft_backline(&exp->newlm, new_lin(ft_substr(lm->shx, end, s), exp->typ, 0));
-	}
+		check_af(exp, lm, s, end);
 	else
 	{
 		if (char_af(lm->shx, end))
@@ -49,8 +43,6 @@ void	set_lm(t_line *lm, t_exp_utl *exp)
 		exp->newlm = lm->nxt;
 	free(lm->shx);
 	lm->shx = NULL;
-	// if (exp->af || exp->bf)
-	// 	lm->space = 1;
 	if (exp->newlm)
 	{
 		lm->shx = exp->newlm->shx;
