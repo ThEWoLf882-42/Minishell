@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 12:14:50 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/01 16:33:40 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/07 16:51:47 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	open_fin(t_pipe *sp, int x)
 	fin = sp->fin;
 	while (fin)
 	{
-		if (fin->lm->nxt->space)
+		if (fin->lm->nxt->space || !fin->lm->nxt->shx)
 		{
 			redirect_error(fin->lm->nxt->bex, x);
 			return (1);
@@ -57,7 +57,7 @@ int	open_fout(t_pipe *sp, int x)
 	fout = sp->fout;
 	while (fout)
 	{
-		if (fout->lm->nxt->space)
+		if (fout->lm->nxt->space || !fout->lm->nxt->shx)
 		{
 			redirect_error(fout->lm->nxt->bex, x);
 			return (1);
@@ -77,6 +77,12 @@ int	open_fout(t_pipe *sp, int x)
 
 int	open_file(t_pipe *sp, int x)
 {
+	if (g_va.y && !x)
+	{
+		g_va.exit_s = 1;
+		g_va.y = 0;
+		return (1);
+	}
 	dup2(0, 69);
 	dup2(1, 88);
 	if (open_fout(sp, x))

@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 15:25:26 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/07 15:53:18 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/07 16:22:54 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	main(int ac, char **av, char **env)
 	g_va.stdi = dup(0);
 	g_va.stdo = dup(1);
 	g_va.x = 0;
+	g_va.y = 0;
 	while (1)
 	{
 		g_va.line = readline("minishell-69$ ");

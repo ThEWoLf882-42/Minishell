@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:10:25 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/06/07 15:49:23 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/07 16:24:18 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,10 +94,12 @@ void	childs(t_pipe *sp, int i)
 	char	**cmd;
 	t_line	*lm;
 
+	if (g_va.y)
+		exit(1);
 	which_pipe(i);
 	open_file(sp, 1);
 	lm = sp->lin;
-	while (sp->lin && sp->lin->typ && ft_strcmp(sp->lin->typ, "cmd"))
+	while (sp->lin && ft_strcmp(sp->lin->typ, "cmd"))
 		sp->lin = sp->lin->nxt;
 	builtins(lm, 1);
 	if (!sp->lin || !sp->lin->shx)

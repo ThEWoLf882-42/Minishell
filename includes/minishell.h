@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/07 15:54:11 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/07 16:10:26 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ typedef struct vars
 	char				*line;
 	int					err;
 	int					x;
+	int					y;
 	int					exit_s;
 	int					p1[2];
 	int					p2[2];

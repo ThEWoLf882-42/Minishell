@@ -6,14 +6,12 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 18:24:34 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/06/01 16:36:32 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/07 16:27:50 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-/*
-!lm to prevent segv 
-*/
+
 int	builtins(t_line *lm, int x)
 {
 	while (lm && ft_strcmp(lm->typ, "cmd"))

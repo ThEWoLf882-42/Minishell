@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:38:53 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/06 19:44:03 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/07 16:44:10 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,7 @@ void	echo_loop(t_line *lm)
 		if (!ft_strcmp(lm->typ, "arg"))
 		{
 			ft_putstr_fd(lm->shx, 1);
-			if (lm->nxt && !ft_strcmp(lm->nxt->typ, "arg")
-				&& ft_strcmp(lm->shx, "\0"))
+			if (lm->nxt && !ft_strcmp(lm->nxt->typ, "arg"))
 				ft_putchar_fd(' ', 1);
 		}
 		lm = lm->nxt;
