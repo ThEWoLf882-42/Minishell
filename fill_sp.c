@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:46:46 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/06/06 18:37:37 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/07 19:06:44 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	fill_sp(char *line)
 	g_va.err = 0;
 	if (!*line)
 		return (1);
-	pl = malloc(sizeof(char) * ft_strlen(line) + 1);
+	pl = malloc(sizeof(char) * ft_strlen(line) + 2);
 	if (!pl)
 		return (1);
 	while (line[++i])

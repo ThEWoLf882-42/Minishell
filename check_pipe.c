@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:50:08 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/05 16:27:05 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/07 19:05:50 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	check_pipe(void)
 	{
 		if (!mv->lin)
 			return (write(2,
-					"syntax error near unexpected token `|'\n", 40), 1);
+					"syntax error near unexpected token `|'\n", 39), 1);
 		mv = mv->nxt;
 	}
 	return (0);
