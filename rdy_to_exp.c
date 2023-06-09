@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 21:35:08 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/05 14:43:06 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/08 12:51:59 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,23 +65,23 @@ void	rdy_exp(t_line *lm, char *line, int *i, int *j)
 
 void	rdy_to_exp(void)
 {
-	t_pipe	*pm;
+	t_pipe	*sm;
 	t_line	*lm;
 	int		i;
 	int		j;
 	char	*line;
 
 	line = NULL;
-	pm = g_va.sp;
-	while (pm)
+	sm = g_va.sp;
+	while (sm)
 	{
-		lm = pm->lin;
+		lm = sm->lin;
 		while (lm)
 		{
 			i = -1;
 			rdy_exp(lm, line, &i, &j);
 			lm = lm->nxt;
 		}
-		pm = pm->nxt;
+		sm = sm->nxt;
 	}
 }

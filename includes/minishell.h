@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/07 18:17:34 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/08 09:59:08 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -233,5 +233,7 @@ void	set_ex(void);
 int		ambiguis(char *found);
 void	check_bef(t_exp_utl *exp, t_line *lm, int start);
 void	check_af(t_exp_utl *exp, t_line *lm, size_t s, int end);
+void	init(char **env);
+int		fill_check(void);
 
 #endif

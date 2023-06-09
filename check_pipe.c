@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_pipe.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:50:08 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/07 19:05:50 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/08 10:19:55 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 int	check_pipe(void)
 {
-	t_pipe	*mv;
+	t_pipe	*sm;
 
-	mv = g_va.sp;
-	while (mv)
+	sm = g_va.sp;
+	while (sm)
 	{
-		if (!mv->lin)
+		if (!sm->lin)
 			return (write(2,
 					"syntax error near unexpected token `|'\n", 39), 1);
-		mv = mv->nxt;
+		sm = sm->nxt;
 	}
 	return (0);
 }
