@@ -3,19 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   rdy_to_exp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 21:35:08 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/08 12:51:59 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/09 15:21:34 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-/*
-check if its a single quote copy everything normally
-if its double quote copy and replace $ to be expanded
-*/
 int	q_check(t_line *lm, char *line, int *i, int *j)
 {
 	if (lm->shx[*i] == '\'')

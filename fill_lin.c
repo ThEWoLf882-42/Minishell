@@ -3,17 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   fill_lin.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 19:20:23 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/06/08 10:22:48 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/09 15:19:03 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-/*
-i-- for somethisn fbgfh quotes piece of shitygimikfkfkf
-*/
+
 void	finish_it(t_pipe *sm, char *line, int *i, int *j)
 {
 	(*i)--;
@@ -21,10 +19,6 @@ void	finish_it(t_pipe *sm, char *line, int *i, int *j)
 	ft_backline(&sm->lin, new_lin(line, NULL, 1));
 }
 
-/*
-if j == -1 means that there is one redirection 
-search for redirection to join them like this >>> in one
-*/
 void	check(t_pipe *sm, char *line, int *i, int *j)
 {
 	if (*j != -1)
@@ -37,10 +31,6 @@ void	check(t_pipe *sm, char *line, int *i, int *j)
 	}
 }
 
-/*
-loop until reaching a special character after the quote
-and the quote must be pair to finish it
-*/
 void	quote_sep(t_pipe *sm, char *line, int *i, int *j)
 {
 	char	quote;
@@ -63,11 +53,6 @@ void	quote_sep(t_pipe *sm, char *line, int *i, int *j)
 	finish_it(sm, line, i, j);
 }
 
-/*
-copy until reaching a quote or space or redirection and stop to check
-if its quote stop to go to the quote_sep
-if its not quote check if redirection or normal str
-*/
 void	creat_line(t_pipe *sm, char *line, int *i, int *j)
 {
 	*j = -1;

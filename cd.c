@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 13:09:29 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/07 17:12:44 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/09 15:15:38 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,6 @@ void	change_pwd(t_env *em, char *cd)
 		em = em->nxt;
 	}
 }
-/*
-lm->nxt && ft_strcmp(lm->nxt->typ, "arg")  to skip to the next arg 
-after cmd  cd k > out
-*/
 
 void	cd_env(char *cd, int x)
 {

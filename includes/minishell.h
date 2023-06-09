@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/08 09:59:08 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/09 15:15:16 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,6 @@ typedef struct file_out
 	struct file_out	*nxt;
 }	t_fout;
 
-//pipe line
-//line struct
 typedef struct pipe
 {
 	char		*pl;
@@ -58,8 +56,6 @@ typedef struct pipe
 	t_fout		*fout;
 }	t_pipe;
 
-//Shanks
-//type
 typedef struct line
 {
 	char		*shx;
@@ -93,7 +89,6 @@ typedef struct exp_utl
 	int		af;
 }	t_exp_utl;
 
-//struct pipe
 typedef struct vars
 {
 	char				**envp;

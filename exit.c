@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 20:24:34 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/01 18:23:39 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/09 15:23:01 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	exit_arg(t_line *lm, int *st)
 					*st = ft_atoi(lm->nxt->shx);
 				else
 				{
-					// printf("exit\n");
+					printf("exit\n");
 					ft_putstr_fd("minishell-69: exit: too many arguments\n", 2);
 					g_va.exit_s = 1;
 					ft_free();
@@ -69,7 +69,7 @@ void	exit_cmd(t_line *lm, int x)
 		return ;
 	if (!x)
 	{
-		// printf("exit\n");
+		printf("exit\n");
 		free_env(&g_va.env);
 		free_exp(&g_va.xport);
 	}

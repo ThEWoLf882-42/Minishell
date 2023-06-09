@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 22:49:35 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/07 16:41:23 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/09 15:22:06 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ha_sig(int sig)
 	{
 		if (g_va.x == 0)
 		{
-			// rl_replace_line("", 0);
+			rl_replace_line("", 0);
 			printf("\n");
 			rl_on_new_line();
 			rl_redisplay();
