@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 09:58:15 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/06/08 10:35:00 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/09 15:07:55 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ int	fill_check(void)
 		if (builtins(g_va.sp->lin, 0))
 		{
 			ft_free();
-			system("leaks minishell");// rm
 			return (1);
 		}
 	}
