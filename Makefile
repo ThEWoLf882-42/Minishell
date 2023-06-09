@@ -35,6 +35,7 @@ SOURCES_LIST =	add_x.c \
 				exp_bf_af.c \
 				expand.c \
 				export.c \
+				fill_check.c \
 				fill_lin.c \
 				fill_sp.c \
 				forking.c \

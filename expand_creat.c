@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand_creat.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:41:14 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/07 15:42:23 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/08 15:03:51 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void	creat_expnod(t_exp_utl *exp, char *found, int bf)
 	free(str);
 }
 
-// add tab maybe <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 char	*which_env(char *get, int *bf, int *af)
 {
 	t_env	*em;

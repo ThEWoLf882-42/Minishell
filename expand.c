@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:11:05 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/06/07 19:30:14 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/08 15:14:58 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,9 @@ void	set_lm(t_line *lm, t_exp_utl *exp)
 	}
 	free(exp->found);
 }
+/*
+(end - start == (int)ft_strlen(lm->shx) exemple $ll'la' when $ll is NULL and there is something in lm so dont free it
+*/
 
 void	exp_dlr(t_line *lm, int start, int end)
 {
@@ -80,6 +83,7 @@ void	exp_dlr(t_line *lm, int start, int end)
 }
 /*
 locat the 31 and incrementend untill reaching non expandable char
+first exp_dlr is for $123 to exp only $1 and result is 23
 */
 
 void	expand_it(t_line *lm)
