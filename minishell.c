@@ -6,7 +6,7 @@
 /*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 15:25:26 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/08 12:50:06 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/09 15:07:46 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,5 @@ int	main(int ac, char **av, char **env)
 		wait_pid();
 		ft_free();
 		g_va.y = 0;
-		system("leaks minishell");//rm 
 	}
 }
