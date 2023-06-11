@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   here_exp.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 19:01:17 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/09 15:20:34 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/11 15:12:59 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	here_exp(char *li, int fd)
 			if (li[i + 1] == '$' || li[i + 1] == '?')
 				get[++j] = li[++i];
 			while (li[++i] && (ft_isalpha(li[i])
-					&& ft_isdigit(li[i]) && li[i] == '_'))
+					|| ft_isdigit(li[i]) || li[i] == '_'))
 				get[++j] = li[i];
 			get[++j] = '\0';
 			print_env(get, fd);

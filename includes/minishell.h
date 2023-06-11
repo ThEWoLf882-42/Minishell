@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/09 15:15:16 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/10 17:03:51 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -230,5 +230,10 @@ void	check_bef(t_exp_utl *exp, t_line *lm, int start);
 void	check_af(t_exp_utl *exp, t_line *lm, size_t s, int end);
 void	init(char **env);
 int		fill_check(void);
+int		valid_exp(char *shx);
+int		nargs(t_line *lm);
+void	is_dir(char *cmd);
+char	**join_arg(t_line *lm);
+void	if_nopath(t_line *lm);
 
 #endif
