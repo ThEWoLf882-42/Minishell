@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   unset.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 22:37:18 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/09 15:22:15 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/10 16:50:47 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	unset_env(t_env *env, char *s)
 {
 	t_env	*tenv;
 
+	tenv = NULL;
 	while (env)
 	{
 		if (!ft_strncmp(s, env->arg, ft_strlen(s)))
@@ -25,9 +26,11 @@ void	unset_env(t_env *env, char *s)
 				if (tenv)
 					tenv->nxt = env->nxt;
 				else
-					g_va.env = env->nxt;
+					g_va.env = g_va.env->nxt;
 				free(env->arg);
+				env->arg = NULL;
 				free(env);
+				env = NULL;
 				break ;
 			}
 		}
@@ -44,19 +47,27 @@ void	unset_xport(t_exp *exp, char *s)
 	{
 		if (!ft_strncmp(s, exp->xarg, ft_strlen(s)))
 		{
-			if (exp->xarg[ft_strlen(s)] == '=')
-			{
-				if (texp)
-					texp->nxt = exp->nxt;
-				else
-					g_va.xport = exp->nxt;
-				free(exp->xarg);
-				free(exp);
-				break ;
-			}
+			if (texp)
+				texp->nxt = exp->nxt;
+			else
+				g_va.xport = g_va.xport->nxt;
+			free(exp->xarg);
+			free(exp);
+			break ;
 		}
 		texp = exp;
 		exp = exp->nxt;
+	}
+}
+
+void	if_valid(t_line *lm)
+{
+	if (!valid_exp(lm->shx))
+	{
+		ft_putstr_fd("minishell-69: ", 2);
+		ft_putstr_fd(lm->shx, 2);
+		ft_putstr_fd(": not a valid identifier\n", 2);
+		g_va.exit_s = 1;
 	}
 }
 
@@ -64,7 +75,6 @@ void	unset_cmd(t_line *lm, int x)
 {
 	t_env	*env;
 	t_exp	*exp;
-	char	*s;
 
 	if (!x)
 	{
@@ -72,15 +82,15 @@ void	unset_cmd(t_line *lm, int x)
 		if (open_file(g_va.sp, x))
 			return ;
 	}
-	env = g_va.env;
-	exp = g_va.xport;
 	while (lm)
 	{
+		exp = g_va.xport;
+		env = g_va.env;
+		if_valid(lm);
 		if (!ft_strcmp(lm->typ, "arg"))
 		{
-			s = lm->shx;
-			unset_env(env, s);
-			unset_xport(exp, s);
+			unset_env(env, lm->shx);
+			unset_xport(exp, lm->shx);
 		}
 		lm = lm->nxt;
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand_creat.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:41:14 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/09 15:17:42 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/11 13:38:37 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ char	*which_env(char *get, int *bf, int *af)
 	while (em)
 	{
 		if (!ft_strncmp(get, em->arg, ft_strlen(get))
-			&& em->arg[ft_strlen(get)] == '=')
+			&& em->arg[ft_strlen(get)] == '=' && em->arg[ft_strlen(get) + 1])
 		{
 			if (em->arg[ft_strlen(get) + 1] == ' ' \
 				|| em->arg[ft_strlen(get) + 1] == '\t')

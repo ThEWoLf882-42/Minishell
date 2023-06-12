@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipes.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:07:06 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/06/09 15:21:24 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/09 17:38:18 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 void	open_pipes(void)
 {
+	g_va.p1[0] = -1;
+	g_va.p1[1] = -1;
+	g_va.p2[0] = -1;
+	g_va.p2[1] = -1;
 	if (pipe(g_va.p1) == -1)
 		print_error("pipe error", 1, 1);
 	if (pipe(g_va.p2) == -1)

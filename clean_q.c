@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   clean_q.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 12:41:38 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/06/09 15:17:14 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/11 13:38:23 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	rep_q(t_line *lm, int *i)
 		if (lm->shx[*i] == '"')
 			lm->shx[(*i)] = 30;
 	}
+	(*i)--;
 }
 
 void	start_rm_q(t_line *lm)

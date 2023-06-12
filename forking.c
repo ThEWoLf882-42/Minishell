@@ -3,14 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   forking.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 22:39:26 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/09 15:19:10 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/10 16:51:51 by zouaraqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+void	close_them(void)
+{
+	close(g_va.p1[0]);
+	close(g_va.p1[1]);
+	close(g_va.p2[0]);
+	close(g_va.p2[1]);
+}
 
 void	forking(void)
 {
@@ -38,4 +46,5 @@ void	forking(void)
 		close_opened(i);
 		sp = sp->nxt;
 	}
+	close_them();
 }

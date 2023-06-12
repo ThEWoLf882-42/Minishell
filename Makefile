@@ -21,6 +21,7 @@ SOURCES_LIST =	add_x.c \
 				check_q_nb.c \
 				check_q.c \
 				check_red.c \
+				childs_utils.c \
 				childs.c \
 				clean_q.c \
 				clean.c \
