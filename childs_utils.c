@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   childs_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 16:58:02 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/06/11 15:10:52 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/12 16:14:25 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,6 @@ void	if_nopath(t_line *lm)
 		}
 		em = em->nxt;
 	}
-	nf_nd(lm->shx, count);
+	if (!lm->path)
+		nf_nd(lm->shx, count);
 }

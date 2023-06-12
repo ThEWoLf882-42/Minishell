@@ -14,7 +14,8 @@ SOURCES_LIST =	add_x.c \
 				ambiguis.c \
 				builtins.c \
 				cd.c \
-				chane_x.c \
+				change_pwd.c \
+				change_x.c \
 				charloc.c \
 				check_error.c \
 				check_pipe.c \
@@ -109,6 +110,8 @@ $(OBJECTS_DIRECTORY):
 $(OBJECTS_DIRECTORY)%.o : $(SOURCES_DIRECTORY)%.c $(HEADERS)
 	@$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
 	@echo "$(GREEN).$(RESET)\c"
+
+bonus: all
 
 clean:
 	@rm -rf $(OBJECTS_DIRECTORY)

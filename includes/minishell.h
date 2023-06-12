@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:07:45 by agimi             #+#    #+#             */
-/*   Updated: 2023/06/10 17:03:51 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/12 16:31:25 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -235,5 +235,7 @@ int		nargs(t_line *lm);
 void	is_dir(char *cmd);
 char	**join_arg(t_line *lm);
 void	if_nopath(t_line *lm);
+void	change_pwd_exp(t_exp *xp, char *cd);
+void	change_pwd_env(t_env *em, char *cd);
 
 #endif

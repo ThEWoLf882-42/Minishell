@@ -6,7 +6,7 @@
 /*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 18:20:53 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/06/09 15:21:47 by agimi            ###   ########.fr       */
+/*   Updated: 2023/06/12 18:05:16 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ static void	get_path(t_line *lm, char *arg)
 static void	set_path(t_line *lm)
 {
 	t_env	*em;
+	char	*pa;
 
 	em = g_va.env;
 	while (em)
@@ -60,6 +61,10 @@ static void	set_path(t_line *lm)
 			get_path(lm, em->arg);
 		em = em->nxt;
 	}
+	pa = ft_strjoin2fr(ft_strdup("PATH="), getcwd(NULL, 0));
+	get_path(lm, pa);
+	free(pa);
+	pa = NULL;
 }
 
 void	set_cmd(void)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_env.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouaraqa <zouaraqa@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 18:47:21 by zouaraqa          #+#    #+#             */
-/*   Updated: 2023/06/10 17:13:09 by zouaraqa         ###   ########.fr       */
+/*   Updated: 2023/06/12 15:49:23 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	set_env(char **env)
 	i = -1;
 	if (!env || !*env)
 	{
-		ft_backenv(&g_va.env,new_env(ft_strdup("PATH=/usr/local/bin:\
-			/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki")));
+		ft_backenv(&g_va.env, new_env(ft_strdup("PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:\
+		/usr/local/munki:/Users/agimi/goinfre/.brew/bin")));
 		return ;
 	}
 	while (env[++i])
