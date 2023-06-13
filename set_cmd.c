@@ -61,10 +61,12 @@ static void	set_path(t_line *lm)
 			get_path(lm, em->arg);
 		em = em->nxt;
 	}
-	pa = ft_strjoin2fr(ft_strdup("PATH="), getcwd(NULL, 0));
-	get_path(lm, pa);
-	free(pa);
-	pa = NULL;
+	if (!lm->path)
+	{
+		pa = ft_strjoin2fr(ft_strdup("PATH="), getcwd(NULL, 0));
+		get_path(lm, pa);
+		free(pa);
+	}
 }
 
 void	set_cmd(void)
